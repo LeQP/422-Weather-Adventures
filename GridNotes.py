@@ -1,24 +1,40 @@
-# This file shows how to use Tkinter Grid features with implemtning text, buttons, images and textboxes
+# This file shows how to use Tkinter Grid features with implementing text, buttons, images and textboxes
 
 #  Function for updating text in the window
 def getValue():
    newDisplay1 = entry1.get()
    newDisplay2 = entry2.get()
-   
    labelE1.grid(row = 3, column = 2, sticky = E)
    labelE2.grid(row = 4, column = 2, sticky = E)
    labelE1.configure(text=newDisplay1)
    labelE2.configure(text=newDisplay2)
 
+# Function for updating check mark value
+def checkOn():
+   # Will cause other labels to reformat if text is quite long
+   if checkVal.get() == "yes":
+      labelC.configure(text="Is On")
+   elif checkVal.get() == "no":
+      labelC.configure(text="Is Off")
+   else:
+      labelC.configure(text="ERROR!")
+   labelC.grid(row = 5, column = 3, sticky = E)
+   
+''' Imports '''
 # import tkinter module
 from tkinter import * 
 from tkinter.ttk import *
+import tkinter.font as tkFont # For setting text fonts
+# Access current working directory
 import os
-import tkinter.font as tkFont
-# creating main tkinter window
+# Manipulate images
+from PIL import Image   # Open images
+from PIL import ImageTk # Have images available for Tkinter
+
+'''Use Tk() to create a Tkinter window'''
 window = Tk()
  
-# Use geometry() to adjust window size 
+''' Use geometry() to adjust window size '''
 window.geometry("750x750")
 
 # Use Label() to display text
@@ -45,10 +61,9 @@ label3.grid(row = 1, column = 3, sticky = E, pady = 10)
 label4.grid(row = 2, column = 0, sticky = E)
 label5.grid(row = 2, column = 2, sticky = E, pady = 10)
 
-
-# Use Entry() to add a textbox
-display1 = "Hello"
-display2 = "World"
+''' Use Entry() to add a textbox '''
+display1 = ""
+display2 = ""
 entry1 = Entry(window)
 entry2 = Entry(window)
 entry1.grid(row = 4, column = 0, pady = 2)
@@ -60,33 +75,30 @@ entry2.grid(row = 4, column = 0)
 labelE1 = Label(window, text = "", font=fontStyle1)
 labelE2 = Label(window, text = "", font=fontStyle1)
 
-# Add buttons
+''' Add buttons '''
+# Add a click button
 button= Button(window, text="Enter", command= getValue)
 button.grid(row = 5, column = 0)
-# checkbutton widget
-#c1 = Checkbutton(master, text = "Preserve")
-#c1.grid(row = 2, column = 0, sticky = W, columnspan = 2)
- 
 
-#cwd = os.getcwd()
-#path = cwd + "/testImages/one.png"
-#print("Path =")
-#print(path)
-# adding image (remember image should be PNG and not JPG)
-#img = PhotoImage(file = path)
-#img1 = img.subsample(2, 2)
- 
-# setting image with the help of label
-#Label(master, image = img1).grid(row = 0, column = 2, columnspan = 2, rowspan = 1, padx = 5, pady = 5)
- 
-# button widget
-#b1 = Button(master, text = "Zoom in")
-#b2 = Button(master, text = "Zoom out")
- 
-# arranging button widgets
-#b1.grid(row = 2, column = 2, sticky = E)
-#b2.grid(row = 2, column = 3, sticky = E)
- 
-# infinite loop which can be terminated
-# by keyboard or mouse interrupt
+# Add a checkmark button
+labelC = Label(window, text = "", font=fontStyle1)
+checkVal = StringVar()
+   # Can set a variable associated with check box (variable) and the values for when it is checked (onvalue) or not checked (offvalue)
+   # Default values are 1 for onvalue and 0 for offvalue
+checkButton = Checkbutton(window, text = "Checkmark", variable = checkVal, onvalue = "yes", offvalue = "no", command = checkOn)
+checkButton.grid(row = 5, column = 1, sticky = W)
+
+''' Add image (needs to be PNG) '''
+# Get the currrent working directory and path to access image
+cwd = os.getcwd()
+path = cwd + "/testImages/one.png"
+# Need pillow module to open the image
+openImage = Image.open(path)
+# Use resize() to alter image size (values based on the tkinter window dimensions. i.e same units of measurements)
+resizeImage = openImage.resize((100, 100))
+# Use PhotoImage to make it Tkinter comptabile
+windowImage = ImageTk.PhotoImage(resizeImage)
+# Place image on Tkinter window with a label
+labelI = Label(window, image = windowImage)
+labelI.grid(row = 6, column = 0, columnspan = 2, rowspan = 2, padx = 5, pady = 5)
 mainloop()
