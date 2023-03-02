@@ -1,0 +1,13 @@
+{
+    "location": [43.98827126349285, -123.09348623759962],
+    "data": {
+        "name": "Spencer Butte Trail",
+        "description": "Spencer Butte Trail is a very popular hike in Eugene, OR. The hike is 1.7 miles in length and requires 741 ft in elevation gain to reach the top.",
+        "difficulty": "Moderate",
+        "isSnow": false,
+        "isRain": true,
+        "isWind": true,
+        "isSun": true,
+        "isDark": false
+    }
+}
