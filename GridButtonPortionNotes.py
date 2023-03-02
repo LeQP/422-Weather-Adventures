@@ -105,35 +105,122 @@ cwd = os.getcwd()
 path1 = cwd + "/testImages/one.png"
 path2 = cwd + "/testImages/two.png"
 path3 = cwd + "/testImages/three.png"
+
+path4 = cwd + "/images/mapImages/Eugene2x2/1.png"
+path5 = cwd + "/images/mapImages/Eugene2x2/2.png"
+path6 = cwd + "/images/mapImages/Eugene2x2/3.png"
+path7 = cwd + "/images/mapImages/Eugene2x2/4.png"
+
+path8 = cwd + "/images/mapImages/LaneCounty5x3/1.png"
+path9 = cwd + "/images/mapImages/LaneCounty5x3/2.png"
+path10 = cwd + "/images/mapImages/LaneCounty5x3/3.png"
+path11 = cwd + "/images/mapImages/LaneCounty5x3/4.png"
+path12 = cwd + "/images/mapImages/LaneCounty5x3/5.png"
+path13 = cwd + "/images/mapImages/LaneCounty5x3/6.png"
+path14 = cwd + "/images/mapImages/LaneCounty5x3/7.png"
+path15 = cwd + "/images/mapImages/LaneCounty5x3/8.png"
+path16 = cwd + "/images/mapImages/LaneCounty5x3/9.png"
+path17 = cwd + "/images/mapImages/LaneCounty5x3/10.png"
+path18 = cwd + "/images/mapImages/LaneCounty5x3/11.png"
+path19 = cwd + "/images/mapImages/LaneCounty5x3/12.png"
+path20 = cwd + "/images/mapImages/LaneCounty5x3/13.png"
+path21 = cwd + "/images/mapImages/LaneCounty5x3/14.png"
+path22 = cwd + "/images/mapImages/LaneCounty5x3/15.png"
+
 openImage1 = Image.open(path1)
 openImage2 = Image.open(path2)
 openImage3 = Image.open(path3)
+openImage4 = Image.open(path4)
+openImage5 = Image.open(path5)
+openImage6 = Image.open(path6)
+openImage7 = Image.open(path7)
+openImage8 = Image.open(path8)
+openImage9 = Image.open(path9)
+openImage10 = Image.open(path10)
+openImage11 = Image.open(path11)
+openImage12 = Image.open(path12)
+openImage13 = Image.open(path13)
+openImage14 = Image.open(path14)
+openImage15 = Image.open(path15)
+openImage16 = Image.open(path16)
+openImage17 = Image.open(path17)
+openImage18 = Image.open(path18)
+openImage19 = Image.open(path19)
+openImage20 = Image.open(path20)
+openImage21 = Image.open(path21)
+openImage22 = Image.open(path22)
+
 resizeImage1 = openImage1.resize((240, 240))
 resizeImage2 = openImage2.resize((160, 160))
 resizeImage3 = openImage3.resize((80, 80))
+resizeImage4 = openImage4.resize((240, 240))
+resizeImage5 = openImage5.resize((240, 240))
+resizeImage6 = openImage6.resize((240, 240))
+resizeImage7 = openImage7.resize((240, 240))
+resizeImage8 = openImage8.resize((160, 160))
+resizeImage9 = openImage9.resize((160, 160))
+resizeImage10 = openImage10.resize((160, 160))
+resizeImage11 = openImage11.resize((160, 160))
+resizeImage12 = openImage12.resize((160, 160))
+resizeImage13 = openImage13.resize((160, 160))
+resizeImage14 = openImage14.resize((160, 160))
+resizeImage15 = openImage15.resize((160, 160))
+resizeImage16 = openImage16.resize((160, 160))
+resizeImage17 = openImage17.resize((160, 160))
+resizeImage18 = openImage18.resize((160, 160))
+resizeImage19 = openImage19.resize((160, 160))
+resizeImage20 = openImage20.resize((160, 160))
+resizeImage21 = openImage21.resize((160, 160))
+resizeImage22 = openImage22.resize((160, 160))
+
 windowImage1 = ImageTk.PhotoImage(resizeImage1)
 windowImage2 = ImageTk.PhotoImage(resizeImage2)
 windowImage3 = ImageTk.PhotoImage(resizeImage3)
+windowImage4 = ImageTk.PhotoImage(resizeImage4)
+windowImage5 = ImageTk.PhotoImage(resizeImage5)
+windowImage6 = ImageTk.PhotoImage(resizeImage6)
+windowImage7 = ImageTk.PhotoImage(resizeImage7)
+windowImage8 = ImageTk.PhotoImage(resizeImage8)
+windowImage9 = ImageTk.PhotoImage(resizeImage9)
+windowImage10 = ImageTk.PhotoImage(resizeImage10)
+windowImage11 = ImageTk.PhotoImage(resizeImage11)
+windowImage12 = ImageTk.PhotoImage(resizeImage12)
+windowImage13 = ImageTk.PhotoImage(resizeImage13)
+windowImage14 = ImageTk.PhotoImage(resizeImage14)
+windowImage15 = ImageTk.PhotoImage(resizeImage15)
+windowImage16 = ImageTk.PhotoImage(resizeImage16)
+windowImage17 = ImageTk.PhotoImage(resizeImage17)
+windowImage18 = ImageTk.PhotoImage(resizeImage18)
+windowImage19 = ImageTk.PhotoImage(resizeImage19)
+windowImage20 = ImageTk.PhotoImage(resizeImage20)
+windowImage21 = ImageTk.PhotoImage(resizeImage21)
+windowImage22 = ImageTk.PhotoImage(resizeImage22)
 
 ''' Set up each button within their grid set'''
 # Put all the buttons for viewing 1 into button1; 2x2
 button1 = []
-button1.append(Button(window, image = windowImage1, command=lambda: buttonFunc("(0,0)")))
-button1.append(Button(window, image = windowImage1, command=lambda: buttonFunc("(0,1)")))
-button1.append(Button(window, image = windowImage1, command=lambda: buttonFunc("(1,0)")))
-button1.append(Button(window, image = windowImage1, command=lambda: buttonFunc("(1,1)")))
+button1.append(Button(window, image = windowImage4, command=lambda: buttonFunc("(0,0)")))
+button1.append(Button(window, image = windowImage5, command=lambda: buttonFunc("(0,1)")))
+button1.append(Button(window, image = windowImage6, command=lambda: buttonFunc("(1,0)")))
+button1.append(Button(window, image = windowImage7, command=lambda: buttonFunc("(1,1)")))
 
 # Put all the buttons for viewing 2 into button2; 3x3
 button2 = []
-button2.append(Button(window, image = windowImage2, command=lambda: buttonFunc("(0,0)")))
-button2.append(Button(window, image = windowImage2, command=lambda: buttonFunc("(0,1)")))
-button2.append(Button(window, image = windowImage2, command=lambda: buttonFunc("(0,2)")))
-button2.append(Button(window, image = windowImage2, command=lambda: buttonFunc("(1,0)")))
-button2.append(Button(window, image = windowImage2, command=lambda: buttonFunc("(1,1)")))
-button2.append(Button(window, image = windowImage2, command=lambda: buttonFunc("(1,2)")))
-button2.append(Button(window, image = windowImage2, command=lambda: buttonFunc("(2,0)")))
-button2.append(Button(window, image = windowImage2, command=lambda: buttonFunc("(2,1)")))
-button2.append(Button(window, image = windowImage2, command=lambda: buttonFunc("(2,2)")))
+button2.append(Button(window, image = windowImage8, command=lambda: buttonFunc("(0,0)")))
+button2.append(Button(window, image = windowImage9, command=lambda: buttonFunc("(0,1)")))
+button2.append(Button(window, image = windowImage10, command=lambda: buttonFunc("(0,2)")))
+button2.append(Button(window, image = windowImage11, command=lambda: buttonFunc("(1,0)")))
+button2.append(Button(window, image = windowImage12, command=lambda: buttonFunc("(1,1)")))
+button2.append(Button(window, image = windowImage13, command=lambda: buttonFunc("(1,2)")))
+button2.append(Button(window, image = windowImage14, command=lambda: buttonFunc("(2,0)")))
+button2.append(Button(window, image = windowImage15, command=lambda: buttonFunc("(2,1)")))
+button2.append(Button(window, image = windowImage16, command=lambda: buttonFunc("(2,2)")))
+button2.append(Button(window, image = windowImage17, command=lambda: buttonFunc("(2,2)")))
+button2.append(Button(window, image = windowImage18, command=lambda: buttonFunc("(2,2)")))
+button2.append(Button(window, image = windowImage19, command=lambda: buttonFunc("(2,2)")))
+button2.append(Button(window, image = windowImage20, command=lambda: buttonFunc("(2,2)")))
+button2.append(Button(window, image = windowImage21, command=lambda: buttonFunc("(2,2)")))
+button2.append(Button(window, image = windowImage22, command=lambda: buttonFunc("(2,2)")))
 
 # Put all the buttons for viewing 3 into button2; 6x6
 button3 = []
