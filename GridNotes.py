@@ -41,12 +41,13 @@ window.geometry("750x750")
 # Other function parameters to alter the Label such as font or justify, need tkFont.Font()
 # Interact with row, column, fontStyles, sticky to play around with them
 # Tkinter decides how to position them accordingly (except may need to increase window size to accomdate cutoffs)
-       # sticky refers to cardinal directions and acts like justification
+       # sticky refers to cardinal directions and acts like justifify
        # columnspan decides how many columns that the label can strethc, placing any adjacent ones should be +columnspan past it
-       # There is ipadx, ipady, padx, pady that deal with padding (not sure "padding means")
-              # i = internal
-              # p = external
+       # There is ipadx, ipady, padx, pady that deal with padding
+              # ipad = internal; deals with increasing the size of a widgets's area to space itself from other widgets
+              # pad = external; deals with increasing the gap (empty space) between the target widget to other widgets
               # x/y = respective axis
+      
 fontStyle1 = tkFont.Font(family="Arial", size=8)
 fontStyle2 = tkFont.Font(family="Arial", size=16)
 fontStyle3 = tkFont.Font(family="Arial", size=32)
