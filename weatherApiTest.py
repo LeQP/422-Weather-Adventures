@@ -1,4 +1,4 @@
-# input: lat, long, request type
+# input: lat, long, units
 
 import requests
 import json
@@ -6,21 +6,24 @@ import sys
 
 def getWeatherInfo(lat, lon, units):
 
-    query = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=" + units + "&appid=f69661f19f90747329bfc3fe6cbc1d0d"
+    query = "https://api.openweathermap.org/data/2.5/weather?lat=" + str(lat) + "&lon=" + str(lon) + "&units=" + units + "&appid=f69661f19f90747329bfc3fe6cbc1d0d"
     response = requests.get(query)
 
     json_object = json.dumps(response.json(), indent=4)
 
     data = json.loads(json_object)
 
-    print("WEATHER DESCRIPTION: " + data['weather'][0]['description'])
+    weatherDesc = data['weather'][0]['description']
+    # print("WEATHER DESCRIPTION: " + data['weather'][0]['description'])
     weatherSymStr = "/images/weatherSymbols/" + weatherSymLookup(data['weather'][0]['description'])
-    print("WEATHER SYMBOL PATH: " + weatherSymStr)
+    # print("WEATHER SYMBOL PATH: " + weatherSymStr)
  
-    print("TEMP: "+ str(data['main']['temp']))
+    temp = data['main']['temp']
+    # print("TEMP: "+ str(data['main']['temp']))
 
-    print("AVG WIND SPEED: " + str(int(data['wind']['speed']) + int(data['wind']['gust']) / 2))
-    print("WIND DIRECTION: " + str(data['wind']['deg']))
+    avgWindSpeed = int(data['wind']['speed']) + int(data['wind']['gust']) / 2
+    # print("AVG WIND SPEED: " + str(int(data['wind']['speed']) + int(data['wind']['gust']) / 2))
+    # print("WIND DIRECTION: " + str(data['wind']['deg']))
     
     windDir = int(data['wind']['deg'])
     if (windDir % 15) < 7:
@@ -35,7 +38,11 @@ def getWeatherInfo(lat, lon, units):
         windDirRounded = 345
 
     windSymFPath = "/images/weatherSymbols/w" + str(windDirRounded)
-    print("WIND SYMBOL PATH: " + windSymFPath)            
+    # print("WIND SYMBOL PATH: " + windSymFPath)
+
+    infoList = weatherDesc, weatherSymStr, temp, avgWindSpeed, windDirRounded, windSymFPath  
+
+    return infoList            
 
 def weatherSymLookup(weatherStr):
 
@@ -62,9 +69,9 @@ def weatherSymLookup(weatherStr):
 
     return dict[weatherStr]
 
-
-lat = input("Enter lat: \n")
-lon = input("Enter lon: \n")
-units = input("Enter units: (imperial, standard, metric) \n")
-getWeatherInfo(lat, lon, units)
+# DEBUG DEBUG DEBUG
+# lat = input("Enter lat: \n")
+# lon = input("Enter lon: \n")
+# units = input("Enter units: (imperial, standard, metric) \n")
+# getWeatherInfo(lat, lon, units)
 
