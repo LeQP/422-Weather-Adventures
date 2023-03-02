@@ -176,8 +176,8 @@ button3.append(Button(window, image = windowImage3, command=lambda: buttonFunc("
 
 
 # Set up the inital buttons to display 1
-button1[0].grid(row = 0, column = 0, ipadx = 100, ipady = 100, rowspan = 3, columnspan = 3)
-button1[1].grid(row = 0, column = 3, padx = 100, pady = 100, rowspan = 3, columnspan = 3)
+button1[0].grid(row = 0, column = 0, rowspan = 3, columnspan = 3)
+button1[1].grid(row = 0, column = 3, rowspan = 3, columnspan = 3)
 button1[2].grid(row = 3, column = 0, rowspan = 3, columnspan = 3)
 button1[3].grid(row = 3, column = 3, rowspan = 3, columnspan = 3)
 
