@@ -8,7 +8,7 @@ in where I try to alter the dimensions of a grid by zooming in and out instead o
 #   had to not be in the same row and column as any of the button. That is why the zoom buttons and texts are displayed not 
 #   directly below or to the side of the button grid.
 #
-#   Also, the size between numbers slightly differs but we can fine tune that as we work on the project
+#   Also, the size between numbers slightly differs but we can fine tune that as we work on the project; can use ipadx and ipady to help with this
 #
 #   For each button list, the placement into Tkinter is something like
 #       0 1 2 
@@ -80,7 +80,7 @@ def twoToOne():
         button2[i].grid_forget()
     for i in range(2):
         for j in range(2):
-            button1[i * 2 + j].grid(row = i*3, column = j*3, rowspan = 3, columnspan = 3)
+            button1[i * 2 + j].grid(row = i*3, column = j*3, rowspan = 3, columnspan = 3, ipadx = 2.5, ipady = 2.5)
 
 
     
@@ -176,10 +176,10 @@ button3.append(Button(window, image = windowImage3, command=lambda: buttonFunc("
 
 
 # Set up the inital buttons to display 1
-button1[0].grid(row = 0, column = 0, rowspan = 3, columnspan = 3)
-button1[1].grid(row = 0, column = 3, rowspan = 3, columnspan = 3)
-button1[2].grid(row = 3, column = 0, rowspan = 3, columnspan = 3)
-button1[3].grid(row = 3, column = 3, rowspan = 3, columnspan = 3)
+button1[0].grid(row = 0, column = 0, rowspan = 3, columnspan = 3, ipadx = 2.5, ipady = 2.5)
+button1[1].grid(row = 0, column = 3, rowspan = 3, columnspan = 3, ipadx = 2.5, ipady = 2.5)
+button1[2].grid(row = 3, column = 0, rowspan = 3, columnspan = 3, ipadx = 2.5, ipady = 2.5)
+button1[3].grid(row = 3, column = 3, rowspan = 3, columnspan = 3, ipadx = 2.5, ipady = 2.5)
 
 
 # num is used to keep track of which number is on display
@@ -193,7 +193,7 @@ buttonIn.grid(row = 6, column = 7)
 buttonOut.grid(row = 6, column = 8)
 
 # Labels to display when using the zoom button and when a grid button is clicked
-labelZ = Label(window, text = "")
+labelZ = Label(window, text = "This is Default value")
 labelZ.grid(row = 7, column = 7)
 buttonIn["state"] = DISABLED
 labelButton = Label(window, text = "")
