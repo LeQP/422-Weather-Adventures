@@ -14,16 +14,12 @@ def getWeatherInfo(lat, lon, units):
     data = json.loads(json_object)
 
     weatherDesc = data['weather'][0]['description']
-    # print("WEATHER DESCRIPTION: " + data['weather'][0]['description'])
+
     weatherSymStr = "/images/weatherSymbols/" + weatherSymLookup(data['weather'][0]['description'])
-    # print("WEATHER SYMBOL PATH: " + weatherSymStr)
  
     temp = data['main']['temp']
-    # print("TEMP: "+ str(data['main']['temp']))
 
     avgWindSpeed = int(data['wind']['speed']) + int(data['wind']['gust']) / 2
-    # print("AVG WIND SPEED: " + str(int(data['wind']['speed']) + int(data['wind']['gust']) / 2))
-    # print("WIND DIRECTION: " + str(data['wind']['deg']))
     
     windDir = int(data['wind']['deg'])
     if (windDir % 15) < 7:
@@ -31,14 +27,12 @@ def getWeatherInfo(lat, lon, units):
     else:
         windDirRounded = windDir + (15 - windDir % 15)
 
-    # not sure about this logic
     if windDirRounded < 0:
         windDirRounded = 0
     elif windDirRounded > 345:
         windDirRounded = 345
 
     windSymFPath = "/images/weatherSymbols/w" + str(windDirRounded)
-    # print("WIND SYMBOL PATH: " + windSymFPath)
 
     infoList = weatherDesc, weatherSymStr, temp, avgWindSpeed, windDirRounded, windSymFPath  
 
