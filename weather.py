@@ -64,8 +64,9 @@ def weatherSymLookup(weatherStr):
     return dict[weatherStr]
 
 # DEBUG DEBUG DEBUG
-# lat = input("Enter lat: \n")
-# lon = input("Enter lon: \n")
-# units = input("Enter units: (imperial, standard, metric) \n")
-# getWeatherInfo(lat, lon, units)
+lat = input("Enter lat: \n")
+lon = input("Enter lon: \n")
+units = input("Enter units: (imperial, standard, metric) \n")
+infolist = getWeatherInfo(lat, lon, units)
+print(infolist)
 
