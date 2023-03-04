@@ -11,6 +11,7 @@ def formImage():
     path1 = cwd + "/testImages/one.png"
     path2 = cwd + "/testImages/two.png"
     path3 = cwd + "/testImages/three.png"
+    print(path1)
     openImage1 = Image.open(path1)
     openImage2 = Image.open(path2)
     openImage3 = Image.open(path3)

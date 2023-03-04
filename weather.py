@@ -78,12 +78,11 @@ def weatherSymLookup(weatherStr):
     # return correct image name from weather description
     return dict[weatherStr]
 
-# DEBUG print information list
-# lat = input("Enter lat: \n")
-# lon = input("Enter lon: \n")
-# units = input("Enter units: (imperial, standard, metric) \n")
-# infolist = getWeatherInfo(lat, lon, units)
-# print(infolist)
-
-
+# DEBUG DEBUG DEBUG
+if __name__ == "__main__":
+    lat = input("Enter lat: \n")
+    lon = input("Enter lon: \n")
+    units = input("Enter units: (imperial, standard, metric) \n")
+    infolist = getWeatherInfo(lat, lon, units)
+    print(infolist)
 
