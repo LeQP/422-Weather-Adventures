@@ -1,72 +1,89 @@
 # input: lat, long, units
 
+# requests for api calls
 import requests
+# json for json handling
 import json
-import sys
 
 def getWeatherInfo(lat, lon, units):
 
+    # create api query string from input
     query = "https://api.openweathermap.org/data/2.5/weather?lat=" + str(lat) + "&lon=" + str(lon) + "&units=" + units + "&appid=f69661f19f90747329bfc3fe6cbc1d0d"
+    # call api 
     response = requests.get(query)
+    # fill weatherReport with api response 
+    weatherReport = json.dumps(response.json(), indent=4)
 
-    json_object = json.dumps(response.json(), indent=4)
+    # DEBUG print weatherReport
+    # with open("sample.json", "w") as outfile:
+    #     outfile.write(weatherReport)
 
-    data = json.loads(json_object)
-
-    weatherDesc = data['weather'][0]['description']
-
-    weatherSymStr = "/images/weatherSymbols/" + weatherSymLookup(data['weather'][0]['description'])
- 
+    # load weather report into data container
+    data = json.loads(weatherReport)
+    
+    # get weather description 
+    weatherDesc = data['weather'][0]['main']
+    # create path string to correct weather symbol image
+    weatherSymStr = "/images/weatherSymbols/" + weatherSymLookup(weatherDesc)
+    
+    # get temperature
     temp = data['main']['temp']
 
-    avgWindSpeed = int(data['wind']['speed']) + int(data['wind']['gust']) / 2
-    
+    # get wind data
+    windSpeed = int(data['wind']['speed'])
     windDir = int(data['wind']['deg'])
+
+    # round wind direction to nearest 15 degrees
     if (windDir % 15) < 7:
-        windDirRounded = windDir - (15 - windDir % 15)
+        windDirRounded = windDir - (windDir % 15)
     else:
         windDirRounded = windDir + (15 - windDir % 15)
 
+    # if rounded wind direction underflows or overflows 360 degrees, set to max or min
     if windDirRounded < 0:
         windDirRounded = 0
     elif windDirRounded > 345:
         windDirRounded = 345
 
-    windSymFPath = "/images/weatherSymbols/w" + str(windDirRounded)
+    # create path string to correct wind direction image
+    windSymFPath = "/images/weatherSymbols/w" + str(windDirRounded) + ".png"
 
-    infoList = weatherDesc, weatherSymStr, temp, avgWindSpeed, windDirRounded, windSymFPath  
-
+    # create return information list
+    infoList = weatherDesc, weatherSymStr, temp, windSpeed, windDirRounded, windSymFPath  
+    # return information list
     return infoList            
 
 def weatherSymLookup(weatherStr):
 
+    # initialize weather description dictionary
     dict = {
-        "few clouds": "broken_clouds.png",
-        "scattered clouds": "broken_clouds.png",
-        "broken clouds": "overcast.png",
-        "overcast clouds": "overcast.png",
-
-        "clear sky": "clear.png",
-
-        "light snow": "snow.png",
+        "Drizzle" : "rain.png",
+        "Rain": "rain.png",
+        "Snow": "snow.png",
         "snow": "snow.png",
-        "heavy snow": "snow.png",
-
-        "light rain": "rain.png",
-        "heavy intensity rain": "rain.png",
-        "moderate rain": "rain.png",
-        "very heavy rain": "rain.png",
-
-        # add more cases
-        "drizzle" : "rain.png"
+        "Clear": "clear.png",
+        "Clouds": "clouds.png",
+        "Mist" : "misc.png",
+        "Smoke" : "misc.png",
+        "Haze" : "misc.png",
+        "Dust" : "misc.png",
+        "Fog" : "misc.png",
+        "Sand" : "misc.png",
+        "Dust" : "misc.png",
+        "Ash" : "misc.png",
+        "Squall" : "misc.png",
+        "Tornado" : "misc.png"
     }
 
+    # return correct image name from weather description
     return dict[weatherStr]
 
-# DEBUG DEBUG DEBUG
-lat = input("Enter lat: \n")
-lon = input("Enter lon: \n")
-units = input("Enter units: (imperial, standard, metric) \n")
-infolist = getWeatherInfo(lat, lon, units)
-print(infolist)
+# DEBUG print information list
+# lat = input("Enter lat: \n")
+# lon = input("Enter lon: \n")
+# units = input("Enter units: (imperial, standard, metric) \n")
+# infolist = getWeatherInfo(lat, lon, units)
+# print(infolist)
+
+
 
