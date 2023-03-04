@@ -32,7 +32,7 @@ def getWeatherInfo(lat, lon, units):
     elif windDirRounded > 345:
         windDirRounded = 345
 
-    windSymFPath = "/images/weatherSymbols/w" + str(windDirRounded)
+    windSymFPath = "/images/weatherSymbols/w" + str(windDirRounded) + ".png"
 
     infoList = weatherDesc, weatherSymStr, temp, avgWindSpeed, windDirRounded, windSymFPath  
 
@@ -64,9 +64,10 @@ def weatherSymLookup(weatherStr):
     return dict[weatherStr]
 
 # DEBUG DEBUG DEBUG
-lat = input("Enter lat: \n")
-lon = input("Enter lon: \n")
-units = input("Enter units: (imperial, standard, metric) \n")
-infolist = getWeatherInfo(lat, lon, units)
-print(infolist)
+if __name__ == "__main__":
+    lat = input("Enter lat: \n")
+    lon = input("Enter lon: \n")
+    units = input("Enter units: (imperial, standard, metric) \n")
+    infolist = getWeatherInfo(lat, lon, units)
+    print(infolist)
 
