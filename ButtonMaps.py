@@ -42,6 +42,10 @@ def buttonFunc(coordinates:str):
     inputStr = "Button Clicked at " + coordinates
     labelButton.configure(text=inputStr)
 
+# Remove current map title
+def on_click():
+   label.after(0, label.destroy())
+
 ''' Function for the Zoom Buttons; It will change the dimensions of the grid and number displayed  '''
 def zoom(closer:bool):
     global num 
@@ -49,18 +53,20 @@ def zoom(closer:bool):
         # Change 1 into 2
         oneToTwo()
         num = 2
-        #Set the Title for the current map
-        #w = Label(window, text ='Lane County', font = "50") 
-        #w.grid(row = 7, column = 4)
+        # Remove current map title
+        on_click()
+        # Set the map title to Lane County
+        mapTitle(num)
         buttonIn["state"] = NORMAL
         buttonOut["state"] = DISABLED
     else:
         # Change 2 into 1
         twoToOne()
         num = 1
-        #Set the Title for the current map
-        #w = Label(window, text ='Eugene', font = "50") 
-        #w.grid(row = 7, column = 4)
+        # Remove current map title
+        on_click()
+        # Set the map title to Eugene
+        mapTitle(num)
         buttonIn["state"] = DISABLED
         buttonOut["state"] = NORMAL
 
@@ -85,6 +91,7 @@ def twoToOne():
 ''' Imports '''
 # import tkinter module
 from tkinter import * 
+import tkinter as tk
 from tkinter.ttk import *
 import tkinter.font as tkFont # For setting text fonts
 # Access current working directory
@@ -232,7 +239,6 @@ button2.append(Button(window, image = windowImage20, command=lambda: buttonFunc(
 button2.append(Button(window, image = windowImage21, command=lambda: buttonFunc("(2,3)")))
 button2.append(Button(window, image = windowImage22, command=lambda: buttonFunc("(2,4)")))
 
-
 # Set up the inital buttons to display 1
 button1[0].grid(row = 0, column = 0, rowspan = 3, columnspan = 3, ipadx = 2.5, ipady = 2.5)
 button1[1].grid(row = 0, column = 3, rowspan = 3, columnspan = 3, ipadx = 2.5, ipady = 2.5)
@@ -250,9 +256,18 @@ buttonOut = Button(window, text = "ZOOM OUT", command=lambda: zoom(False))
 buttonIn.grid(row = 6, column = 7)
 buttonOut.grid(row = 6, column = 8)
 
-#Set the Title for the current map
-#w = Label(window, text ='Eugene', font = "50") 
-#w.grid(row = 7, column = 4)
+# Set the Title for the current map
+def mapTitle(num:int):
+    global label
+    if num == 1:
+        label = tk.Label(window, text ='Eugene', bg='white', fg = "dark green", font = "Helvetica 16 bold italic")
+    else:
+        label = tk.Label(window, text ='Lane County', bg='white', fg = "dark green", font = "Helvetica 16 bold italic")
+    label.grid(row = 7, column = 4)
+
+# Set default title
+label = tk.Label(window, text ='Eugene', bg='white', fg = "dark green", font = "Helvetica 16 bold italic")
+label.grid(row = 7, column = 4)
 
 # Set initial zoom in button to disabled
 buttonIn["state"] = DISABLED
