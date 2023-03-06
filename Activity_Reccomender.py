@@ -14,18 +14,22 @@ DEBUG = True
 with open('activities.json') as f:
   data = json.load(f)
 
-def parse(specific_data, weather):
+def parse(specific_data, weather, wind):
     reccomended = []
     for activity in specific_data:
-        if activity[weather] == "Yes":
-            reccomended.append(activity)
+        if wind == "Yes":
+            if activity[weather] == "Yes" and activity["isWind"] == "Yes":
+                reccomended.append(activity)
+        else: 
+            if activity[weather] == "Yes":
+                reccomended.append(activity)
     return reccomended
  
-def zoom(zoom, weather):
+def zoom(zoom, weather, wind):
     if zoom == 1:
-        reccomended = parse(data["groups"][0]["1"], weather)
+        reccomended = parse(data["groups"][0]["1"], weather, wind)
     elif zoom == 2:
-        reccomended = parse(data["groups"][1]["2"], weather)
+        reccomended = parse(data["groups"][1]["2"], weather, wind)
 
     return reccomended
 

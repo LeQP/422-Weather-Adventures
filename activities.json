@@ -27,16 +27,16 @@
                     "source": "interviewee reccomendation"
                 },
                 {
-                    "name": "Float the Willamette River",
-                    "description": "Grab your kayak, canoe, floaty, or paddle board and enjoy a relaxing, yet exhilirating excursion down the Willamette River. Drop into the river at West D Boat Ramp (N Willamette St, Eugene, OR 97408) and pop out at River Wood Beach (340 N Adams St, Eugene, OR 97402) for a solid 2 hour float down the river.",
-                    "difficulty": "Hard", 
+                    "name": "Bird Watching at Mt. Pisgah",
+                    "description": "Bring your binoculars and enjoy a lovely, relaxing walk here at Mt. Pisgah. This activity requires a $5 pass so please keep that in mind.",
+                    "difficulty": "Easy", 
                     "isWind": "Yes",
                     "isClear": "Yes",
-                    "isRain": "No, the water in the river is cold. You will get wet going down this river and we do not reccomend floating down it unless it is sunny and warm.",
+                    "isRain": "Yes, although it might be a little chilly or wet, as long as you're comfortable in a rain jacket this will be a great activity for you.",
                     "isSnoworIce": "No",
-                    "address":"N Willamette St, Eugene, OR 97408",
-                    "coordinates":"44.1397192684388, -123.0674964731006",    
-                    "source": "interviewee reccomendation"
+                    "address":"34639 Frank Parrish Rd, Eugene, OR 97405",
+                    "coordinates":"44.01497597816823, -122.98278078659796",    
+                    "source": "https://www.eugenecascadescoast.org/listing/buford-park-%26-mt-pisgah-birding-%26-water-trails/13437/"
                 },
                 {
                     "name": "Rock Climbing",
@@ -61,7 +61,32 @@
                     "address":"100 Day Island Rd, Eugene, OR 97401",
                     "coordinates":"44.05298827336223, -123.06722865961001",    
                     "source": "https://www.eugenecascadescoast.org/listing/alton-baker-park/3303/"
+                },
+                {
+                    "name": "Skinner Butte Viewpoint",
+                    "description": "Go star gazing or check out the lights of the city of Eugene at the top of Skinner's Butte.",
+                    "difficulty": "Easy", 
+                    "isWind": "No",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"50 Skinner Butte Loop, Eugene, OR 97401",
+                    "coordinates":"44.05821488135485, -123.0924205731031",    
+                    "source": "interviewee reccomendation"
+                },
+                {
+                    "name": "Garden at Henricks Park",
+                    "description": "Go star gazing or check out the lights of the city of Eugene at the top of Skinner's Butte.",
+                    "difficulty": "Easy", 
+                    "isWind": "No",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"50 Skinner Butte Loop, Eugene, OR 97401",
+                    "coordinates":"44.05821488135485, -123.0924205731031",    
+                    "source": "interviewee reccomendation"
                 }
+
             ]
         },
         {
@@ -125,6 +150,18 @@
                     "address":"4981 Hwy 101, Florence, OR 97439",
                     "coordinates":"44.28398015481605, -121.82036218362661",    
                     "source": "https://sandmasterpark.com/"
+                },
+                {
+                    "name": "Visit the Sea Lion Caves",
+                    "description": "Walk deep into a sea lion cave to get a first hand glance of these amazing creatures.",
+                    "difficulty": "Easy", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes",
+                    "isSnoworIce": "Yes",
+                    "address":"91560 Hwy 101 N, Florence, OR 97439",
+                    "coordinates":"44.12186230819151, -124.12673187310115",    
+                    "source": "https://www.eugenecascadescoast.org/listing/sea-lion-caves/396/"
                 }
 
             ]
