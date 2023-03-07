@@ -97,6 +97,78 @@
                     "address":"8th Ave & Oak Street (April - November) and Lane Events Center (December - March)",
                     "coordinates":"44.04420208200817, -123.10694527310362",    
                     "source": "https://www.eugenecascadescoast.org/listing/saturday-market/524/"
+                },
+                {
+                    "name": "Run the Ridgeline Trail",
+                    "description": "Are you an avid runner? Take a shot running this [12 mile, 2,188 feet elevation gain] hike/running trail.",
+                    "difficulty": "Hard", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes",
+                    "isSnoworIce": "No",
+                    "address":"Parking Lot - Check Coordinates",
+                    "coordinates":"44.009450250512984, -123.11249613216805",    
+                    "source": "https://www.alltrails.com/trail/us/oregon/complete-ridgeline-trail?search=true"
+                },
+                {
+                    "name": "Run through South Amazon Running Trail",
+                    "description": "This is a flat-grade trail compromised of cedar chips, so it is easy on the knees. It is a 3.5 mile loop that can be made longer when connected to the North Trail.",
+                    "difficulty": "Moderate", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes",
+                    "isSnoworIce": "No",
+                    "address":"Parking Lot - look at coordinates",
+                    "coordinates":"44.020579, -123.081409",    
+                    "source": "https://www.eugenecascadescoast.org/listing/south-amazon-running-trail/2494/"
+                },
+                {
+                    "name": "Play disk golf at the Alton Baker Disk Golf Course",
+                    "description": "This course has 18 holes. No disks? No problem! You can rent them on sight.",
+                    "difficulty": "Easy", 
+                    "isWind": "No",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"100 Day Island Rd, Eugene, OR 97401",
+                    "coordinates":"44.05600092292907, -123.07997621787409",    
+                    "source": "interviewee reccomendation"
+                },
+                {
+                    "name": "Skatepark",
+                    "description": "Go skating at Amazom Park it consists of a small snake run into a shallow bowl with a small extension added on to the bowl.",
+                    "difficulty": "Moderate", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"22 Amazon Pkwy, Eugene, OR 97405",
+                    "coordinates":"44.029422805917605, -123.08417370016498",    
+                    "source": "interviewee reccomendation"
+                },
+                {
+                    "name": "Emerald Valley EMX",
+                    "description": "The track is free and open to the public Thursday through Sunday from 8 a.m. until sunset. The track offers a safety pro gate, paved corners, paved starting hill, soil tacked track, 10 shoot staging area, long roll out for finish line, fenced facility, ample parking and vendor space available.",
+                    "difficulty": "Moderate", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"2715 Leo Harris Pkwy, Eugene, OR 97401",
+                    "coordinates":"44.05455292731463, -123.0646081037876",    
+                    "source": "https://www.eugenecascadescoast.org/listing/emerald-valley-bmx/6106/"
+                },
+                {
+                    "name": "Go swimming",
+                    "description": "Go swimming this summer at Amazon Pool. Open from May-October Features a beginner pool, sand play area, hot tub, 50-meter by 25-yard pool, 5-meter diving tower and a multipurpose pool with interactive play features including a water slide. Accessible to people with disabilities.",
+                    "difficulty": "Easy", 
+                    "isWind": "No",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"2600 Hilyard St, Eugene, OR 97405",
+                    "coordinates":"44.02937222869826, -123.08208364426845",    
+                    "source": "https://www.eugenecascadescoast.org/listing/amazon-pool/1968/"
                 }
             ]
         },
@@ -209,8 +281,194 @@
                     "address":"South Jetty (South Beach State Park), Newport, OR 97365",
                     "coordinates":"44.60223230480649, -124.06302029767208",    
                     "source": "https://www.surfline.com/surf-report/florence-south-jetty/5842041f4e65fad6a77089b2"
+                },
+                {
+                    "name": "Mountain Biking",
+                    "description": "Grab your bike and hit some world renowned mountain biking trails in Oakridge.",
+                    "difficulty": "Hard", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes but be careful. This trail could be slippery when wet.",
+                    "isSnoworIce": "No",
+                    "address":"North Fork Rd, Westfir, OR 97492",
+                    "coordinates":"43.756843665899716, -122.5051396782172",    
+                    "source": "https://www.eugenecascadescoast.org/listing/alpine-trail/6137/"
+                },
+                {
+                    "name": "Bike through the covered bridges scenic bikeway",
+                    "description": "Totalling 36 miles, this loop can be as hard or as easy as you want. Grab your bike and check out some bridges!",
+                    "difficulty": "Moderate", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes",
+                    "isSnoworIce": "No",
+                    "address":"Main St, Cottage Grove, OR 97424 (start/end)",
+                    "coordinates":"43.79762510238887, -123.06452564427555",    
+                    "source": "interviewee reccomendation"
+                },
+                {
+                    "name": "Dune Buggy Tour",
+                    "description": "Adventure through the Oregon Dunes with a Dune Buggy Tour! Please note that this adventure is not free.",
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"83960 Hwy 101 S, Florence, OR 97439",
+                    "coordinates":"43.914319569114554, -124.1114485307786",    
+                    "source": "https://www.eugenecascadescoast.org/listing/sand-dunes-frontier/3020/"
+                },
+                {
+                    "name": "Golfing at the Oregon Coast",
+                    "description": "Enjoy a trip golfing at the Oregon Coast.",
+                    "isWind": "No",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"1201 35th St, Florence, OR 97439",
+                    "coordinates":"44.00017199708636, -124.10836393077604",    
+                    "source": "https://www.eugenecascadescoast.org/listing/florence-golf-links/9847/"
+                },
+                {
+                    "name": "Waldo Lake Sno-Park",
+                    "description": "Sno-Park permit required - Waldo Lake Road is a shared snowmobile/ski route, but snowmobiles are not permitted on other nordic trails in this area.",
+                    "isWind": "No",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "Yes",
+                    "address":"Junction at Milepost 63 on Hwy 58, proceed 6 miles (10 km) to Waldo Lake Recreation Area, Oakridge, OR 97463",
+                    "coordinates":"43.618655988685326, -122.08190951544572",    
+                    "source": "https://www.fs.usda.gov/recarea/willamette/recreation/wintersports/recarea/?recid=4681&actid=92"
+                },
+                {
+                    "name": "Snowshoe to Salt Creek Falls",
+                    "description": "Come see Oregon's second highest waterfall this winter! All you need is some warm clothes and some snowshoes.",
+                    "isWind": "No",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "Yes",
+                    "address":"Hwy 58, east of milepost 58, Salt Creek Falls Observation Site, Oakridge, OR 97463",
+                    "coordinates":"43.61036380657184, -122.11830473078798",    
+                    "source": "https://www.eugenecascadescoast.org/blog/post/snowshoeing-weekend/"
+                },
+                {
+                    "name": "Cross Country Ski at Gold-Lake Sno-Park",
+                    "description": "Enjoy a relaxing, brisk, and fun day cross country skiing!",
+                    "isWind": "No",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "Yes",
+                    "address":"nfd 5899 rd, NF-5899, Oakridge, OR 97463",
+                    "coordinates":"43.60688600496598, -122.04691402236762",    
+                    "source": "https://www.fs.usda.gov/recarea/willamette/recreation/recarea/?recid=4679"
+                },
+                {
+                    "name": "McCredie Hot Springs",
+                    "description": "Enjoy a refreshing dip in Blue River Lake during Oregon's summer months",
+                    "difficulty": "Easy", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes",
+                    "isSnoworIce": "Yes",
+                    "address":"11 miles on Hwy 58, Just past Blue Pool Campground, Oakridge, OR 97463",
+                    "coordinates":"43.70469364679311, -122.28717709922128",    
+                    "source": "interviewee reccomendation"
+                },
+                {
+                    "name": "McCredie Hot Springs",
+                    "description": "Enjoy a refreshing dip in Blue River Lake during Oregon's summer months",
+                    "difficulty": "Easy", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes",
+                    "isSnoworIce": "Yes",
+                    "address":"11 miles on Hwy 58, Just past Blue Pool Campground, Oakridge, OR 97463",
+                    "coordinates":"43.70469364679311, -122.28717709922128",    
+                    "source": "interviewee reccomendation"
+                },
+                {
+                    "name": "Lounge on the beach",
+                    "description": "Enjoy a relaxing day lounging on the beach or talking a nice walk along the sand",
+                    "difficulty": "Easy", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes",
+                    "isSnoworIce": "No",
+                    "address":"Hwy 101, 13.7 miles (23.7 km) north of Florence, Florence, OR 97439",
+                    "coordinates":"44.16073740439314, -124.11451827309993",    
+                    "source": "https://www.eugenecascadescoast.org/listing/carl-g-washburne-state-park/7706/"
+                },
+                {
+                    "name": "Siltcoos River Trail",
+                    "description": "The Siltcoos River Trail leads from Siltcoos Lake to the Pacific Ocean. This six-mile round-trip paddle allows you to travel down to the Pacific Ocean and back to Siltcoos Lake. Check the tide-tables first — if you time it properly, you can go downstream with the falling tide and then come back upstream on the rising tide — making for an easy paddle.",
+                    "difficulty": "Moderate", 
+                    "isWind": "No",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"82855 Fir St, Westlake, OR 97493",
+                    "coordinates":"43.88370920081725, -124.116518098414",    
+                    "source": "https://www.eugenecascadescoast.org/blog/post/best-places-to-kayak/"
+                },
+                {
+                    "name": "Kayak on Dexter Reservoir",
+                    "description": "Kayak for a long as you'd like on this beautiful lake.",
+                    "difficulty": "Moderate", 
+                    "isWind": "No",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"Jasper, OR 97438",
+                    "coordinates":"43.92600024850264, -122.81076907406434",    
+                    "source": "https://www.eugenecascadescoast.org/blog/post/best-places-to-kayak/"
+                },
+                {
+                    "name": "McCredie Hot Springs",
+                    "description": "Enjoy a refreshing dip in Blue River Lake during Oregon's summer months",
+                    "difficulty": "Easy", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes",
+                    "isSnoworIce": "Yes",
+                    "address":"11 miles on Hwy 58, Just past Blue Pool Campground, Oakridge, OR 97463",
+                    "coordinates":"43.70469364679311, -122.28717709922128",    
+                    "source": "interviewee reccomendation"
+                },
+                {
+                    "name": "McCredie Hot Springs",
+                    "description": "Enjoy a refreshing dip in Blue River Lake during Oregon's summer months",
+                    "difficulty": "Easy", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes",
+                    "isSnoworIce": "Yes",
+                    "address":"11 miles on Hwy 58, Just past Blue Pool Campground, Oakridge, OR 97463",
+                    "coordinates":"43.70469364679311, -122.28717709922128",    
+                    "source": "interviewee reccomendation"
+                },
+                {
+                    "name": "McCredie Hot Springs",
+                    "description": "Enjoy a refreshing dip in Blue River Lake during Oregon's summer months",
+                    "difficulty": "Easy", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes",
+                    "isSnoworIce": "Yes",
+                    "address":"11 miles on Hwy 58, Just past Blue Pool Campground, Oakridge, OR 97463",
+                    "coordinates":"43.70469364679311, -122.28717709922128",    
+                    "source": "interviewee reccomendation"
+                },
+                {
+                    "name": "McCredie Hot Springs",
+                    "description": "Enjoy a refreshing dip in Blue River Lake during Oregon's summer months",
+                    "difficulty": "Easy", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes",
+                    "isSnoworIce": "Yes",
+                    "address":"11 miles on Hwy 58, Just past Blue Pool Campground, Oakridge, OR 97463",
+                    "coordinates":"43.70469364679311, -122.28717709922128",    
+                    "source": "interviewee reccomendation"
                 }
-
             ]
         }
     ]        
