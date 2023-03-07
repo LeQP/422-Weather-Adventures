@@ -14,6 +14,8 @@ import InfoPopup
 import os
 from PIL import Image
 
+
+
 #####  GLOBALS   #####
 WEATHER_INFO = {}  #store the weather infomation per button, so we as few as possible API calls)
 
@@ -89,9 +91,9 @@ def main():
     outputs.
     '''
     print()
-    print("Welcome to Weather Adventures")
+    print("Welcome to Weather Adventures!")
 
-    print("We are initiallizing the maps (this will take a moment, thank you for your patience)")
+    print("We are initiallizing the maps. This will take a moment. Thank you for your patience! ")
 
     #call the map tkinter window to use the initialized images
 
@@ -147,11 +149,11 @@ def main():
         m_img = Image.open(lane_path.strip() +  str(i) + ".png").resize((160, 160))
 
         #get the weather for the button and store it in the global variable WEATHER_INFO
-        WEATHER_INFO["E" + str(i)] = weather.getWeatherInfo(str(LANE_COORD_NAMES[i-1][0]), str(LANE_COORD_NAMES[i-1][1]), "imperial")
+        WEATHER_INFO["L" + str(i)] = weather.getWeatherInfo(str(LANE_COORD_NAMES[i-1][0]), str(LANE_COORD_NAMES[i-1][1]), "imperial")
 
         # open and resize the icon image for the particular weather and wind direction
-        weather_img = Image.open(cwd + WEATHER_INFO["E" + str(i)][0]).resize((40, 44))
-        wind_img = Image.open(cwd + WEATHER_INFO["E" + str(i)][1]).resize((40, 44))
+        weather_img = Image.open(cwd + WEATHER_INFO["L" + str(i)][0]).resize((40, 44))
+        wind_img = Image.open(cwd + WEATHER_INFO["L" + str(i)][1]).resize((40, 44))
 
         # call the imageAppender from InfoPopup.py to add the weather icon to the map button image
         new_img_weather = imageAppender(m_img, weather_img, (160, 160), (40, 44))
@@ -163,21 +165,29 @@ def main():
         #save the image
         new_img_wind.save(l_save_path + str(i) + "_w" + ".png")
     
+    print("Map is initalized!  Opening the application now.")
     print()
 
+    ButtonMaps.main()
     #call the tkinter and make it use the new initialized images
 
 
 
 
 
-
-
-
-def more_info(zoom: int, lat: int, long: int):
+def more_info(zoom: int, button_num: int):
     '''
     This function is called by the tkinter window when a button is pressed
     '''
+    #print(WEATHER_INFO)
+    if zoom == 1:
+        # we are looking at the eugene map
+        InfoPopup.createPopup("Eugene Recommendation", WEATHER_INFO["E" + str(button_num)], True)
+    elif zoom == 2:
+        # we are looking at the lane map
+        InfoPopup.createPopup( "Lane County Recommendation", WEATHER_INFO["E" + str(button_num)], True)
+    
+
 
     # get the weather information for this specific button location from WEATHER_INFO
     # call Activity reccommender based on specified weather and zoom level
@@ -185,10 +195,12 @@ def more_info(zoom: int, lat: int, long: int):
     # format the string to pass to the pop-up creater
 
     # call the pop-creater with more weather info and the recommended activities. 
-    pass
+    
 
 
 
 
 if __name__ == "__main__":
     main()
+
+    more_info(1, 1)
