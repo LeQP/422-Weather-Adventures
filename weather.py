@@ -33,7 +33,7 @@ def getWeatherInfo(lat, lon, units):
     # get weather description 
     weatherDesc = data['weather'][0]['main']
     # create path string to correct weather symbol image
-    weatherSymStr = "/images/weatherSymbols/" + weatherSymLookup(weatherDesc)
+    weatherSymFPath = "/images/weatherSymbols/" + weatherSymLookup(weatherDesc)
     
     # get temperature
     temp = data['main']['temp']
@@ -59,9 +59,10 @@ def getWeatherInfo(lat, lon, units):
 
     visibility = int(data['visibility'])
     humidity = int(data['main']['humidity'])
+    weatherDetail = data['weather'][0]['description']
 
     # create return information list
-    infoList = weatherSymStr, windSymFPath, weatherDesc, temp, windSpeed, windDirRounded, visibility, humidity
+    infoList = weatherSymFPath, windSymFPath, weatherDetail, temp, windSpeed, windDirRounded, visibility, humidity
     # return information list
     return infoList            
 
