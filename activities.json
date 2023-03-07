@@ -76,17 +76,28 @@
                 },
                 {
                     "name": "Garden at Henricks Park",
-                    "description": "Go star gazing or check out the lights of the city of Eugene at the top of Skinner's Butte.",
+                    "description": "Spend some time tending to the plants or walking the trails in Henricks Park. There is a group of regular volunteers that meet on Tuesdays from 9am - 12pm on the main lawn. Feel free to join them!",
                     "difficulty": "Easy", 
-                    "isWind": "No",
+                    "isWind": "Yes",
                     "isClear": "Yes",
-                    "isRain": "No",
+                    "isRain": "Yes",
                     "isSnoworIce": "No",
-                    "address":"50 Skinner Butte Loop, Eugene, OR 97401",
-                    "coordinates":"44.05821488135485, -123.0924205731031",    
+                    "address":"Summit Ave &, Skyline Blvd, Eugene, OR 97403",
+                    "coordinates":"44.0355070666398, -123.05875817310378",    
                     "source": "interviewee reccomendation"
+                },
+                {
+                    "name": "Stroll around the Eugene Saturday Market",
+                    "description": "Every Saturday rain or shine visit the Saturday Market from 10am-4pm.",
+                    "difficulty": "Easy", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes",
+                    "isSnoworIce": "No",
+                    "address":"8th Ave & Oak Street (April - November) and Lane Events Center (December - March)",
+                    "coordinates":"44.04420208200817, -123.10694527310362",    
+                    "source": "https://www.eugenecascadescoast.org/listing/saturday-market/524/"
                 }
-
             ]
         },
         {
@@ -162,6 +173,42 @@
                     "address":"91560 Hwy 101 N, Florence, OR 97439",
                     "coordinates":"44.12186230819151, -124.12673187310115",    
                     "source": "https://www.eugenecascadescoast.org/listing/sea-lion-caves/396/"
+                },
+                {
+                    "name": "Fly a Kite at the South Jetty in Florence",
+                    "description": "Grab or rent a kite and head over to the South Jetty for a great time - the winds are there, so fly away!",
+                    "difficulty": "Easy", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"South Jetty (South Beach State Park), Newport, OR 97365",
+                    "coordinates":"44.60223230480649, -124.06302029767208",    
+                    "source": "https://traveloregon.com/things-to-do/trip-ideas/favorite-trips/insiders-guide-to-kite-flying-on-the-oregon-coast/"
+                },
+                {
+                    "name": "Kite Surfing",
+                    "description": "Are you a die-hard kite surfer? Look no further than the Oregon Coast for your next adventure. We've checked the wind, you're good to go!",
+                    "difficulty": "Hard", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"88494 1st Ave, Florence, OR 97439",
+                    "coordinates":"44.03767101029325, -124.13226315023358",    
+                    "source": "https://localkitespots.com/kitesurfing/Oregon/South%20Jetty"
+                },
+                {
+                    "name": "Surfing",
+                    "description": "Put on that wet suit! We've got a local surf spot for you.",
+                    "difficulty": "Hard", 
+                    "isWind": "No",
+                    "isClear": "Yes",
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"South Jetty (South Beach State Park), Newport, OR 97365",
+                    "coordinates":"44.60223230480649, -124.06302029767208",    
+                    "source": "https://www.surfline.com/surf-report/florence-south-jetty/5842041f4e65fad6a77089b2"
                 }
 
             ]
