@@ -14,7 +14,7 @@ Revision History (Date | Author | Modifications)
 3/4/2023 | Joey Le | Created createPopup()
 3/4/2023 | Joey Le | Further developed createPopup() for a basic format
 3/6/2023 | Joey Le | Added more detailed weather and wind descriptions in pop-up by creating createWeatherDesc() and createWindDesc()
-
+3/7/2023 | Joey Le | Added further documentation for createWeatherDesc() and createWindDesc()
 
 
 """
@@ -22,6 +22,7 @@ Revision History (Date | Author | Modifications)
 ''' Module needed to form Windows '''
 # Import tkinter module to create windows
 import tkinter
+import tkinter.ttk as tkTtk
 # For setting text fonts
 import tkinter.font as tkFont 
 # Import os Access current working directory
@@ -75,15 +76,22 @@ def imageAppender(pathLarge:str, pathSmall:str, sizeLarge:tuple, sizeSmall:tuple
     imageLarge.paste(imageSmall, (positionX,positionY), mask = imageSmall)
     # Return the large image with the appended small image
     return imageLarge
-'''
 
 '''
+createWeatherDesc(): a helper function to create the descriptive text to describe the weather on the window pop-up
+
+Parameters:
+    WeatherStr: a string that provides the description of the weather provided by the openweathermap API
+    temp: an int that represents the temperature (without considering the unit)
+    imperial: a bool to define whether the temperature measurement is in fahrenheit (True) or celsius (False)
+
+Return:
+    resStr: a string that displays the exact description for the weather of the window pop-up
+'''
 def createWeatherDesc(weatherStr:str, temp:int, imperial:bool):
-    '''
-    Initialize variables to 
-    '''
-    descVal = ""
-    unit = ""
+    ''' Initialize variables to use for creating the descripition text '''
+    descVal = ""    # Describes the weather condition and may be the same as weatherStr
+    unit = ""       # The unit to describe the temperature
     ''' Some descriptions need a slight grammar adjustment so check for specific descriptions that would require it '''
     # Applicable descrpitions that would need an adjustment to the begging: clear sky, thunderstorm, drizzle, and tornado
     if (weatherStr.find("clear sky") or weatherStr.find("thunderstorm") or weatherStr.find("drizzle") or weatherStr.find("tornado")):
@@ -123,6 +131,17 @@ def createWeatherDesc(weatherStr:str, temp:int, imperial:bool):
         # Return the string that describes the wind
     return resStr
 
+'''
+createWindDesc(): a helper function to create the descriptive text to describe the wind on the window pop-up
+
+Parameters:
+    windDir: an int that provides the degree of the wind from 0 to 345 going clockwise
+    windSpeec: an int that represents the wind speed without considering the unit
+    imperial: a bool to define whether the wind speed measurement is in miles (True) or kilometers (False) per hour
+
+Return:
+    resStr: a string that displays the exact description for the wind of the window pop-up
+'''
 def createWindDesc(windDir:int, windSpeed:int, imperial:bool):
     '''
     This forms a dicitionary to convert the wind direction degree to understandable english terms for the wind description.
@@ -206,7 +225,7 @@ def createPopup(title:str, apiInfo:list, imperial:bool):
     # Initialize the window
     window = tkinter.Tk()
     # Initialize the window's dimensions
-    window.geometry("550x750")
+    window.geometry("1300x650")
     # Set the window's title
     window.title(title)
 
@@ -218,7 +237,7 @@ def createPopup(title:str, apiInfo:list, imperial:bool):
     windDir = apiInfo[5]
     vis = apiInfo[6]
     humid = apiInfo[7]
-
+    
     ''' Open the different images and make them compatable with Tkinter windows'''
     # Open the weather image for use
     imageWeather = Image.open(weatherIconPath)
@@ -278,10 +297,13 @@ def createPopup(title:str, apiInfo:list, imperial:bool):
     labelWindText.pack(side = "left")   # Place the text into the frame second
     
     ''' Finally, put the frames onto the tkinter window'''
+    vertLine = tkTtk.Separator(window, orient="vertical")
+
     frameWeatherHeading.grid(row = 0, column = 0)           # Weather Heading goes first
     frameWeather.grid(row = 1, column = 0, sticky = "W")    # Followed by the weather information
     frameWind.grid(row = 2, column = 0, sticky = "W")       # Then finish the window with the wind information
-    frameActivityHeading.grid(row = 3, column = 0)          # Then start with the outdoor activitites     
+    vertLine.grid(row = 0, column = 1, sticky = "ns", rowspan = 9)  # Add a vertical line to seperate the weather from outdoor activities
+    frameActivityHeading.grid(row = 0, column = 2)          # Then start with the outdoor activitites     
     # Run the window
     window.mainloop()
 
