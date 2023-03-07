@@ -65,7 +65,7 @@ def on_click():
 ''' Function for when a button is clicked; It will change the selected button's image appropriately'''
 def button_click(windowImage:str, windowImage_w:str, button):
     # If wind is selected:
-    if 1==1:
+    if on.get() == 1:
         # Display new wind image on button
         button.config(image=windowImage_w)
     # If wind is not selected:
@@ -81,6 +81,9 @@ def zoom(closer:bool, buttonIn, buttonOut):
         setLane()
         # Change 1 into 2
         oneToTwo()
+        # Reset wind checkbox to unselected
+        on.set(0)
+        # Set map level
         num = 2
         # Remove current map title
         on_click()
@@ -93,6 +96,9 @@ def zoom(closer:bool, buttonIn, buttonOut):
         setEugene()
         # Change 2 into 1
         twoToOne()
+        # Reset wind checkbox to unselected
+        on.set(0)
+        # Set map level
         num = 1
         # Remove current map title
         on_click()
@@ -156,6 +162,12 @@ def setLane():
     button2.append(tk.Button(window, image = windowImage20, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_13, 2), button_click(windowImage55, windowImage56, button2[12])])) #(2,2)
     button2.append(tk.Button(window, image = windowImage21, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_14, 2), button_click(windowImage57, windowImage58, button2[13])])) #(2,3)
     button2.append(tk.Button(window, image = windowImage22, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_15, 2), button_click(windowImage59, windowImage60, button2[14])])) #(2,4)
+
+def print_selection():
+    if (on.get() == 1):
+        return 1
+    else:
+        return 0
 
 def main():
     '''Set up Tkinter Window'''
@@ -498,6 +510,11 @@ def main():
     buttonOut = tk.Button(window, text = "ZOOM OUT", fg = "dark green", command=lambda: zoom(False, buttonIn, buttonOut))
     buttonIn.grid(row=8, column=10)
     buttonOut.grid(row=8, column=11)
+
+    global on
+    on = tk.IntVar()
+    c1 = tk.Checkbutton(window, text='Wind',variable=on, onvalue=1, offvalue=0, command=print_selection)
+    c1.grid(row = 7, column = 10)
 
     # Set the default title
     mapTitle(num)
