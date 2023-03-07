@@ -10,10 +10,9 @@ import Activity_Reccomender
 import weather
 import InfoPopup
 
-
+#import the other libraries we need
 import os
 from PIL import Image
-import sys
 
 #####  GLOBALS   #####
 WEATHER_INFO = {}  #store the weather infomation per button, so we as few as possible API calls)
@@ -27,6 +26,11 @@ LANE_COORD_NAMES = [ButtonMaps.COORDINATES_LANE_1, ButtonMaps.COORDINATES_LANE_2
                      ButtonMaps.COORDINATES_LANE_7, ButtonMaps.COORDINATES_LANE_8, ButtonMaps.COORDINATES_LANE_9,
                      ButtonMaps.COORDINATES_LANE_10, ButtonMaps.COORDINATES_LANE_11, ButtonMaps.COORDINATES_LANE_12,
                      ButtonMaps.COORDINATES_LANE_13, ButtonMaps.COORDINATES_LANE_14, ButtonMaps.COORDINATES_LANE_15]
+
+
+
+# REMEBER TO DELETE THIS AND USE THE ONE IN INFOpOPUP WHEN ITS DONE
+
 
 '''
 imageAppender(): this function allows a large image to have a smaller image placed on of it
@@ -113,8 +117,8 @@ def main():
         WEATHER_INFO["E" + str(i)] = weather.getWeatherInfo(str(EUGENE_COORD_NAMES[i-1][0]), str(EUGENE_COORD_NAMES[i-1][1]), "imperial")
 
         # open and resize the icon image for the particular weather and wind direction
-        weather_img = Image.open(cwd + WEATHER_INFO["E" + str(i)][1]).resize((60, 78))
-        wind_img = Image.open(cwd + WEATHER_INFO["E" + str(i)][5]).resize((60, 78))
+        weather_img = Image.open(cwd + WEATHER_INFO["E" + str(i)][0]).resize((60, 78))
+        wind_img = Image.open(cwd + WEATHER_INFO["E" + str(i)][1]).resize((60, 78))
 
         # call the imageAppender from InfoPopup.py to add the weather icon to the map button image
         new_img_weather = imageAppender(m_img, weather_img, (350, 350), (60, 78))
@@ -125,8 +129,7 @@ def main():
         new_img_wind = imageAppender(m_img, wind_img, (350, 350), (60, 78))
         #save the image
         new_img_wind.save(e_save_path + str(i) + "_w" + ".png")
-        sys.stdout.write(". ")
-
+    
 
 
 
@@ -147,8 +150,8 @@ def main():
         WEATHER_INFO["E" + str(i)] = weather.getWeatherInfo(str(LANE_COORD_NAMES[i-1][0]), str(LANE_COORD_NAMES[i-1][1]), "imperial")
 
         # open and resize the icon image for the particular weather and wind direction
-        weather_img = Image.open(cwd + WEATHER_INFO["E" + str(i)][1]).resize((40, 44))
-        wind_img = Image.open(cwd + WEATHER_INFO["E" + str(i)][5]).resize((40, 44))
+        weather_img = Image.open(cwd + WEATHER_INFO["E" + str(i)][0]).resize((40, 44))
+        wind_img = Image.open(cwd + WEATHER_INFO["E" + str(i)][1]).resize((40, 44))
 
         # call the imageAppender from InfoPopup.py to add the weather icon to the map button image
         new_img_weather = imageAppender(m_img, weather_img, (160, 160), (40, 44))
@@ -159,9 +162,10 @@ def main():
         new_img_wind = imageAppender(m_img, wind_img, (160, 160), (40, 44))
         #save the image
         new_img_wind.save(l_save_path + str(i) + "_w" + ".png")
-        sys.stdout.write(". ")
     
     print()
+
+    #call the tkinter and make it use the new initialized images
 
 
 
