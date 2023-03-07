@@ -1,4 +1,13 @@
-# input: lat, long, units
+"""
+weather.py
+--------
+Authors: Peter Nelson
+Created: 2/25/2023
+Last Modified: 3/3/2023
+Purpose: This file queries openweathermap API with user input and parses response
+
+"""
+
 
 # requests for api calls
 import requests
@@ -14,9 +23,9 @@ def getWeatherInfo(lat, lon, units):
     # fill weatherReport with api response 
     weatherReport = json.dumps(response.json(), indent=4)
 
-    # DEBUG print weatherReport
-    # with open("sample.json", "w") as outfile:
-    #     outfile.write(weatherReport)
+    # DEBUG write weatherReport
+    with open("sample.json", "w") as outfile:
+        outfile.write(weatherReport)
 
     # load weather report into data container
     data = json.loads(weatherReport)
@@ -48,8 +57,11 @@ def getWeatherInfo(lat, lon, units):
     # create path string to correct wind direction image
     windSymFPath = "/images/weatherSymbols/w" + str(windDirRounded) + ".png"
 
+    visibility = int(data['visibility'])
+    humidity = int(data['main']['humidity'])
+
     # create return information list
-    infoList = weatherDesc, weatherSymStr, temp, windSpeed, windDirRounded, windSymFPath  
+    infoList = weatherSymStr, windSymFPath, weatherDesc, temp, windSpeed, windDirRounded, visibility, humidity
     # return information list
     return infoList            
 
@@ -86,3 +98,4 @@ if __name__ == "__main__":
     infolist = getWeatherInfo(lat, lon, units)
     print(infolist)
 
+    
