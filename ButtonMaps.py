@@ -38,9 +38,13 @@ COORDINATES_LANE_14 = (43.549707, -122.463245)
 COORDINATES_LANE_15 = (43.523586, -122.040473)
 
 ''' Function to display the Tkinter window coordinate of the button'''
-def buttonFunc(coordinates:str):
-    inputStr = "Button Clicked at " + coordinates
-    labelButton.configure(text=inputStr)
+def buttonFunc(coordinates:tuple, level:int):
+    inputStr = "Button Clicked at " + str(coordinates) + " at level " + str(level)
+    infoList = []
+    infoList.append(coordinates)
+    infoList.append(level)
+    #label.configure(text=inputStr)
+    #label.configure(text=str(infoList))
 
 # Remove current map title
 def on_click():
@@ -108,11 +112,13 @@ window.geometry("1000x1000")
 '''Set up a frame for the zoom buttons'''
 #root = Tk()
 #root.geometry("1000x1000")
-#frame = Frame(root)
+#frame = Frame(window)
 #frame.pack()
 
-#bottomframe = Frame(root)
-#bottomframe.pack( side = BOTTOM )
+#window.grid_rowconfigure(1, weight=1)
+#window.grid_columnconfigure(0, weight=1)
+bottomframe = Frame(window)
+bottomframe.grid(row=8, sticky="ew")
 
 #Set the Title of Tkinter window
 window.title("Weather Adventures")
@@ -216,28 +222,28 @@ windowImage22 = ImageTk.PhotoImage(resizeImage22)
 ''' Set up each button within their grid set'''
 # Put all the buttons for viewing Eugene into button1; 2x2
 button1 = []
-button1.append(Button(window, image = windowImage4, command=lambda: buttonFunc("(0,0)")))
-button1.append(Button(window, image = windowImage5, command=lambda: buttonFunc("(0,1)")))
-button1.append(Button(window, image = windowImage6, command=lambda: buttonFunc("(1,0)")))
-button1.append(Button(window, image = windowImage7, command=lambda: buttonFunc("(1,1)")))
+button1.append(tk.Button(window, image = windowImage4, highlightthickness = 0, borderwidth=0, command=lambda: buttonFunc(COORDINATES_EUG_1, 1))) #(0,0)
+button1.append(tk.Button(window, image = windowImage5, highlightthickness = 0, borderwidth=0, command=lambda: buttonFunc(COORDINATES_EUG_2, 1))) #(0,1)
+button1.append(tk.Button(window, image = windowImage6, highlightthickness = 0, borderwidth=0, command=lambda: buttonFunc(COORDINATES_EUG_3, 1))) #(1,0)
+button1.append(tk.Button(window, image = windowImage7, highlightthickness = 0, borderwidth=0, command=lambda: buttonFunc(COORDINATES_EUG_4, 1))) #(1,1)
 
 # Put all the buttons for viewing Lane County into button2; 5x3
 button2 = []
-button2.append(Button(window, image = windowImage8, command=lambda: buttonFunc("(0,0)")))
-button2.append(Button(window, image = windowImage9, command=lambda: buttonFunc("(0,1)")))
-button2.append(Button(window, image = windowImage10, command=lambda: buttonFunc("(0,2)")))
-button2.append(Button(window, image = windowImage11, command=lambda: buttonFunc("(0,3)")))
-button2.append(Button(window, image = windowImage12, command=lambda: buttonFunc("(0,4)")))
-button2.append(Button(window, image = windowImage13, command=lambda: buttonFunc("(1,0)")))
-button2.append(Button(window, image = windowImage14, command=lambda: buttonFunc("(1,1)")))
-button2.append(Button(window, image = windowImage15, command=lambda: buttonFunc("(1,2)")))
-button2.append(Button(window, image = windowImage16, command=lambda: buttonFunc("(1,3)")))
-button2.append(Button(window, image = windowImage17, command=lambda: buttonFunc("(1,4)")))
-button2.append(Button(window, image = windowImage18, command=lambda: buttonFunc("(2,0)")))
-button2.append(Button(window, image = windowImage19, command=lambda: buttonFunc("(2,1)")))
-button2.append(Button(window, image = windowImage20, command=lambda: buttonFunc("(2,2)")))
-button2.append(Button(window, image = windowImage21, command=lambda: buttonFunc("(2,3)")))
-button2.append(Button(window, image = windowImage22, command=lambda: buttonFunc("(2,4)")))
+button2.append(tk.Button(window, image = windowImage8, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_1, 2)))   #(0,0)
+button2.append(tk.Button(window, image = windowImage9, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_2, 2)))   #(0,1)
+button2.append(tk.Button(window, image = windowImage10, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_3, 2)))  #(0,2)
+button2.append(tk.Button(window, image = windowImage11, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_4, 2)))  #(0,3)
+button2.append(tk.Button(window, image = windowImage12, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_5, 2)))  #(0,4)
+button2.append(tk.Button(window, image = windowImage13, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_6, 2)))  #(1,0)
+button2.append(tk.Button(window, image = windowImage14, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_7, 2)))  #(1,1)
+button2.append(tk.Button(window, image = windowImage15, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_8, 2)))  #(1,2)
+button2.append(tk.Button(window, image = windowImage16, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_9, 2)))  #(1,3)
+button2.append(tk.Button(window, image = windowImage17, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_10, 2))) #(1,4)
+button2.append(tk.Button(window, image = windowImage18, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_11, 2))) #(2,0)
+button2.append(tk.Button(window, image = windowImage19, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_12, 2))) #(2,1)
+button2.append(tk.Button(window, image = windowImage20, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_13, 2))) #(2,2)
+button2.append(tk.Button(window, image = windowImage21, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_14, 2))) #(2,3)
+button2.append(tk.Button(window, image = windowImage22, highlightthickness = 0, command=lambda: buttonFunc(COORDINATES_LANE_15, 2))) #(2,4)
 
 # Set up the inital buttons to display 1
 button1[0].grid(row = 0, column = 0, rowspan = 3, columnspan = 3, ipadx = 2.5, ipady = 2.5)
@@ -251,10 +257,11 @@ num = 1
 
 ''' Incorporate additional labels and zoom buttons '''
 # Add buttons to change the image
-buttonIn = Button(window, text = "ZOOM IN", command=lambda: zoom(True))
-buttonOut = Button(window, text = "ZOOM OUT", command=lambda: zoom(False))
-buttonIn.grid(row = 6, column = 7)
-buttonOut.grid(row = 6, column = 8)
+#buttonIn = Button(frame, text = "ZOOM IN", command=lambda: zoom(True))
+buttonIn = tk.Button(window, text = "ZOOM IN", fg = "dark green", command=lambda: zoom(True))
+buttonOut = tk.Button(window, text = "ZOOM OUT", fg = "dark green", command=lambda: zoom(False))
+buttonIn.grid(row=8, column=10)
+buttonOut.grid(row=8, column=11)
 
 # Set the Title for the current map
 def mapTitle(num:int):
@@ -271,6 +278,5 @@ label.grid(row = 7, column = 4)
 
 # Set initial zoom in button to disabled
 buttonIn["state"] = DISABLED
-
 
 mainloop()
