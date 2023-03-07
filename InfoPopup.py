@@ -13,6 +13,9 @@ Revision History (Date | Author | Modifications)
 3/3/2023 | Joey Le | Created imageAppender()
 3/4/2023 | Joey Le | Created createPopup()
 3/4/2023 | Joey Le | Further developed createPopup() for a basic format
+3/6/2023 | Joey Le | Added more detailed weather and wind descriptions in pop-up by creating createWeatherDesc() and createWindDesc()
+
+
 
 """
 
@@ -72,70 +75,159 @@ def imageAppender(pathLarge:str, pathSmall:str, sizeLarge:tuple, sizeSmall:tuple
     imageLarge.paste(imageSmall, (positionX,positionY), mask = imageSmall)
     # Return the large image with the appended small image
     return imageLarge
+'''
 
+'''
+def createWeatherDesc(weatherStr:str, temp:int, imperial:bool):
+    '''
+    Initialize variables to 
+    '''
+    descVal = ""
+    unit = ""
+    ''' Some descriptions need a slight grammar adjustment so check for specific descriptions that would require it '''
+    # Applicable descrpitions that would need an adjustment to the begging: clear sky, thunderstorm, drizzle, and tornado
+    if (weatherStr.find("clear sky") or weatherStr.find("thunderstorm") or weatherStr.find("drizzle") or weatherStr.find("tornado")):
+        # Adjust these descriptions by appending "a" to the beginning
+        descVal = "a " + weatherStr
+    # Some descriptions don't need adjustment (ex. rain, snow)
+    else:
+        # Keep the description as is then
+        descVal = weatherStr
+
+    ''' Declare the unit variable to store the unit (fahrenhei or celsius) '''
+    # If the user specified imperial
+    if (imperial):
+        # Then let the temperature be in fahrenheit
+        unit = " fahrenheit."
+    # Otherwise the user wanted celsius
+    else:
+        # Then let the temperature be in celsius
+        unit = " celsius."
+    '''
+    After any description grammar adjustment has been made and the units has been specififed, form the description to be displayed.
+    If it is too long to display on the pop-up window on one line, then break it down to two lines.
+    '''
+    # Form the description string to return
+    resStr = "This area is currently experiencing " + descVal + " at " + str(temp) + " degrees" + unit
+    # Acquire its length
+    strLen = len(resStr)
+    # Find the first space character past the 50th character
+    if (strLen > 50):
+        # Find the first space character past the 50th character
+        index = resStr.find(" ", 50, strLen)
+        # If found, then replace the space with a new line. If it cannot be found, 
+        # the current word is the last word on the line and no space is needed
+        if (index != -1):
+            # Replace the space with a new line.
+            resStr = resStr[:index] + "\n" + resStr[index + 1:]
+        # Return the string that describes the wind
+    return resStr
+
+def createWindDesc(windDir:int, windSpeed:int, imperial:bool):
+    '''
+    This forms a dicitionary to convert the wind direction degree to understandable english terms for the wind description.
+    '''
+    dict = {
+        0 : "north",
+        15: "north and slightly towards the northeast",
+        30: "northeast and slightly towards the north",
+        45: "northeast",
+        60: "northeast and slightly towards the east",
+        75: "east and slightly towards the northeast",
+        90: "east",
+        105: "east and slightly towards the southeast",
+        120: "southeast and slightly towards the east",
+        135: "southeast",
+        150: "southeast and slightly towards the south",
+        165: "south and slightly towards the southeast",
+        180: "south",
+        195: "south and slightly towards the southwest",
+        210: "southwest and slightly towards the south",
+        225: "southwest",
+        240: "southwest and slightly towards the west",
+        255: "west and slightly towards the southwest",
+        270: "west",
+        285: "west and slightly towards the northwest",
+        300: "northwest and slightly towards the west",
+        315: "northwest",
+        330: "northwest and slightly towards the north",
+        345: "north and slightly towards the northwest"
+    }
+    '''
+    Provide the specific the unit based on imperial or metric unit specified by the user.
+    '''
+    # Declare the unit variable to store the unit (miles per hour or kilometers per hour)
+    unit = ""
+    # If the user specified imperial
+    if (imperial):
+        # Set units to be miles per hour
+        unit = " miles per hour."
+    # Otherwise, the user wanted metric units
+    else:
+        # Then Set units to be kilometers per hour
+        unit = " kilometers per hour."
+    '''
+    After both the wind direction has been translated and the units has been specififed, form the description to be displayed.
+    If it is too long to display on the pop-up window on one line, then break it down to two lines.
+    '''
+    # Form the description string to return
+    resStr = "The wind is blowing " + dict[windDir] + " at " + str(windSpeed) + unit
+    # Acquire its length
+    strLen = len(resStr)
+    # If the length is too long to be on one line (over 50 characters), break it up to two lines
+    if (strLen > 50):
+        # Find the first space character past the 50th character
+        index = resStr.find(" ", 50, strLen)
+        # If found, then replace the space with a new line. If it cannot be found, 
+        # the current word is the last word on the line and no space is needed
+        if (index != -1):
+            # Replace the space with a new line.
+            resStr = resStr[:index] + "\n" + resStr[index + 1:]
+        # Return the string that describes the wind
+    return resStr
 '''
 createPopup(): a function that creates a small tkinter pop-up window when a user wishes to know more
                about a specific region on the grid 
 
 Parameters:
-    title: a string that 
-    lat: a float that is the lattitude of the specific region
-    lon: a float that is the longitude of the specific region
+    title: a string to display at the top of the pop up as a title
+    apiInfo: a list that provides all the weather information collected for area under the specific region
     imperial: a bool for if the user wants to see the temperature in fahrenheit and wind direction in miles (True) 
               or temperature in celsius and wind direction in kilometers (False)
 
 Return:
-    A tkinter window to view
+    A tkinter window to view additional weather information and outdoor activitites
 '''
 
-def createPopup(title:str, lat:float, lon:float, imperial:bool):
+def createPopup(title:str, apiInfo:list, imperial:bool):
     '''
     Set up the Tkinter Window for the pop-up
     '''
     # Initialize the window
     window = tkinter.Tk()
     # Initialize the window's dimensions
-    window.geometry("500x500")
+    window.geometry("550x750")
     # Set the window's title
     window.title(title)
-    #window.config(bg="blue")
-    ''' Use the fahrenheit parameter to determine the weather search to result in fahrenheit or celcius'''
-    # Declare variable to decide imperial or metric values
-    unit = ""
-    # If the user wants fahrenheit, then set unit to reflect that
-    if (imperial == True):
-        # API uses "imperial" to search fahrenheit and miles
-        unit = "imperial"
-    # If the user wants  celsius, then set unit to reflect that
-    else:
-        # Api uses "metric" to search celsius and kilometers
-        unit = "metric"
 
-    ''' Access openWeatherMap API by making a call to its module for its information;'''
-    # Acquire all the releveant weather data in a list
-    weatherInfo = weather.getWeatherInfo(lat, lon, unit)
-    # 0th index = a string description of the weather
-    weatherDesc = weatherInfo[0]
-     # 1st index = the path to open the relevant weather icon image
-    weatherIconPath = os.getcwd() + weatherInfo[1]
-    # 2nd index = the temperature of the weather
-    tempVal = weatherInfo[2]
-    # 3rd index = the average wind speed
-    avgWindSpeed = weatherInfo[3]
-    # 4th index = the direction of the wind from 0 - 360 degrees
-    windDirDeg = weatherInfo[4]
-    # 5th index = the path to open the relevant wind direction icon image
-    windDirIconPath = os.getcwd() + weatherInfo[5]
-    
+    weatherIconPath = apiInfo[0]
+    windDirIconPath = apiInfo[1]
+    weatherDesc = apiInfo[2]
+    temp = apiInfo[3]
+    windSpeed = apiInfo[4]
+    windDir = apiInfo[5]
+    vis = apiInfo[6]
+    humid = apiInfo[7]
+
     ''' Open the different images and make them compatable with Tkinter windows'''
     # Open the weather image for use
     imageWeather = Image.open(weatherIconPath)
     # Open the wind direction image for use
     imageWind = Image.open(windDirIconPath)
     # Reformat the weather iamge to an appropiate size for the pop-up
-    imageWeather = imageWeather.resize((200, 200))
+    imageWeather = imageWeather.resize((150, 150))
     # Reformat the wind direction iamge to an appropiate size for the pop-up
-    imageWind = imageWind.resize((200, 200))
+    imageWind = imageWind.resize((150, 150))
     # Allow the weather image to be placed in a Tkinter window for the pop-up
     imageWeather = ImageTk.PhotoImage(imageWeather)
     # Allow the wind direction image to be placed in a Tkinter window for the pop-up
@@ -143,15 +235,16 @@ def createPopup(title:str, lat:float, lon:float, imperial:bool):
 
     ''' Create the text to go alongside the images '''
     # Create the different fonts to use between the heading and body text
-    fontStyleHeading = tkFont.Font(family="Arial", size=36) # Heading font font: Arial font of Size 36
-    fontStyleBody = tkFont.Font(family="Arial", size=18)    # Body text font: Arial font of size 18
+    fontStyleHeading = tkFont.Font(family="Arial", size=32) # Heading font font: Arial font of Size 36
+    fontStyleBody = tkFont.Font(family="Arial", size=12)    # Body text font: Arial font of size 18
     
     ''' 
     Use frames to organize the weather and wind information into their own distinct groups; 
     also include a frame for the pop-up heading.
     After putting in the applicable images and text, put those frames into the window for viewing.
     '''
-    frameHeading = tkinter.Frame(window)    # Heading
+    frameWeatherHeading = tkinter.Frame(window)    # Heading
+    frameActivityHeading = tkinter.Frame(window)    # Heading
     frameWeather = tkinter.Frame(window)    # Weather Information
     frameWind = tkinter.Frame(window)       # Wind direction image
     
@@ -162,14 +255,19 @@ def createPopup(title:str, lat:float, lon:float, imperial:bool):
     labelWindImage = tkinter.Label(frameWind, image = imageWind) 
 
     ''' Create the different labels that incorporate the text to put into each frame '''
-    labelHeading = tkinter.Label(frameHeading, text = "Title", justify='center', font = fontStyleHeading)                       # Heading/Title text
-    labelWeatherText = tkinter.Label(frameWeather, text = "This displays the weather", justify = "right", font = fontStyleBody) # Descriptive text to go alongside weather iamge
-    labelWindText = tkinter.Label(frameWind, text = "This displays the wind", justify = "right", font = fontStyleBody)          # Descriptive text to go alongside wind direction iamge
+    # Start by creating the appropiate text for the weather and wind information
+    weatherText = createWeatherDesc(weatherDesc, temp, imperial)    # Appropiate weather text
+    windText = createWindDesc(windDir, windSpeed, imperial)         # Appropriate wind text
+    # Then create the labels
+    labelWeatherHeading = tkinter.Label(frameWeatherHeading, text = "Weather", justify='center', font = fontStyleHeading)              # Heading for Weather information     
+    labelActivityHeading = tkinter.Label(frameActivityHeading, text = "Outdoor Activities", justify='center', font = fontStyleHeading) # Heading for Outdoor activities
+    labelWeatherText = tkinter.Label(frameWeather, text = weatherText, justify = "left", font = fontStyleBody) # Descriptive text to go alongside weather iamge
+    labelWindText = tkinter.Label(frameWind, text = windText, justify = "left", font = fontStyleBody)          # Descriptive text to go alongside wind direction iamge
 
     ''' Place the heading, weather information, and wind direction information into their respective frames'''
     # Place the header text into the Heading Frame
-    labelHeading.pack(side = "top")
-    frameHeading.grid(row = 0, column = 0)
+    labelWeatherHeading.pack(side = "top")
+    labelActivityHeading.pack(side = "top")
 
     # The Weather Frame
     labelWeatherImage.pack(side = "left")   # Place the image into the frame first
@@ -180,10 +278,10 @@ def createPopup(title:str, lat:float, lon:float, imperial:bool):
     labelWindText.pack(side = "left")   # Place the text into the frame second
     
     ''' Finally, put the frames onto the tkinter window'''
-    frameHeading.grid(row = 0, column = 0)                  # Heading goes first
+    frameWeatherHeading.grid(row = 0, column = 0)           # Weather Heading goes first
     frameWeather.grid(row = 1, column = 0, sticky = "W")    # Followed by the weather information
     frameWind.grid(row = 2, column = 0, sticky = "W")       # Then finish the window with the wind information
-    
+    frameActivityHeading.grid(row = 3, column = 0)          # Then start with the outdoor activitites     
     # Run the window
     window.mainloop()
 
@@ -205,10 +303,55 @@ if __name__ == "__main__":
     # Run the function
     imageRet = imageAppender(pathL, pathS, tupleL, tupleS)
     # Display the image; comment out if you only see want to see the sample popup
-    imageRet.show()
-    # Variable that can be changed to view fahrenheit or celsius for sample popup
+    #imageRet.show()
+    # Variable that can be changed to view in imperial or metric for sample popup
     viewImperial = True
     # Display sample popup
+    '''
+    Below, each letter corresponds to the index of a list (a = 0th, b = 1th, c = 2nd, etc.) and the number
+    corresponds to which list it belongs (sampleList1, sampleList2, sampleList3). Any of these can be changed to
+    test out different values.
+    '''
+    # Path to weather icon image
+    a1 = cwd + "/images/weatherSymbols/rain.png"
+    a2= cwd + "/images/weatherSymbols/clear.png"
+    a3 = cwd + "/images/weatherSymbols/snow.png"
+    # Path to wind direction image
+    b1 = cwd + "/images/weatherSymbols/w195.png"
+    b2 = cwd + "/images/weatherSymbols/w225.png"
+    b3 = cwd + "/images/weatherSymbols/w345.png"
+    # Description of weather
+    c1 = "thunderstorm with rain"   
+    c2 = "clear sky"
+    c3 = "heavy shower snow"
+    # Temperature of the weather
+    d1 = 30
+    d2 = 50
+    d3 = 70
+    # Wind Speed
+    e1 = 5
+    e2 = 10
+    e3 = 15
+    # Wind Direction
+    f1 = 195
+    f2 = 225
+    f3 = 345
+    # Visibility
+    g1 = 10000
+    g2 = 9000
+    g3 = 8000
+    # Humidity
+    h1 = 70
+    h2 = 65
+    h3 = 60
+    '''
+    These are the sample lists that would be returned when calling the OpenWeatherMap API for debugging purposes
+    '''
+    sampleList1 = [a1, b1, c1, d1, e1, f1, g1, h1]
+    sampleList2 = [a2, b2, c2, d2, e2, f2, g2, h2]
+    sampleList3 = [a3, b3, c3, d3, e3, f3, g3, h3]
 
-    createPopup("Spencer Buttle", 50, -126, viewImperial)
+    # Run the pop-up function; change the sampleList to test a different set
+    createPopup("Sample Title", sampleList1, viewImperial)
+
 
