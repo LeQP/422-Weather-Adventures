@@ -32,7 +32,7 @@ from PIL import Image   # Open images
 # Import weather.py to gather weather data
 import weather
 from PIL import ImageTk # Have images available for Tkinter
-
+import webbrowser
 #########################################################################################################################################
 '''
 imageAppender(): this function allows a large image to have a smaller image placed on of it
@@ -218,7 +218,20 @@ Return:
     A tkinter window to view additional weather information and outdoor activitites
 '''
 
-def createPopup(title:str, apiInfo:list, imperial:bool):
+def openWebsite(url:str):
+    webbrowser.open_new_tab(url)
+    
+def getActivityDisplay(activity:dict):
+    nameStr = "Name: " + activity["name"] + "\n"
+    descStr = activity["description"] + "\n"
+    diffStr = "Difficulty: " + activity["difficulty"] + "\n"
+    locationStr = "Location: " + activity["address"] + "\n"
+    websiteStr = "Learn More: " + activity["source"]
+    #displayList = [nameStr, descStr, diffStr, locationStr, websiteStr]
+
+    return nameStr + descStr + diffStr + locationStr + websiteStr
+
+def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
     '''
     Set up the Tkinter Window for the pop-up
     '''
@@ -279,7 +292,7 @@ def createPopup(title:str, apiInfo:list, imperial:bool):
     windText = createWindDesc(windDir, windSpeed, imperial)         # Appropriate wind text
     # Then create the labels
     labelWeatherHeading = tkinter.Label(frameWeatherHeading, text = "Weather", justify='center', font = fontStyleHeading)              # Heading for Weather information     
-    labelActivityHeading = tkinter.Label(frameActivityHeading, text = "Outdoor Activities", justify='center', font = fontStyleHeading) # Heading for Outdoor activities
+    labelActivityHeading = tkinter.Label(frameActivityHeading, text = "Outdoor Activities", justify='left', font = fontStyleHeading) # Heading for Outdoor activities
     labelWeatherText = tkinter.Label(frameWeather, text = weatherText, justify = "left", font = fontStyleBody) # Descriptive text to go alongside weather iamge
     labelWindText = tkinter.Label(frameWind, text = windText, justify = "left", font = fontStyleBody)          # Descriptive text to go alongside wind direction iamge
 
@@ -296,14 +309,33 @@ def createPopup(title:str, apiInfo:list, imperial:bool):
     labelWindImage.pack(side = "left")  # Place the image into the frame first
     labelWindText.pack(side = "left")   # Place the text into the frame second
     
+
+    '''
+    Work on Displaying the Outdoor activitites
+    '''
+    frameActivityList = []
+    print(len(activityList))
+    for i in range(len(activityList)):
+        print(activityList)
+        frameActivityListNew = tkinter.Frame(window)
+        textList = getActivityDisplay(activityList[i])
+        #for i in range(5):
+            #tkinter.Label(frameActivityListNew, text = textList[i], justify="left").pack(side = "top")
+        tkinter.Label(frameActivityListNew, text = textList, justify="left", font=fontStyleBody).pack(side = "top") 
+        frameActivityList.append(frameActivityListNew)
+
+
     ''' Finally, put the frames onto the tkinter window'''
     vertLine = tkTtk.Separator(window, orient="vertical")
-
     frameWeatherHeading.grid(row = 0, column = 0)           # Weather Heading goes first
     frameWeather.grid(row = 1, column = 0, sticky = "W")    # Followed by the weather information
     frameWind.grid(row = 2, column = 0, sticky = "W")       # Then finish the window with the wind information
     vertLine.grid(row = 0, column = 1, sticky = "ns", rowspan = 9)  # Add a vertical line to seperate the weather from outdoor activities
-    frameActivityHeading.grid(row = 0, column = 2)          # Then start with the outdoor activitites     
+    frameActivityHeading.grid(row = 0, column = 2, sticky = "W")          # Then start with the outdoor activitites
+
+    for i in range(len(frameActivityList)):
+        frameActivityList[i].grid(row = i + 1, column = 2, sticky = "W")
+
     # Run the window
     window.mainloop()
 
@@ -373,7 +405,46 @@ if __name__ == "__main__":
     sampleList2 = [a2, b2, c2, d2, e2, f2, g2, h2]
     sampleList3 = [a3, b3, c3, d3, e3, f3, g3, h3]
 
+    dict1 = {
+        "name": "Bird Watching at Mt. Pisgah",
+        "description": "Bring your binoculars and enjoy a lovely, relaxing walk here at Mt. Pisgah. This activity requires a $5 pass so please keep that in mind.",
+        "difficulty": "Easy", 
+        "isWind": "Yes",
+        "isClear": "Yes",
+        "isRain": "Yes, although it might be a little chilly or wet, as long as you're comfortable in a rain jacket this will be a great activity for you.",
+        "isSnoworIce": "No",
+        "address":"34639 Frank Parrish Rd, Eugene, OR 97405",
+        "coordinates":"44.01497597816823, -122.98278078659796",    
+        "source": "https://www.eugenecascadescoast.org/listing/buford-park-%26-mt-pisgah-birding-%26-water-trails/13437/"
+    }
+
+    dict2 = {
+        "name": "Rock Climbing",
+        "description": "Head over to the University of Oregon Rec Center for this one. It's cold, it's raining, maybe it's snowing... all we know is that we are looking for a non-outdoor activity today, and we've got one for you! Head over the the rec center rock wall to spend some time bouldering. Luckily for you (if you're a student) this wall is totally free and you can even rent shoes there. All you need to bring is your student id and yourself. Enjoy some heart racing moments!",
+        "difficulty": "Moderate", 
+        "isWind": "Yes",
+        "isClear": "No",
+        "isRain": "Yes",
+        "isSnoworIce": "Yes",
+        "address":"1320 E 15th Ave, Eugene, OR 97403",
+        "coordinates":"44.042594927661476, -123.0734221019393",    
+        "source": "interviewee reccomendation"
+    }
+
+    dict3 = {
+        "name": "Alton Baker",
+        "description": "Spend the day leisurely walking or biking through the vast park that is Alton Baker, which spans from Eugene, Springfield, Coburg, and the Valley River areas. The paths in Alton Baker include paved bike paths as well as running and walking paths.",
+        "difficulty": "Easy", 
+        "isWind": "Yes",
+        "isClear": "Yes",
+        "isRain": "Yes",
+        "isSnoworIce": "No",
+        "address":"100 Day Island Rd, Eugene, OR 97401",
+        "coordinates":"44.05298827336223, -123.06722865961001",    
+        "source": "https://www.eugenecascadescoast.org/listing/alton-baker-park/3303/"
+    }
+    dictList = [dict1, dict2, dict3]
     # Run the pop-up function; change the sampleList to test a different set
-    createPopup("Sample Title", sampleList1, viewImperial)
+    createPopup("Sample Title", sampleList1, viewImperial, dictList)
 
 

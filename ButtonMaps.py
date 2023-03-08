@@ -15,6 +15,7 @@ This file is based on GridButtonPortionNotes.py
 #       6 7 8 ...
 
 ''' Imports '''
+import weather_adventures
 # import tkinter module
 from tkinter import * 
 import tkinter as tk
@@ -63,26 +64,53 @@ def on_click():
    label.after(0, label.destroy())
 
 ''' Function for when a button is clicked; It will change the selected button's image appropriately'''
-def button_click(windowImage:str, windowImage_w:str, button):
+def button_click():
     # If wind is selected:
-    if on.get() == 1:
-        # Display new wind image on button
-        button.config(image=windowImage_w)
-    # If wind is not selected:
+    if wind.get() == 1:
+        if num == 1:
+            # Display Eugene wind images
+            setEugeneWind()
+        else:
+            # Display Lane wind images
+            setLaneWind()
+    # If weather is selected:
+    elif weather.get() == 1:
+        if num == 1:
+            # Display Eugene wind images
+            setEugeneWeather()
+        else:
+            # Display Lane wind images
+            setLaneWeather()
+    # If empty is selected
+    elif empty.get() == 1:
+        if num == 1:
+            # Display Eugene wind images
+            setEugeneEmpty()
+        else:
+            # Display Lane wind images
+            setLaneEmpty()
     else:
-        # Display new image on button
-        button.config(image=windowImage)
+        if num == 1:
+            # Display Eugene wind images
+            setEugeneEmpty()
+        else:
+            # Display Lane wind images
+            setLaneEmpty()
 
 ''' Function for the Zoom Buttons; It will change the dimensions of the grid and number displayed  '''
 def zoom(closer:bool, buttonIn, buttonOut):
     global num 
     if (closer == False):
         # Reset button images
-        setLane()
+        setLaneEmpty()
         # Change 1 into 2
         oneToTwo()
+        # Reset empty checkbox to unselected
+        empty.set(0)
         # Reset wind checkbox to unselected
-        on.set(0)
+        wind.set(0)
+        # Reset weather checkbox to unselected
+        weather.set(0)
         # Set map level
         num = 2
         # Remove current map title
@@ -93,11 +121,15 @@ def zoom(closer:bool, buttonIn, buttonOut):
         buttonOut["state"] = DISABLED
     else:
         # Reset button images
-        setEugene()
+        setEugeneEmpty()
         # Change 2 into 1
         twoToOne()
+        # Reset empty checkbox to unselected
+        empty.set(0)
         # Reset wind checkbox to unselected
-        on.set(0)
+        wind.set(0)
+        # Reset weather checkbox to unselected
+        weather.set(0)
         # Set map level
         num = 1
         # Remove current map title
@@ -138,36 +170,111 @@ def setEugene():
     # Put all the buttons for viewing Eugene into button1; 2x2
     global button1
     button1 = []
-    button1.append(tk.Button(window, image = windowImage4, highlightthickness = 0, borderwidth=0, command=lambda: [more_info(COORDINATES_EUG_1, 1), button_click(windowImage23, windowImage24, button1[0])])) #(0,0)
-    button1.append(tk.Button(window, image = windowImage5, highlightthickness = 0, borderwidth=0, command=lambda: [more_info(COORDINATES_EUG_2, 1), button_click(windowImage25, windowImage26, button1[1])])) #(0,1)
-    button1.append(tk.Button(window, image = windowImage6, highlightthickness = 0, borderwidth=0, command=lambda: [more_info(COORDINATES_EUG_3, 1), button_click(windowImage27, windowImage28, button1[2])])) #(1,0)
-    button1.append(tk.Button(window, image = windowImage7, highlightthickness = 0, borderwidth=0, command=lambda: [more_info(COORDINATES_EUG_4, 1), button_click(windowImage29, windowImage30, button1[3])])) #(1,1)
+    button1.append(tk.Button(window, image = windowImage4, highlightthickness = 0, borderwidth=0, command=lambda: weather_adventures.more_info(1, COORDINATES_EUG_1[0], COORDINATES_EUG_1[1]))) #(0,0)
+    button1.append(tk.Button(window, image = windowImage5, highlightthickness = 0, borderwidth=0, command=lambda: weather_adventures.more_info(1, COORDINATES_EUG_2[0], COORDINATES_EUG_2[1]))) #(0,1)
+    button1.append(tk.Button(window, image = windowImage6, highlightthickness = 0, borderwidth=0, command=lambda: weather_adventures.more_info(1, COORDINATES_EUG_3[0], COORDINATES_EUG_3[1]))) #(1,0)
+    button1.append(tk.Button(window, image = windowImage7, highlightthickness = 0, borderwidth=0, command=lambda: weather_adventures.more_info(1, COORDINATES_EUG_4[0], COORDINATES_EUG_4[1]))) #(1,1)
+
+def setEugeneEmpty():
+    button1[0].config(image=windowImage4)
+    button1[1].config(image=windowImage5)
+    button1[2].config(image=windowImage6)
+    button1[3].config(image=windowImage7)
+
+def setEugeneWeather():
+    button1[0].config(image=windowImage23)
+    button1[1].config(image=windowImage25)
+    button1[2].config(image=windowImage27)
+    button1[3].config(image=windowImage29)
+
+def setEugeneWind():
+    button1[0].config(image=windowImage24)
+    button1[1].config(image=windowImage26)
+    button1[2].config(image=windowImage28)
+    button1[3].config(image=windowImage30)
 
 def setLane():
     # Put all the buttons for viewing Lane County into button2; 5x3
     global button2
     button2 = []
-    button2.append(tk.Button(window, image = windowImage8, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_1, 2), button_click(windowImage31, windowImage32, button2[0])]))   #(0,0)
-    button2.append(tk.Button(window, image = windowImage9, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_2, 2), button_click(windowImage33, windowImage34, button2[1])]))   #(0,1)
-    button2.append(tk.Button(window, image = windowImage10, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_3, 2), button_click(windowImage35, windowImage36, button2[2])]))  #(0,2)
-    button2.append(tk.Button(window, image = windowImage11, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_4, 2), button_click(windowImage37, windowImage38, button2[3])]))  #(0,3)
-    button2.append(tk.Button(window, image = windowImage12, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_5, 2), button_click(windowImage39, windowImage40, button2[4])]))  #(0,4)
-    button2.append(tk.Button(window, image = windowImage13, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_6, 2), button_click(windowImage41, windowImage42, button2[5])]))  #(1,0)
-    button2.append(tk.Button(window, image = windowImage14, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_7, 2), button_click(windowImage43, windowImage44, button2[6])]))  #(1,1)
-    button2.append(tk.Button(window, image = windowImage15, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_8, 2), button_click(windowImage45, windowImage46, button2[7])]))  #(1,2)
-    button2.append(tk.Button(window, image = windowImage16, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_9, 2), button_click(windowImage47, windowImage48, button2[8])]))  #(1,3)
-    button2.append(tk.Button(window, image = windowImage17, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_10, 2), button_click(windowImage49, windowImage50, button2[9])])) #(1,4)
-    button2.append(tk.Button(window, image = windowImage18, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_11, 2), button_click(windowImage51, windowImage52, button2[10])])) #(2,0)
-    button2.append(tk.Button(window, image = windowImage19, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_12, 2), button_click(windowImage53, windowImage54, button2[11])])) #(2,1)
-    button2.append(tk.Button(window, image = windowImage20, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_13, 2), button_click(windowImage55, windowImage56, button2[12])])) #(2,2)
-    button2.append(tk.Button(window, image = windowImage21, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_14, 2), button_click(windowImage57, windowImage58, button2[13])])) #(2,3)
-    button2.append(tk.Button(window, image = windowImage22, highlightthickness = 0, command=lambda: [more_info(COORDINATES_LANE_15, 2), button_click(windowImage59, windowImage60, button2[14])])) #(2,4)
+    button2.append(tk.Button(window, image = windowImage8, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_1[0], COORDINATES_LANE_1[1])))    #(0,0)
+    button2.append(tk.Button(window, image = windowImage9, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_2[0], COORDINATES_LANE_2[1])))    #(0,1)
+    button2.append(tk.Button(window, image = windowImage10, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_3[0], COORDINATES_LANE_3[1])))   #(0,2)
+    button2.append(tk.Button(window, image = windowImage11, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_4[0], COORDINATES_LANE_4[1])))   #(0,3)
+    button2.append(tk.Button(window, image = windowImage12, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_5[0], COORDINATES_LANE_5[1])))   #(0,4)
+    button2.append(tk.Button(window, image = windowImage13, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_6[0], COORDINATES_LANE_6[1])))   #(1,0)
+    button2.append(tk.Button(window, image = windowImage14, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_7[0], COORDINATES_LANE_7[1])))   #(1,1)
+    button2.append(tk.Button(window, image = windowImage15, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_8[0], COORDINATES_LANE_8[1])))   #(1,2)
+    button2.append(tk.Button(window, image = windowImage16, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_9[0], COORDINATES_LANE_9[1])))   #(1,3)
+    button2.append(tk.Button(window, image = windowImage17, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_10[0], COORDINATES_LANE_10[1]))) #(1,4)
+    button2.append(tk.Button(window, image = windowImage18, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_11[0], COORDINATES_LANE_11[1]))) #(2,0)
+    button2.append(tk.Button(window, image = windowImage19, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_12[0], COORDINATES_LANE_12[1]))) #(2,1)
+    button2.append(tk.Button(window, image = windowImage20, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_13[0], COORDINATES_LANE_13[1]))) #(2,2)
+    button2.append(tk.Button(window, image = windowImage21, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_14[0], COORDINATES_LANE_14[1]))) #(2,3)
+    button2.append(tk.Button(window, image = windowImage22, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_15[0], COORDINATES_LANE_15[1]))) #(2,4)
 
-def print_selection():
-    if (on.get() == 1):
-        return 1
-    else:
-        return 0
+def setLaneEmpty():
+    button2[0].config(image=windowImage8)
+    button2[1].config(image=windowImage9)
+    button2[2].config(image=windowImage10)
+    button2[3].config(image=windowImage11)
+    button2[4].config(image=windowImage12)
+    button2[5].config(image=windowImage13)
+    button2[6].config(image=windowImage14)
+    button2[7].config(image=windowImage15)
+    button2[8].config(image=windowImage16)
+    button2[9].config(image=windowImage17)
+    button2[10].config(image=windowImage18)
+    button2[11].config(image=windowImage19)
+    button2[12].config(image=windowImage20)
+    button2[13].config(image=windowImage21)
+    button2[14].config(image=windowImage22)
+
+def setLaneWeather():
+    button2[0].config(image=windowImage31)
+    button2[1].config(image=windowImage33)
+    button2[2].config(image=windowImage35)
+    button2[3].config(image=windowImage37)
+    button2[4].config(image=windowImage39)
+    button2[5].config(image=windowImage41)
+    button2[6].config(image=windowImage43)
+    button2[7].config(image=windowImage45)
+    button2[8].config(image=windowImage47)
+    button2[9].config(image=windowImage49)
+    button2[10].config(image=windowImage51)
+    button2[11].config(image=windowImage53)
+    button2[12].config(image=windowImage55)
+    button2[13].config(image=windowImage57)
+    button2[14].config(image=windowImage59)
+
+def setLaneWind():
+    button2[0].config(image=windowImage32)
+    button2[1].config(image=windowImage34)
+    button2[2].config(image=windowImage36)
+    button2[3].config(image=windowImage38)
+    button2[4].config(image=windowImage40)
+    button2[5].config(image=windowImage42)
+    button2[6].config(image=windowImage44)
+    button2[7].config(image=windowImage46)
+    button2[8].config(image=windowImage48)
+    button2[9].config(image=windowImage50)
+    button2[10].config(image=windowImage52)
+    button2[11].config(image=windowImage54)
+    button2[12].config(image=windowImage56)
+    button2[13].config(image=windowImage58)
+    button2[14].config(image=windowImage60)
+
+def clearWindWeather():
+    wind.set(0)
+    weather.set(0)
+
+def clearEmptyWeather():
+    empty.set(0)
+    weather.set(0)
+
+def clearEmptyWind():
+    empty.set(0)
+    wind.set(0)
 
 def main():
     '''Set up Tkinter Window'''
@@ -501,6 +608,7 @@ def main():
     button1[3].grid(row = 3, column = 3, rowspan = 3, columnspan = 3, ipadx = 2.5, ipady = 2.5)
 
     # num is used to keep track of which number is on display
+    global num
     num = 1
 
     ''' Incorporate additional labels and zoom buttons '''
@@ -508,13 +616,24 @@ def main():
     #buttonIn = Button(frame, text = "ZOOM IN", command=lambda: zoom(True))
     buttonIn = tk.Button(window, text = "ZOOM IN", fg = "dark green", command=lambda: zoom(True, buttonIn, buttonOut))
     buttonOut = tk.Button(window, text = "ZOOM OUT", fg = "dark green", command=lambda: zoom(False, buttonIn, buttonOut))
-    buttonIn.grid(row=8, column=10)
-    buttonOut.grid(row=8, column=11)
+    buttonIn.grid(row=7, column=10)
+    buttonOut.grid(row=7, column=11)
 
-    global on
-    on = tk.IntVar()
-    c1 = tk.Checkbutton(window, text='Wind',variable=on, onvalue=1, offvalue=0, command=print_selection)
-    c1.grid(row = 7, column = 10)
+    global empty
+    global wind
+    global weather
+
+    empty = IntVar()
+    emptyBox = tk.Checkbutton(window, text='Empty',variable=empty, onvalue=1, offvalue=0, command=lambda:[clearWindWeather(), button_click()])
+    emptyBox.grid(row = 9, column = 9)
+
+    wind = IntVar()
+    windBox = tk.Checkbutton(window, text='Wind',variable=wind, onvalue=1, offvalue=0, command=lambda:[clearEmptyWeather(), button_click()])
+    windBox.grid(row = 9, column = 10)
+
+    weather = IntVar()
+    weatherBox = tk.Checkbutton(window, text='Weather',variable=weather, onvalue=1, offvalue=0, command=lambda:[clearEmptyWind(), button_click()])
+    weatherBox.grid(row = 9, column = 11)
 
     # Set the default title
     mapTitle(num)
