@@ -25,7 +25,7 @@ def parse(specific_data, weather, wind):
                 reccomended.append(activity)
     return reccomended
  
-def zoom(zoom, weather, wind):
+def zoom(zoom, weather, wind, coordinates):
     if zoom == 1:
         reccomended = parse(data["groups"][0]["1"], weather, wind)
     elif zoom == 2:
