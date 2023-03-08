@@ -6,7 +6,6 @@ This is the file that will be run by the user, and acts as the intermediary betw
 
 #import all the other files
 import ButtonMaps
-import Activity_Reccomender
 import weather
 import InfoPopup
 
@@ -17,17 +16,19 @@ from PIL import Image
 
 
 #####  GLOBALS   #####
-WEATHER_INFO = {}  #store the weather infomation per button, so we as few as possible API calls)
+WEATHER_INFO = {}  #store the weather infomation per button, so we make as few as possible API calls)
 
 # store the coordinates in a list to make it easier to reference
-EUGENE_COORD_NAMES = [ButtonMaps.COORDINATES_EUG_1, ButtonMaps.COORDINATES_EUG_2,
-                       ButtonMaps.COORDINATES_EUG_3, ButtonMaps.COORDINATES_EUG_4]
+EUGENE_COORD_NAMES = [(44.081303, -123.146928), (44.083770, -123.046695),
+                        (44.019559, -123.143883), (44.015600, -123.047490)]
+            
+            # each coord is a tuple st (lat, long)
 
-LANE_COORD_NAMES = [ButtonMaps.COORDINATES_LANE_1, ButtonMaps.COORDINATES_LANE_2, ButtonMaps.COORDINATES_LANE_3,
-                     ButtonMaps.COORDINATES_LANE_4, ButtonMaps.COORDINATES_LANE_5, ButtonMaps.COORDINATES_LANE_6,
-                     ButtonMaps.COORDINATES_LANE_7, ButtonMaps.COORDINATES_LANE_8, ButtonMaps.COORDINATES_LANE_9,
-                     ButtonMaps.COORDINATES_LANE_10, ButtonMaps.COORDINATES_LANE_11, ButtonMaps.COORDINATES_LANE_12,
-                     ButtonMaps.COORDINATES_LANE_13, ButtonMaps.COORDINATES_LANE_14, ButtonMaps.COORDINATES_LANE_15]
+LANE_COORD_NAMES = [(44.169810, -123.959655) ,(44.140252, -123.489990), (44.199846, -122.998352),
+                    (44.178182, -122.492981), (44.191969, -122.006836), (44.140252, -123.489990),
+                    (43.830482, -123.487243), (43.856234, -123.006592), (43.850292, -122.471008), 
+                    (43.842369, -121.987610), (43.540004, -123.995361), (43.541001, -123.486545), 
+                    (43.528811, -122.955678), (43.549707, -122.463245), (43.523586, -122.040473)]
 
 
 
@@ -64,6 +65,8 @@ def imageAppender(imgLarge:str, imgSmall:str, sizeLarge:tuple, sizeSmall:tuple):
     positionX = int(positionX)
     # Convert the width position to an int since paste() won't accept floats
     positionY = int(positionY)
+
+
     # Open the large image to use
     #imageLarge = Image.open(pathLarge)
     # Open the small image to use
@@ -82,7 +85,7 @@ def imageAppender(imgLarge:str, imgSmall:str, sizeLarge:tuple, sizeSmall:tuple):
 
 
 
-def main():
+def BIG():
     '''
     This function will intialize all the jpgs for the tkinter window to display on the buttons. It will
     automatically be called when the user runs the file
@@ -90,12 +93,15 @@ def main():
     * this takes a little bit of time, so to prove to the user things are working there are command line 
     outputs.
     '''
+
+    #print statements to prove that their call actually mad things start up
     print()
     print("Welcome to Weather Adventures!")
 
     print("We are initiallizing the maps. This will take a moment. Thank you for your patience! ")
 
-    #call the map tkinter window to use the initialized images
+
+
 
     cwd = os.getcwd()  # current working directory
 
@@ -143,7 +149,7 @@ def main():
     l_save_path = cwd + "/images/mapImages_symbols/LaneCounty5x3/"
 
 
-    # loop through the photos for the Eugene map
+    # loop through the photos for the Lane County map
     for i in range(1, 16):
         # open and resize the map image
         m_img = Image.open(lane_path.strip() +  str(i) + ".png").resize((160, 160))
@@ -165,11 +171,15 @@ def main():
         #save the image
         new_img_wind.save(l_save_path + str(i) + "_w" + ".png")
     
+
+    # maps are intialized let the user know through the command prompt
     print("Map is initalized!  Opening the application now.")
     print()
-
-    ButtonMaps.main()
+    
+    
     #call the tkinter and make it use the new initialized images
+    #print(WEATHER_INFO)
+    #ButtonMaps.main()
 
 
 
@@ -177,30 +187,17 @@ def main():
 
 def more_info(zoom: int, button_num: int):
     '''
-    This function is called by the tkinter window when a button is pressed
+    #This function is called by the tkinter window when a button is pressed
     '''
-    #print(WEATHER_INFO)
+    print(WEATHER_INFO)
     if zoom == 1:
         # we are looking at the eugene map
         InfoPopup.createPopup("Eugene Recommendation", WEATHER_INFO["E" + str(button_num)], True)
     elif zoom == 2:
         # we are looking at the lane map
-        InfoPopup.createPopup( "Lane County Recommendation", WEATHER_INFO["E" + str(button_num)], True)
+        InfoPopup.createPopup( "Lane County Recommendation", WEATHER_INFO["L" + str(button_num)], True)
+    else:
+        #zoom was not one of the expected outcomes
+        print("BAD INPUT : ( ")
     
 
-
-    # get the weather information for this specific button location from WEATHER_INFO
-    # call Activity reccommender based on specified weather and zoom level
-
-    # format the string to pass to the pop-up creater
-
-    # call the pop-creater with more weather info and the recommended activities. 
-    
-
-
-
-
-if __name__ == "__main__":
-    main()
-
-    more_info(1, 1)

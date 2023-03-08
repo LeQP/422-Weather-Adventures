@@ -17,6 +17,7 @@ import os
 from PIL import Image   # Open images
 from PIL import ImageTk # Have images available for Tkinter
 
+
 # Set up global map coordinates for Eugene buttons
 COORDINATES_EUG_1 = (44.081303, -123.146928)
 COORDINATES_EUG_2 = (44.083770, -123.046695)
@@ -25,11 +26,11 @@ COORDINATES_EUG_4 = (44.015600, -123.047490)
 
 # Set up global map coordinates for Lane County buttons
 COORDINATES_LANE_1 = (44.169810, -123.959655)
-COORDINATES_LANE_2 = (44.140252, -123.489990)
+COORDINATES_LANE_2 = (44.140252, -123.489990) #####
 COORDINATES_LANE_3 = (44.199846, -122.998352)
 COORDINATES_LANE_4 = (44.178182, -122.492981)
 COORDINATES_LANE_5 = (44.191969, -122.006836)
-COORDINATES_LANE_6 = (44.140252, -123.489990)
+COORDINATES_LANE_6 = (44.140252, -123.489990) #####
 COORDINATES_LANE_7 = (43.830482, -123.487243)
 COORDINATES_LANE_8 = (43.856234, -123.006592)
 COORDINATES_LANE_9 = (43.850292, -122.471008)
@@ -40,14 +41,8 @@ COORDINATES_LANE_13 = (43.528811, -122.955678)
 COORDINATES_LANE_14 = (43.549707, -122.463245)
 COORDINATES_LANE_15 = (43.523586, -122.040473)
 
-''' Function to return the map coordinate of the button and the map level '''
-def more_info(coordinates:tuple, level:int):
-    inputStr = "Button Clicked at " + str(coordinates) + " at level " + str(level)
-    infoList = []
-    infoList.append(coordinates)
-    infoList.append(level)
-    return infoList
-    #label.configure(text=str(infoList))
+
+
 
 def on_click():
     # Remove current map title
@@ -159,10 +154,10 @@ def setEugene():
     # Put all the buttons for viewing Eugene into button1; 2x2
     global button1
     button1 = []
-    button1.append(tk.Button(window, image = windowImage4, highlightthickness = 0, borderwidth=0, command=lambda: weather_adventures.more_info(1, COORDINATES_EUG_1[0], COORDINATES_EUG_1[1]))) #(0,0)
-    button1.append(tk.Button(window, image = windowImage5, highlightthickness = 0, borderwidth=0, command=lambda: weather_adventures.more_info(1, COORDINATES_EUG_2[0], COORDINATES_EUG_2[1]))) #(0,1)
-    button1.append(tk.Button(window, image = windowImage6, highlightthickness = 0, borderwidth=0, command=lambda: weather_adventures.more_info(1, COORDINATES_EUG_3[0], COORDINATES_EUG_3[1]))) #(1,0)
-    button1.append(tk.Button(window, image = windowImage7, highlightthickness = 0, borderwidth=0, command=lambda: weather_adventures.more_info(1, COORDINATES_EUG_4[0], COORDINATES_EUG_4[1]))) #(1,1)
+    button1.append(tk.Button(window, image = windowImage4, highlightthickness = 0, borderwidth=0, command=lambda: weather_adventures.more_info(1, 1))) #(0,0)
+    button1.append(tk.Button(window, image = windowImage5, highlightthickness = 0, borderwidth=0, command=lambda: weather_adventures.more_info(1, 2))) #(0,1)
+    button1.append(tk.Button(window, image = windowImage6, highlightthickness = 0, borderwidth=0, command=lambda: weather_adventures.more_info(1, 3))) #(1,0)
+    button1.append(tk.Button(window, image = windowImage7, highlightthickness = 0, borderwidth=0, command=lambda: weather_adventures.more_info(1, 4))) #(1,1)
 
 def setEugeneEmpty():
     # Set all the Eugene button images to Eugene images
@@ -189,21 +184,21 @@ def setLane():
     # Put all the buttons for viewing Lane County into button2; 5x3
     global button2
     button2 = []
-    button2.append(tk.Button(window, image = windowImage8, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_1[0], COORDINATES_LANE_1[1])))    #(0,0)
-    button2.append(tk.Button(window, image = windowImage9, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_2[0], COORDINATES_LANE_2[1])))    #(0,1)
-    button2.append(tk.Button(window, image = windowImage10, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_3[0], COORDINATES_LANE_3[1])))   #(0,2)
-    button2.append(tk.Button(window, image = windowImage11, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_4[0], COORDINATES_LANE_4[1])))   #(0,3)
-    button2.append(tk.Button(window, image = windowImage12, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_5[0], COORDINATES_LANE_5[1])))   #(0,4)
-    button2.append(tk.Button(window, image = windowImage13, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_6[0], COORDINATES_LANE_6[1])))   #(1,0)
-    button2.append(tk.Button(window, image = windowImage14, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_7[0], COORDINATES_LANE_7[1])))   #(1,1)
-    button2.append(tk.Button(window, image = windowImage15, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_8[0], COORDINATES_LANE_8[1])))   #(1,2)
-    button2.append(tk.Button(window, image = windowImage16, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_9[0], COORDINATES_LANE_9[1])))   #(1,3)
-    button2.append(tk.Button(window, image = windowImage17, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_10[0], COORDINATES_LANE_10[1]))) #(1,4)
-    button2.append(tk.Button(window, image = windowImage18, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_11[0], COORDINATES_LANE_11[1]))) #(2,0)
-    button2.append(tk.Button(window, image = windowImage19, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_12[0], COORDINATES_LANE_12[1]))) #(2,1)
-    button2.append(tk.Button(window, image = windowImage20, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_13[0], COORDINATES_LANE_13[1]))) #(2,2)
-    button2.append(tk.Button(window, image = windowImage21, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_14[0], COORDINATES_LANE_14[1]))) #(2,3)
-    button2.append(tk.Button(window, image = windowImage22, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, COORDINATES_LANE_15[0], COORDINATES_LANE_15[1]))) #(2,4)
+    button2.append(tk.Button(window, image = windowImage8, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 1)))    #(0,0)
+    button2.append(tk.Button(window, image = windowImage9, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 2)))    #(0,1)
+    button2.append(tk.Button(window, image = windowImage10, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 3)))   #(0,2)
+    button2.append(tk.Button(window, image = windowImage11, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 4)))   #(0,3)
+    button2.append(tk.Button(window, image = windowImage12, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 5)))   #(0,4)
+    button2.append(tk.Button(window, image = windowImage13, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 6)))   #(1,0)
+    button2.append(tk.Button(window, image = windowImage14, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 7)))   #(1,1)
+    button2.append(tk.Button(window, image = windowImage15, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 8)))   #(1,2)
+    button2.append(tk.Button(window, image = windowImage16, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 9)))   #(1,3)
+    button2.append(tk.Button(window, image = windowImage17, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 10))) #(1,4)
+    button2.append(tk.Button(window, image = windowImage18, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 11))) #(2,0)
+    button2.append(tk.Button(window, image = windowImage19, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 12))) #(2,1)
+    button2.append(tk.Button(window, image = windowImage20, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 13))) #(2,2)
+    button2.append(tk.Button(window, image = windowImage21, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 14))) #(2,3)
+    button2.append(tk.Button(window, image = windowImage22, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 15))) #(2,4)
 
 def setLaneEmpty():
     # Set all the Lane County button images to Lane County images
@@ -639,4 +634,5 @@ def main():
     mainloop()
 
 if __name__ == "__main__":
+    weather_adventures.BIG()
     main()

@@ -422,27 +422,27 @@
                     "source": "https://www.eugenecascadescoast.org/blog/post/best-places-to-kayak/"
                 },
                 {
-                    "name": "McCredie Hot Springs",
-                    "description": "Enjoy a refreshing dip in Blue River Lake during Oregon's summer months",
+                    "name": "Elk Hiking Trail",
+                    "description": "1.6 mile 13ft elevation gain, only takes 30 minutes to complete. Great for a quick, relaxing day.",
                     "difficulty": "Easy", 
                     "isWind": "Yes",
                     "isClear": "Yes",
                     "isRain": "Yes",
-                    "isSnoworIce": "Yes",
-                    "address":"11 miles on Hwy 58, Just past Blue Pool Campground, Oakridge, OR 97463",
-                    "coordinates":"43.70469364679311, -122.28717709922128",    
-                    "source": "interviewee reccomendation"
+                    "isSnoworIce": "No",
+                    "address":"see coordinates",
+                    "coordinates":"43.94936692902267, -122.84217743519338",    
+                    "source": "https://www.alltrails.com/explore/trail/us/oregon/elk-trail"
                 },
                 {
-                    "name": "McCredie Hot Springs",
-                    "description": "Enjoy a refreshing dip in Blue River Lake during Oregon's summer months",
+                    "name": "Tamolitch Blue Pool via McKenzie River Trail",
+                    "description": "This 3.6 mile and 285ft elevation gain hike has stunningly rewarding views. Enjoy your hike to, as the name says, a really blue pool! It should take you about 1 h and 30 minutes to complete.",
                     "difficulty": "Easy", 
                     "isWind": "Yes",
                     "isClear": "Yes",
                     "isRain": "Yes",
-                    "isSnoworIce": "Yes",
-                    "address":"11 miles on Hwy 58, Just past Blue Pool Campground, Oakridge, OR 97463",
-                    "coordinates":"43.70469364679311, -122.28717709922128",    
+                    "isSnoworIce": "Yes, bring snowshoes!",
+                    "address":"See coordinates",
+                    "coordinates":"44.315132511691715, -122.03817383540051",    
                     "source": "interviewee reccomendation"
                 },
                 {
