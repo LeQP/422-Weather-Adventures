@@ -15,6 +15,7 @@ Revision History (Date | Author | Modifications)
 3/4/2023 | Joey Le | Further developed createPopup() for a basic format
 3/6/2023 | Joey Le | Added more detailed weather and wind descriptions in pop-up by creating createWeatherDesc() and createWindDesc()
 3/7/2023 | Joey Le | Added further documentation for createWeatherDesc() and createWindDesc()
+3/7/2023 | Joey Le | Added display for outdoor activitites into createPopup
 
 
 """
