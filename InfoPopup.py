@@ -15,7 +15,10 @@ Revision History (Date | Author | Modifications)
 3/4/2023 | Joey Le | Further developed createPopup() for a basic format
 3/6/2023 | Joey Le | Added more detailed weather and wind descriptions in pop-up by creating createWeatherDesc() and createWindDesc()
 3/7/2023 | Joey Le | Added further documentation for createWeatherDesc() and createWindDesc()
-3/7/2023 | Joey Le | Added display for outdoor activitites into createPopup
+3/7/2023 | Joey Le | Added display for outdoor activitites into createPopup()
+3/8/2023 | Joey Le | Removed imageAppender() as it is used in weather_adventures.py instead
+3/8/2023 | Joey Le | Reorganized information displayed for each outdoor activity with bullet points and a button to view website
+3/8/2023 | Joey Le | Added Visibility and Humidity to the Pop-up window
 
 
 """
@@ -34,49 +37,38 @@ from PIL import Image   # Open images
 import weather
 from PIL import ImageTk # Have images available for Tkinter
 import webbrowser
+
+'''
+addNewLines(): a helper function for adding new lines inside strings to be displayed on the Tkinter pop-up window
+
+'''
+def addNewLine(longStr:str, limitEst:int, bulletPoint:bool):
+    currStr = longStr
+    retStr = longStr 
+    strLen = len(currStr)
+    collection = 0
+    # Find the first space character past the limitEst index
+    while(len(currStr) > limitEst):
+        # Find the first space character past the limitEst index
+        index = currStr.find(" ", limitEst, len(currStr))
+        # If found, then replace the space with a new line. If it cannot be found, 
+        # the current word is the last word on the line and no space is needed
+        if (index != -1):
+            # Replace the space with a new line.
+            retStr = retStr[:collection + index] + "\n" + retStr[collection + index + 1:]
+            if (bulletPoint == False):
+                currStr = currStr[index + 1:strLen]
+                collection = collection + index + 1
+            else:
+                retStr = retStr[:collection + index + 1] + "   " + retStr[collection + index + 1:]
+                currStr = currStr[index + 1:strLen]
+                collection = collection + index + 4
+        else:
+            break
+    return retStr
+
+
 #########################################################################################################################################
-'''
-imageAppender(): this function allows a large image to have a smaller image placed on of it
-
-Parameters:
-    pathLarge: a string that provides the path to access the image file for the large image
-    pathSmall: a string that provides the path to access the image file for the small image
-    sizeLarge: a tuple containing the dimensions for the large image (length, width)
-    sizeSmall: a tuple containing the dimensions for the Small image (length, width)
-
-Return
-    imageLarge: the large image with the small image placed in the middle of it
-'''
-def imageAppender(pathLarge:str, pathSmall:str, sizeLarge:tuple, sizeSmall:tuple):
-    ''' Calculate the position to place the small image in the center of the large image'''
-    # Need the length midpoint of the large image
-    midpointLargeX = sizeLarge[0] / 2
-    # Need the length midpoint of the small image
-    midpointSmallX = sizeSmall[0] / 2
-    # Need the width midpoint of the large image
-    midpointLargeY = sizeLarge[1] / 2
-    # Need the width midpoint of the small image
-    midpointSmallY = sizeSmall[1] / 2
-    # Calculate the length position to place the image
-    positionX = midpointLargeX - midpointSmallX
-    # Calculate the width position to place the image
-    positionY = midpointLargeY - midpointSmallY
-    # Convert the length position to an int since paste() won't accept floats
-    positionX = int(positionX)
-    # Convert the width position to an int since paste() won't accept floats
-    positionY = int(positionY)
-    # Open the large image to use
-    imageLarge = Image.open(pathLarge)
-    # Open the small image to use
-    imageSmall = Image.open(pathSmall)
-    # Resize the large image with the provided dimension tuple
-    imageLarge = imageLarge.resize(sizeLarge)
-    # Resize the small image with the provided dimension tuple
-    imageSmall = imageSmall.resize(sizeSmall)
-    # Put the small image on the large image
-    imageLarge.paste(imageSmall, (positionX,positionY), mask = imageSmall)
-    # Return the large image with the appended small image
-    return imageLarge
 
 '''
 createWeatherDesc(): a helper function to create the descriptive text to describe the weather on the window pop-up
@@ -118,18 +110,8 @@ def createWeatherDesc(weatherStr:str, temp:int, imperial:bool):
     '''
     # Form the description string to return
     resStr = "This area is currently experiencing " + descVal + " at " + str(temp) + " degrees" + unit
-    # Acquire its length
-    strLen = len(resStr)
-    # Find the first space character past the 50th character
-    if (strLen > 50):
-        # Find the first space character past the 50th character
-        index = resStr.find(" ", 50, strLen)
-        # If found, then replace the space with a new line. If it cannot be found, 
-        # the current word is the last word on the line and no space is needed
-        if (index != -1):
-            # Replace the space with a new line.
-            resStr = resStr[:index] + "\n" + resStr[index + 1:]
-        # Return the string that describes the wind
+    # Break into 2 lines if needed
+    resStr = addNewLine(resStr, 50, False)
     return resStr
 
 '''
@@ -192,19 +174,27 @@ def createWindDesc(windDir:int, windSpeed:int, imperial:bool):
     '''
     # Form the description string to return
     resStr = "The wind is blowing " + dict[windDir] + " at " + str(windSpeed) + unit
-    # Acquire its length
-    strLen = len(resStr)
-    # If the length is too long to be on one line (over 50 characters), break it up to two lines
-    if (strLen > 50):
-        # Find the first space character past the 50th character
-        index = resStr.find(" ", 50, strLen)
-        # If found, then replace the space with a new line. If it cannot be found, 
-        # the current word is the last word on the line and no space is needed
-        if (index != -1):
-            # Replace the space with a new line.
-            resStr = resStr[:index] + "\n" + resStr[index + 1:]
-        # Return the string that describes the wind
+    # Break into 2 lines if needed
+    resStr = addNewLine(resStr, 50, False)
     return resStr
+
+def createVisAndHumText(vis:int, hum:int, imperial:bool):
+    retStr = ""
+    unit = ""
+    if (imperial):
+        unit = "feet"
+    else:
+        unit = "kilometers"
+    retStr = "Humidity = " + str(hum) + "%\tVisbility = " + str(vis) + " " + unit
+    return retStr 
+
+
+def openWebsite(url:str):
+    webbrowser.open_new_tab(url)
+
+
+
+
 '''
 createPopup(): a function that creates a small tkinter pop-up window when a user wishes to know more
                about a specific region on the grid 
@@ -218,20 +208,7 @@ Parameters:
 Return:
     A tkinter window to view additional weather information and outdoor activitites
 '''
-
-def openWebsite(url:str):
-    webbrowser.open_new_tab(url)
     
-def getActivityDisplay(activity:dict):
-    nameStr = "Name: " + activity["name"] + "\n"
-    descStr = activity["description"] + "\n"
-    diffStr = "Difficulty: " + activity["difficulty"] + "\n"
-    locationStr = "Location: " + activity["address"] + "\n"
-    websiteStr = "Learn More: " + activity["source"]
-    #displayList = [nameStr, descStr, diffStr, locationStr, websiteStr]
-
-    return nameStr + descStr + diffStr + locationStr + websiteStr
-
 def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
     '''
     Set up the Tkinter Window for the pop-up
@@ -239,7 +216,7 @@ def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
     # Initialize the window
     window = tkinter.Tk()
     # Initialize the window's dimensions
-    window.geometry("1300x650")
+    window.geometry("1400x700")
     # Set the window's title
     window.title(title)
 
@@ -270,7 +247,8 @@ def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
     # Create the different fonts to use between the heading and body text
     fontStyleHeading = tkFont.Font(family="Arial", size=32) # Heading font font: Arial font of Size 36
     fontStyleBody = tkFont.Font(family="Arial", size=12)    # Body text font: Arial font of size 18
-    
+    fontStyleActivity = tkFont.Font(family="Arial", size=18, underline=True)
+    fontStyleVisAndHum = tkFont.Font(family="Arial", size=18)
     ''' 
     Use frames to organize the weather and wind information into their own distinct groups; 
     also include a frame for the pop-up heading.
@@ -280,6 +258,7 @@ def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
     frameActivityHeading = tkinter.Frame(window)    # Heading
     frameWeather = tkinter.Frame(window)    # Weather Information
     frameWind = tkinter.Frame(window)       # Wind direction image
+    frameVisAndHum = tkinter.Frame(window)
     
     ''' Put the images into labels to apply to the frames'''
     # Create the label for the weather image
@@ -291,12 +270,15 @@ def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
     # Start by creating the appropiate text for the weather and wind information
     weatherText = createWeatherDesc(weatherDesc, temp, imperial)    # Appropiate weather text
     windText = createWindDesc(windDir, windSpeed, imperial)         # Appropriate wind text
+    visAndHumText = createVisAndHumText(vis, humid, imperial)
+
     # Then create the labels
     labelWeatherHeading = tkinter.Label(frameWeatherHeading, text = "Weather", justify='center', font = fontStyleHeading)              # Heading for Weather information     
-    labelActivityHeading = tkinter.Label(frameActivityHeading, text = "Outdoor Activities", justify='left', font = fontStyleHeading) # Heading for Outdoor activities
+    labelActivityHeading = tkinter.Label(frameActivityHeading, text = "Outdoor Activities", justify='center', font = fontStyleHeading) # Heading for Outdoor activities
     labelWeatherText = tkinter.Label(frameWeather, text = weatherText, justify = "left", font = fontStyleBody) # Descriptive text to go alongside weather iamge
     labelWindText = tkinter.Label(frameWind, text = windText, justify = "left", font = fontStyleBody)          # Descriptive text to go alongside wind direction iamge
-
+    labelVisAndHum = tkinter.Label(frameVisAndHum, text = visAndHumText, justify="center", font=fontStyleVisAndHum)
+    labelVisAndHum.pack(side="top")
     ''' Place the heading, weather information, and wind direction information into their respective frames'''
     # Place the header text into the Heading Frame
     labelWeatherHeading.pack(side = "top")
@@ -309,33 +291,41 @@ def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
     # The Wind Frame
     labelWindImage.pack(side = "left")  # Place the image into the frame first
     labelWindText.pack(side = "left")   # Place the text into the frame second
-    
+
 
     '''
     Work on Displaying the Outdoor activitites
     '''
     frameActivityList = []
-    print(len(activityList))
     for i in range(len(activityList)):
-        print(activityList)
-        frameActivityListNew = tkinter.Frame(window)
-        textList = getActivityDisplay(activityList[i])
-        #for i in range(5):
-            #tkinter.Label(frameActivityListNew, text = textList[i], justify="left").pack(side = "top")
-        tkinter.Label(frameActivityListNew, text = textList, justify="left", font=fontStyleBody).pack(side = "top") 
-        frameActivityList.append(frameActivityListNew)
+        newAlFrame = tkinter.Frame(window)
+        nameLabel = tkinter.Label(newAlFrame, text = activityList[i]["name"], font=fontStyleActivity)
+        infoLabelText = addNewLine("• " + activityList[i]["description"], 115, True)
+        infoLabel = tkinter.Label(newAlFrame, text = infoLabelText, font=fontStyleBody, justify="left")
+        diffLabel = tkinter.Label(newAlFrame, text = "• Diffculty: " + activityList[i]["difficulty"], font=fontStyleBody)
+        locLabel = tkinter.Label(newAlFrame, text = "• Location: " + activityList[i]["address"], font=fontStyleBody)
+        nameLabel.grid(row = 0, column = 0, sticky = "W")
+        infoLabel.grid(row = 1, column = 0, sticky = "W")
+        diffLabel.grid(row = 2, column = 0, sticky = "W")
+        locLabel.grid(row = 3, column = 0, sticky = "W")
 
+        webButton = tkinter.Button(newAlFrame, text = "Click to View Website", font = fontStyleBody, bg='white', fg = "dark green", command=lambda i=i: openWebsite(activityList[i]["source"]))
+        webButton.grid(row = 4, column = 0, sticky = "W")
+        frameActivityList.append(newAlFrame)
+
+        
 
     ''' Finally, put the frames onto the tkinter window'''
     vertLine = tkTtk.Separator(window, orient="vertical")
     frameWeatherHeading.grid(row = 0, column = 0)           # Weather Heading goes first
     frameWeather.grid(row = 1, column = 0, sticky = "W")    # Followed by the weather information
     frameWind.grid(row = 2, column = 0, sticky = "W")       # Then finish the window with the wind information
+    frameVisAndHum.grid(row = 3, column = 0)
     vertLine.grid(row = 0, column = 1, sticky = "ns", rowspan = 9)  # Add a vertical line to seperate the weather from outdoor activities
-    frameActivityHeading.grid(row = 0, column = 2, sticky = "W")          # Then start with the outdoor activitites
+    frameActivityHeading.grid(row = 0, column = 2)          # Then start with the outdoor activitites
 
     for i in range(len(frameActivityList)):
-        frameActivityList[i].grid(row = i + 1, column = 2, sticky = "W")
+        frameActivityList[i].grid(row = i + 1, column = 2, sticky = "W", pady = 10)
 
     # Run the window
     window.mainloop()
@@ -345,20 +335,6 @@ def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
 if __name__ == "__main__":
     # Get the current working directory
     cwd = os.getcwd()
-    #cwd = os.path.dirname(os.path.abspath(__file__))
-    ''' Feel free to change the paths and tuple sizes to test other images and sizes '''
-    # The large image 
-    pathL = cwd + "/images/mapImages/Eugene2x2/1.png"
-    # The small image 
-    pathS = cwd + "/images/weatherSymbols/misc.png"
-    # The large image dimension
-    tupleL = (300, 250)
-    # The large image dimension
-    tupleS = (50, 78)
-    # Run the function
-    imageRet = imageAppender(pathL, pathS, tupleL, tupleS)
-    # Display the image; comment out if you only see want to see the sample popup
-    #imageRet.show()
     # Variable that can be changed to view in imperial or metric for sample popup
     viewImperial = True
     # Display sample popup
