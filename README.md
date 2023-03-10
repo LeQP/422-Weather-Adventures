@@ -23,7 +23,7 @@ The community of Oregon outdoor activity enthusiasts will benefit from the use o
 
 # Directory Structure
 1. All program files contained in "422-Weather-Adventures" 
-2.      Subdirectory "images" contains all required source image files 
-3.          Subdirectory "mapImages" contains all map image files 
-4.          Subdirectory "weatherSymbols" contains all weather symbol image files
+2. "422-Weather-Adventures" subdirectory "images" contains all required source image files 
+3. "images" subdirectory "mapImages" contains all map image files 
+4. "images" subdirectory "weatherSymbols" contains all weather symbol image files
 
