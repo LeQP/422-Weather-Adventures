@@ -14,6 +14,18 @@ DEBUG = True
 with open('activities.json') as f:
   data = json.load(f)
 
+def sort(reccomended, coordinates):
+    to_sort = {}
+    top3 = []
+    for activity in reccomended:
+        comp_coord = activity['coordinates']
+        distance = ((abs(coordinates[0]) - abs(comp_coord[0]))**2 + (abs(coordinates[1]) - abs(comp_coord[1]))**2)**0.5
+        to_sort[distance] = activity
+    done_sort = sorted(to_sort)
+    for i in range(3):
+        top3.append(to_sort[done_sort[i]])
+    return top3 
+
 def parse(specific_data, weather, wind):
     reccomended = []
     for activity in specific_data:
@@ -30,12 +42,13 @@ def zoom(zoom, weather, wind, coordinates):
         reccomended = parse(data["groups"][0]["1"], weather, wind)
     elif zoom == 2:
         reccomended = parse(data["groups"][1]["2"], weather, wind)
-
-    return reccomended
+    
+    top3 = sort(reccomended, coordinates)
+    return top3
 
 if DEBUG:
     def main():
-        print(zoom(2, "isSnoworIce"))
+        zoom(1, "isSnoworIce", "yes", (44.081303, -123.146928))
 
     if __name__ == "__main__":
         main()
