@@ -13,11 +13,8 @@ Joey Le, Peter Nelson, Melodie Collins, Angela Pelky, Alexa Roskowski
 The community of Oregon outdoor activity enthusiasts will benefit from the use of this system. Our system's creation was motivated by a lack of cohesion in outdoor information services. In the state of the application space, there was no single service that delivered both weather data and outdoor activiy guides. As a solution, our system uses up-to-date weather information to generate lists of activities suitable for the current conditions. The user no longer needs to cross-reference weather data and guides from different sources. 
 
 # Dependencies
-Python Tkinter Library
-Python Pillow Library
-Python Requests Library (openweathermap API)
-Python OS Library
-Python JSON Library
+Python Libraries:  Tkinter Library, Pillow, Requests, OS, JSON Library
+API: openweathermap
 
 # Directory Structure
 All program files contained in "422-Weather-Adventures"
