@@ -18,7 +18,7 @@ The community of Oregon outdoor activity enthusiasts will benefit from the use o
 3. To run the program, type “python3 weather_adventures.py”.
 
 # Dependencies
-1. Python Libraries: Tkinter, Pillow, Requests, OS, JSON Library
+1. Python Libraries: Tkinter, Pillow, Requests, OS, JSON, WebBrowser
 2. API: openweathermap
 
 # Directory Structure
