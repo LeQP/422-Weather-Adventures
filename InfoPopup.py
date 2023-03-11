@@ -466,8 +466,6 @@ def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
 
 ''' Run the program on it is own for debugging purposes; this is not considered a part of the main system'''
 if __name__ == "__main__":
-    # Get the current working directory
-    cwd = os.getcwd()
     # Variable that can be changed to view in imperial or metric for sample popup
     viewImperial = True
     # Display sample popup
@@ -477,13 +475,13 @@ if __name__ == "__main__":
     test out different values.
     '''
     # Path to weather icon image
-    a1 = cwd + "/images/weatherSymbols/rain.png"    # 0th index for sampleList1
-    a2= cwd + "/images/weatherSymbols/clear.png"    # 0th index for sampleList2
-    a3 = cwd + "/images/weatherSymbols/snow.png"    # 0th index for sampleList3
+    a1 = "/images/weatherSymbols/rain.png"    # 0th index for sampleList1
+    a2= "/images/weatherSymbols/clear.png"    # 0th index for sampleList2
+    a3 = "/images/weatherSymbols/snow.png"    # 0th index for sampleList3
     # Path to wind direction image
-    b1 = cwd + "/images/weatherSymbols/w195.png"    # 1st index for sampleList1
-    b2 = cwd + "/images/weatherSymbols/w225.png"    # 1st index for sampleList2
-    b3 = cwd + "/images/weatherSymbols/w345.png"    # 1st index for sampleList3
+    b1 = "/images/weatherSymbols/w195.png"    # 1st index for sampleList1
+    b2 = "/images/weatherSymbols/w225.png"    # 1st index for sampleList2
+    b3 = "/images/weatherSymbols/w345.png"    # 1st index for sampleList3
     # Description of weather
     c1 = "thunderstorm with rain"                   # 2nd index for sampleList1   
     c2 = "clear sky"                                # 2nd index for sampleList2
