@@ -3,23 +3,25 @@ GraphGen.py
 --------
 Authors: Joey Le
 Created: 3/3/2023
-Last Modified: 3/8/2023
+Last Modified: 3/10/2023
 Purpose: This file creates the additional pop-up windows for when a user wants to learn more about a particular area's weather
 and outdoor activities.
 
 Revision History (Date | Author | Modifications)
 ----------------------------------------------
-3/3/2023 | Joey Le | Created initial file
-3/3/2023 | Joey Le | Created imageAppender()
-3/4/2023 | Joey Le | Created createPopup()
-3/4/2023 | Joey Le | Further developed createPopup() for a basic format
-3/6/2023 | Joey Le | Added more detailed weather and wind descriptions in pop-up by creating createWeatherDesc() and createWindDesc()
-3/7/2023 | Joey Le | Added further documentation for createWeatherDesc() and createWindDesc()
-3/7/2023 | Joey Le | Added display for outdoor activitites into createPopup()
-3/8/2023 | Joey Le | Removed imageAppender() as it is used in weather_adventures.py instead
-3/8/2023 | Joey Le | Reorganized information displayed for each outdoor activity with bullet points and a button to view website
-3/8/2023 | Joey Le | Added Visibility and Humidity to the Pop-up window
-3/8/2023 | Joey Le | Addded comments to document recent adjustments
+3/03/2023 | Joey Le | Created initial file
+3/03/2023 | Joey Le | Created imageAppender()
+3/04/2023 | Joey Le | Created createPopup()
+3/04/2023 | Joey Le | Further developed createPopup() for a basic format
+3/06/2023 | Joey Le | Added more detailed weather and wind descriptions in pop-up by creating createWeatherDesc() and createWindDesc()
+3/07/2023 | Joey Le | Added further documentation for createWeatherDesc() and createWindDesc()
+3/07/2023 | Joey Le | Added display for outdoor activitites into createPopup()
+3/08/2023 | Joey Le | Removed imageAppender() as it is used in weather_adventures.py instead
+3/08/2023 | Joey Le | Reorganized information displayed for each outdoor activity with bullet points and a button to view website
+3/08/2023 | Joey Le | Added Visibility and Humidity to the Pop-up window
+3/08/2023 | Joey Le | Addded comments to document recent adjustments
+3/10/2023 | Joey Le | Updated createPopUp() by having it access image paths by also accessing the current working directory as well
+                      and other minor adjustments have been made
 """
 
 ''' Module needed to form Windows '''
@@ -121,8 +123,9 @@ def createWeatherDesc(weatherStr:str, temp:int, imperial:bool):
 
     ''' Some descriptions need a slight grammar adjustment so check for specific descriptions that would require it '''
     # Applicable descrpitions that would need an adjustment to the begging: clear sky, thunderstorm, drizzle, and tornado
-    if (weatherStr.find("clear sky") or weatherStr.find("thunderstorm") or weatherStr.find("drizzle") or weatherStr.find("tornado")):
+    if (weatherStr.find("clear sky") != -1 or weatherStr.find("thunderstorm") != -1 or weatherStr.find("drizzle") != -1 or weatherStr.find("tornado") != -1):
         # Adjust these descriptions by appending "a" to the beginning
+        print(weatherStr)
         descVal = "a " + weatherStr
     # Some descriptions don't need adjustment (ex. rain, snow)
     else:
@@ -279,7 +282,7 @@ def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
     # Initialize the window
     window = tkinter.Toplevel()
     # Initialize the window's dimensions
-    window.geometry("1400x700")
+    window.geometry("1450x700")
     # Set the window's title
     window.title(title)
 
@@ -416,9 +419,9 @@ def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
         # After reformattting the text, put it into the label
         infoLabel = tkinter.Label(newAlFrame, text = infoLabelText, font=fontStyleBody, justify="left")
         # Form a label describing the activity's difficulty
-        diffLabel = tkinter.Label(newAlFrame, text = "• Difficulty: " + activityList[i]["difficulty"], font=fontStyleBody)
+        diffLabel = tkinter.Label(newAlFrame, text = "• Difficulty: " + activityList[i]["difficulty"], font=fontStyleBody, justify = "left")
         # Form a label describing the address of the activity
-        locLabel = tkinter.Label(newAlFrame, text = "• Location: " + activityList[i]["address"], font=fontStyleBody)
+        locLabel = tkinter.Label(newAlFrame, text = addNewLine("• Location: " + activityList[i]["address"], 105, True), font=fontStyleBody, justify = "left")
         # Create a button to allow users to learn more about the activity by clicking the button to be take to a website
         webButton = tkinter.Button(newAlFrame, text = "Click to View Website", font = fontStyleBody, bg='white', fg = "dark green", command=lambda i=i: openWebsite(activityList[i]["source"]))
         ''' Place each label onto the frame then place the frame into the list. '''
