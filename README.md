@@ -18,7 +18,8 @@ The community of Oregon outdoor activity enthusiasts will benefit from the use o
 # How to compile and run the application
 1. Download and extract the file directory. Will create a folder in your working directory called 422-Weather-Adventures.
 2. Create a terminal session in the working directory (Powershell/CMD on Windows, Terminal on Mac/Linux).
-3. To run the program, type “python3 weather_adventures.py”.
+3. Download and install dependencies with "pip" command (list of dependencies below)
+4. To run the program, type “python3 weather_adventures.py”.
 
 # Dependencies
 1. Python Libraries: Tkinter, Pillow, Requests, OS, JSON, WebBrowser
