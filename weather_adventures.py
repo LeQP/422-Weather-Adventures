@@ -2,12 +2,18 @@
 Author: Alexa Roskowski
 
 This is the file that will be run by the user, and acts as the intermediary between all the files
+
+03/06 --> made the file and protype of image_initializer
+03/07 --> added more_info and updated the image_initializer
+03/09 --> worked on combining with Activcity Recommender and InfoPopup
+03/10 --> finished interaction between InfoPopup and Activity Recommender
 '''
 
 #import all the other files
 import ButtonMaps
 import weather
 import InfoPopup
+import Activity_Reccomender
 
 #import the other libraries we need
 import os
@@ -32,10 +38,10 @@ LANE_COORD_NAMES = [(44.169810, -123.959655) ,(44.140252, -123.489990), (44.1998
 
 
 
-# REMEBER TO DELETE THIS AND USE THE ONE IN INFOpOPUP WHEN ITS DONE
 
 
 '''
+Author: Joey Le
 imageAppender(): this function allows a large image to have a smaller image placed on of it
 
 Parameters:
@@ -66,12 +72,6 @@ def imageAppender(imgLarge:str, imgSmall:str, sizeLarge:tuple, sizeSmall:tuple):
     # Convert the width position to an int since paste() won't accept floats
     positionY = int(positionY)
 
-
-    # Open the large image to use
-    #imageLarge = Image.open(pathLarge)
-    # Open the small image to use
-    #imageSmall = Image.open(pathSmall)
-    # Resize the large image with the provided dimension tuple
     imgLarge = imgLarge.resize(sizeLarge)
     # Resize the small image with the provided dimension tuple
     imgSmall = imgSmall.resize(sizeSmall)
@@ -84,8 +84,16 @@ def imageAppender(imgLarge:str, imgSmall:str, sizeLarge:tuple, sizeSmall:tuple):
 
 
 
+'''
+image_initializer(): this function will intialize all the jpgs for the tkinter window to display on the buttons. It will
+automatically be called when the user runs the file before the GUI window is displayed
 
-def BIG():
+Parameters: none
+
+* this takes a little bit of time, so to prove to the user things are working there are command line 
+outputs.
+'''
+def image_initializer():
     '''
     This function will intialize all the jpgs for the tkinter window to display on the buttons. It will
     automatically be called when the user runs the file
@@ -185,19 +193,63 @@ def BIG():
 
 
 
+
+
+'''
+more_info(): this function is called by the tkinter window when a button is pressed and will call the activity recommendner
+based on the weather of selected button
+
+Parameter:
+    zoom: this is an int and indicated which map we are looking at
+    button_num: indicates which button was selected
+
+Returns a popup with weather information and activity recommendations 
+'''
 def more_info(zoom: int, button_num: int):
-    '''
-    #This function is called by the tkinter window when a button is pressed
-    '''
-    print(WEATHER_INFO)
+    #get the information specialized per map
     if zoom == 1:
         # we are looking at the eugene map
-        InfoPopup.createPopup("Eugene Recommendation", WEATHER_INFO["E" + str(button_num)], True)
+        w = WEATHER_INFO["E" + str(button_num)] # weather of the button pressed
+        coords = EUGENE_COORD_NAMES[button_num - 1] #the coordinates of the button pressed
+        title  = "Eugene Recommendation"
     elif zoom == 2:
         # we are looking at the lane map
-        InfoPopup.createPopup( "Lane County Recommendation", WEATHER_INFO["L" + str(button_num)], True)
+        w = WEATHER_INFO["L" + str(button_num)] # weather of the button pressed
+        coords = LANE_COORD_NAMES[button_num - 1] #the coordinates of the button pressed
+        title = "Lane County Recommendation"
     else:
         #zoom was not one of the expected outcomes
         print("BAD INPUT : ( ")
+        return # return so it breaks here in a controlled manner instead of throwing errors later
+
+
+    #the logic is the same for both maps after this:
+
+    weather_string = "" #initialize the weather string, for the activity recommender
+
+    isWind = "No" #initially set isWind to No
+    if w[4] >= 15:
+        # it is windy, set isWind to Yes
+        isWind = "Yes"
+
+    #Check the weather to pass to the Activivy recommender
+    if "rain" in w[2] or "cloud" in w[2]:
+        #it is raining  or cloudy set the the string to indicate
+        weather_string += "isRain"
+    elif "snow" in w[2] or "ice" in w[2]:
+        #it is snowing / icy set weather_string to indicate
+        weather_string += "isSnoworIce"
+    else:
+        #since it is not raining or snowing it is then
+        weather_string += "isClear"
+
+    
+    #print(weather_string)
+    #get the recommendations depending on the weather
+    act_recomendations = Activity_Reccomender.zoom(zoom, weather_string, isWind, coords)
+    #print(act_recomendations)
+    #call the pop up creater to make a popup based on the weather and activities
+    InfoPopup.createPopup(title, w, True, act_recomendations)
+    
     
 

@@ -634,5 +634,5 @@ def main():
     mainloop()
 
 if __name__ == "__main__":
-    weather_adventures.BIG()
+    weather_adventures.image_initializer()
     main()

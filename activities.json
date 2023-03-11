@@ -11,7 +11,7 @@
                     "isRain": "Yes, for most of the hike you'll be in the forest, so you won't get rained on too hard. Keep in mind that once you get to the top you'll be less likely to spot the amazing views.",
                     "isSnoworIce": "No, this hike has steep, rocky parts that would be dangerous when snow/ice is present",
                     "address":"Spencer Butte",
-                    "coordinates":"43.99115780445145, -123.09715087568385",    
+                    "coordinates":[43.99115780445145, -123.09715087568385],    
                     "source": "https://www.alltrails.com/trail/us/oregon/spencer-butte-trail"
                 },
                 {
@@ -23,8 +23,8 @@
                     "isRain": "No, the water in the river is cold. You will get wet going down this river and we do not reccomend floating down it unless it is sunny and warm.",
                     "isSnoworIce": "No",
                     "address":"340 N Adams St, Eugene, OR 97402",
-                    "coordinates":"44.06445922127061, -123.10733868360711",    
-                    "source": "interviewee reccomendation"
+                    "coordinates":[44.06445922127061, -123.10733868360711],    
+                    "source": "Local Recommendation!"
                 },
                 {
                     "name": "Bird Watching at Mt. Pisgah",
@@ -35,7 +35,7 @@
                     "isRain": "Yes, although it might be a little chilly or wet, as long as you're comfortable in a rain jacket this will be a great activity for you.",
                     "isSnoworIce": "No",
                     "address":"34639 Frank Parrish Rd, Eugene, OR 97405",
-                    "coordinates":"44.01497597816823, -122.98278078659796",    
+                    "coordinates":[44.01497597816823, -122.98278078659796],    
                     "source": "https://www.eugenecascadescoast.org/listing/buford-park-%26-mt-pisgah-birding-%26-water-trails/13437/"
                 },
                 {
@@ -47,8 +47,8 @@
                     "isRain": "Yes",
                     "isSnoworIce": "Yes",
                     "address":"1320 E 15th Ave, Eugene, OR 97403",
-                    "coordinates":"44.042594927661476, -123.0734221019393",    
-                    "source": "interviewee reccomendation"
+                    "coordinates":[44.042594927661476, -123.0734221019393],    
+                    "source": "Local Recommendation! https://rec.uoregon.edu/rockwall"
                 },
                 {
                     "name": "Alton Baker",
@@ -59,7 +59,7 @@
                     "isRain": "Yes",
                     "isSnoworIce": "No",
                     "address":"100 Day Island Rd, Eugene, OR 97401",
-                    "coordinates":"44.05298827336223, -123.06722865961001",    
+                    "coordinates":[44.05298827336223, -123.06722865961001],    
                     "source": "https://www.eugenecascadescoast.org/listing/alton-baker-park/3303/"
                 },
                 {
@@ -71,8 +71,8 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"50 Skinner Butte Loop, Eugene, OR 97401",
-                    "coordinates":"44.05821488135485, -123.0924205731031",    
-                    "source": "interviewee reccomendation"
+                    "coordinates":[44.05821488135485, -123.0924205731031],    
+                    "source": "Local Recommendation! https://www.eugene-or.gov/facilities/facility/details/Skinner-Butte-Park-55"
                 },
                 {
                     "name": "Garden at Henricks Park",
@@ -83,8 +83,8 @@
                     "isRain": "Yes",
                     "isSnoworIce": "No",
                     "address":"Summit Ave &, Skyline Blvd, Eugene, OR 97403",
-                    "coordinates":"44.0355070666398, -123.05875817310378",    
-                    "source": "interviewee reccomendation"
+                    "coordinates":[44.0355070666398, -123.05875817310378],    
+                    "source": "Local Recommendation! https://friendsofhendrickspark.org/"
                 },
                 {
                     "name": "Stroll around the Eugene Saturday Market",
@@ -93,9 +93,9 @@
                     "isWind": "Yes",
                     "isClear": "Yes",
                     "isRain": "Yes",
-                    "isSnoworIce": "No",
+                    "isSnoworIce": "Yes",
                     "address":"8th Ave & Oak Street (April - November) and Lane Events Center (December - March)",
-                    "coordinates":"44.04420208200817, -123.10694527310362",    
+                    "coordinates":[44.04420208200817, -123.10694527310362],    
                     "source": "https://www.eugenecascadescoast.org/listing/saturday-market/524/"
                 },
                 {
@@ -107,7 +107,7 @@
                     "isRain": "Yes",
                     "isSnoworIce": "No",
                     "address":"Parking Lot - Check Coordinates",
-                    "coordinates":"44.009450250512984, -123.11249613216805",    
+                    "coordinates":[44.009450250512984, -123.11249613216805],    
                     "source": "https://www.alltrails.com/trail/us/oregon/complete-ridgeline-trail?search=true"
                 },
                 {
@@ -119,7 +119,7 @@
                     "isRain": "Yes",
                     "isSnoworIce": "No",
                     "address":"Parking Lot - look at coordinates",
-                    "coordinates":"44.020579, -123.081409",    
+                    "coordinates":[44.020579, -123.081409],    
                     "source": "https://www.eugenecascadescoast.org/listing/south-amazon-running-trail/2494/"
                 },
                 {
@@ -131,8 +131,8 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"100 Day Island Rd, Eugene, OR 97401",
-                    "coordinates":"44.05600092292907, -123.07997621787409",    
-                    "source": "interviewee reccomendation"
+                    "coordinates":[44.05600092292907, -123.07997621787409],    
+                    "source": "Local Recommendation! https://www.altonbakerpark.com/"
                 },
                 {
                     "name": "Skatepark",
@@ -143,8 +143,8 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"22 Amazon Pkwy, Eugene, OR 97405",
-                    "coordinates":"44.029422805917605, -123.08417370016498",    
-                    "source": "interviewee reccomendation"
+                    "coordinates":[44.029422805917605, -123.08417370016498],    
+                    "source": "Local Recommendation! https://www.eugenecascadescoast.org/listing/amazon-skatepark/2504/"
                 },
                 {
                     "name": "Emerald Valley EMX",
@@ -155,7 +155,7 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"2715 Leo Harris Pkwy, Eugene, OR 97401",
-                    "coordinates":"44.05455292731463, -123.0646081037876",    
+                    "coordinates":[44.05455292731463, -123.0646081037876],    
                     "source": "https://www.eugenecascadescoast.org/listing/emerald-valley-bmx/6106/"
                 },
                 {
@@ -167,8 +167,20 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"2600 Hilyard St, Eugene, OR 97405",
-                    "coordinates":"44.02937222869826, -123.08208364426845",    
+                    "coordinates":[44.02937222869826, -123.08208364426845],    
                     "source": "https://www.eugenecascadescoast.org/listing/amazon-pool/1968/"
+                },
+                {
+                    "name": "Go ice skating",
+                    "description": "Bring some ice skates or rent when you get there! This rink is a family friendly, fun area to spend the day no matter the weather.",
+                    "difficulty": "Moderate", 
+                    "isWind": "Yes",
+                    "isClear": "Yes",
+                    "isRain": "Yes",
+                    "isSnoworIce": "Yes",
+                    "address":"796 W 13th Ave, Eugene, OR 97402",
+                    "coordinates":[44.042922948516114, -123.10858318849577],    
+                    "source": "http://www.therinkexchange.com/general-information.html"
                 }
             ]
         },
@@ -183,7 +195,7 @@
                     "isRain": "No, either snow or blue skies, there is no in-between on this one.",
                     "isSnoworIce": "Yes",
                     "address":"27501 Hwy 58, Mile Marker 62, Crescent Lake, OR 97733",
-                    "coordinates":"43.600209369203796, -122.03655073078842",    
+                    "coordinates":[43.600209369203796, -122.03655073078842],    
                     "source": "https://willamettepass.com/"
                 },
                 {
@@ -195,7 +207,7 @@
                     "isRain": "Yes",
                     "isSnoworIce": "No",
                     "address":"Fern Ridge Lake, 26647 OR-126, Veneta, OR 97487",
-                    "coordinates":"44.054592581399994, -123.28901291845577",    
+                    "coordinates":[44.054592581399994, -123.28901291845577],    
                     "source": "https://www.fernridgereservoir.com/"
                 },
                 {
@@ -207,7 +219,7 @@
                     "isRain": "Yes",
                     "isSnoworIce": "Yes",
                     "address":"725 Summer St, Florence, OR 97439",
-                    "coordinates":"44.141533445144006, -124.12860359870373",    
+                    "coordinates":[44.141533445144006, -124.12860359870373],    
                     "source": "https://stateparks.oregon.gov/index.cfm?do=things-to-do.whale-watching"
                 },
                 {
@@ -219,7 +231,7 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"Hwy 242, McKenzie Bridge, OR 94713",
-                    "coordinates":"44.28398015481605, -121.82036218362661",    
+                    "coordinates":[44.28398015481605, -121.82036218362661],    
                     "source": "https://www.eugenecascadescoast.org/listing/dee-wright-observatory/2009/"
                 },
                 {
@@ -231,7 +243,7 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"4981 Hwy 101, Florence, OR 97439",
-                    "coordinates":"44.28398015481605, -121.82036218362661",    
+                    "coordinates":[44.28398015481605, -121.82036218362661],    
                     "source": "https://sandmasterpark.com/"
                 },
                 {
@@ -243,7 +255,7 @@
                     "isRain": "Yes",
                     "isSnoworIce": "Yes",
                     "address":"91560 Hwy 101 N, Florence, OR 97439",
-                    "coordinates":"44.12186230819151, -124.12673187310115",    
+                    "coordinates":[44.12186230819151, -124.12673187310115],    
                     "source": "https://www.eugenecascadescoast.org/listing/sea-lion-caves/396/"
                 },
                 {
@@ -255,7 +267,7 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"South Jetty (South Beach State Park), Newport, OR 97365",
-                    "coordinates":"44.60223230480649, -124.06302029767208",    
+                    "coordinates":[44.60223230480649, -124.06302029767208],    
                     "source": "https://traveloregon.com/things-to-do/trip-ideas/favorite-trips/insiders-guide-to-kite-flying-on-the-oregon-coast/"
                 },
                 {
@@ -267,7 +279,7 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"88494 1st Ave, Florence, OR 97439",
-                    "coordinates":"44.03767101029325, -124.13226315023358",    
+                    "coordinates":[44.03767101029325, -124.13226315023358],    
                     "source": "https://localkitespots.com/kitesurfing/Oregon/South%20Jetty"
                 },
                 {
@@ -279,7 +291,7 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"South Jetty (South Beach State Park), Newport, OR 97365",
-                    "coordinates":"44.60223230480649, -124.06302029767208",    
+                    "coordinates":[44.60223230480649, -124.06302029767208],    
                     "source": "https://www.surfline.com/surf-report/florence-south-jetty/5842041f4e65fad6a77089b2"
                 },
                 {
@@ -291,20 +303,20 @@
                     "isRain": "Yes but be careful. This trail could be slippery when wet.",
                     "isSnoworIce": "No",
                     "address":"North Fork Rd, Westfir, OR 97492",
-                    "coordinates":"43.756843665899716, -122.5051396782172",    
+                    "coordinates":[43.756843665899716, -122.5051396782172],    
                     "source": "https://www.eugenecascadescoast.org/listing/alpine-trail/6137/"
                 },
                 {
                     "name": "Bike through the covered bridges scenic bikeway",
-                    "description": "Totalling 36 miles, this loop can be as hard or as easy as you want. Grab your bike and check out some bridges!",
+                    "description": "Totaling 36 miles, this loop can be as hard or as easy as you want. Grab your bike and check out some bridges!",
                     "difficulty": "Moderate", 
                     "isWind": "Yes",
                     "isClear": "Yes",
                     "isRain": "Yes",
                     "isSnoworIce": "No",
                     "address":"Main St, Cottage Grove, OR 97424 (start/end)",
-                    "coordinates":"43.79762510238887, -123.06452564427555",    
-                    "source": "interviewee reccomendation"
+                    "coordinates":[43.79762510238887, -123.06452564427555],    
+                    "source": "Local Recommendation! https://www.eugenecascadescoast.org/listing/centennial-covered-bridge/79/"
                 },
                 {
                     "name": "Dune Buggy Tour",
@@ -314,7 +326,7 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"83960 Hwy 101 S, Florence, OR 97439",
-                    "coordinates":"43.914319569114554, -124.1114485307786",    
+                    "coordinates":[43.914319569114554, -124.1114485307786],    
                     "source": "https://www.eugenecascadescoast.org/listing/sand-dunes-frontier/3020/"
                 },
                 {
@@ -325,7 +337,7 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"1201 35th St, Florence, OR 97439",
-                    "coordinates":"44.00017199708636, -124.10836393077604",    
+                    "coordinates":[44.00017199708636, -124.10836393077604],    
                     "source": "https://www.eugenecascadescoast.org/listing/florence-golf-links/9847/"
                 },
                 {
@@ -336,7 +348,7 @@
                     "isRain": "No",
                     "isSnoworIce": "Yes",
                     "address":"Junction at Milepost 63 on Hwy 58, proceed 6 miles (10 km) to Waldo Lake Recreation Area, Oakridge, OR 97463",
-                    "coordinates":"43.618655988685326, -122.08190951544572",    
+                    "coordinates":[43.618655988685326, -122.08190951544572],    
                     "source": "https://www.fs.usda.gov/recarea/willamette/recreation/wintersports/recarea/?recid=4681&actid=92"
                 },
                 {
@@ -347,7 +359,7 @@
                     "isRain": "No",
                     "isSnoworIce": "Yes",
                     "address":"Hwy 58, east of milepost 58, Salt Creek Falls Observation Site, Oakridge, OR 97463",
-                    "coordinates":"43.61036380657184, -122.11830473078798",    
+                    "coordinates":[43.61036380657184, -122.11830473078798],    
                     "source": "https://www.eugenecascadescoast.org/blog/post/snowshoeing-weekend/"
                 },
                 {
@@ -358,32 +370,32 @@
                     "isRain": "No",
                     "isSnoworIce": "Yes",
                     "address":"nfd 5899 rd, NF-5899, Oakridge, OR 97463",
-                    "coordinates":"43.60688600496598, -122.04691402236762",    
+                    "coordinates":[43.60688600496598, -122.04691402236762],    
                     "source": "https://www.fs.usda.gov/recarea/willamette/recreation/recarea/?recid=4679"
                 },
                 {
                     "name": "McCredie Hot Springs",
-                    "description": "Enjoy a refreshing dip in Blue River Lake during Oregon's summer months",
+                    "description": "Soak up some luxurious heat during the cold months in this gorgeous hot spring.",
                     "difficulty": "Easy", 
                     "isWind": "Yes",
-                    "isClear": "Yes",
+                    "isClear": "No",
                     "isRain": "Yes",
                     "isSnoworIce": "Yes",
                     "address":"11 miles on Hwy 58, Just past Blue Pool Campground, Oakridge, OR 97463",
-                    "coordinates":"43.70469364679311, -122.28717709922128",    
-                    "source": "interviewee reccomendation"
+                    "coordinates":[43.70469364679311, -122.28717709922128],    
+                    "source": "Local Recommendation! https://gowanderwild.com/mccredie-hot-springs-oregon/"
                 },
                 {
-                    "name": "McCredie Hot Springs",
+                    "name": "Blue River Lake",
                     "description": "Enjoy a refreshing dip in Blue River Lake during Oregon's summer months",
                     "difficulty": "Easy", 
                     "isWind": "Yes",
                     "isClear": "Yes",
-                    "isRain": "Yes",
-                    "isSnoworIce": "Yes",
-                    "address":"11 miles on Hwy 58, Just past Blue Pool Campground, Oakridge, OR 97463",
-                    "coordinates":"43.70469364679311, -122.28717709922128",    
-                    "source": "interviewee reccomendation"
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"See coordinates",
+                    "coordinates":[44.20465323727676, -122.26125572392226],    
+                    "source": "https://www.recreation.gov/camping/gateways/231"
                 },
                 {
                     "name": "Lounge on the beach",
@@ -394,7 +406,7 @@
                     "isRain": "Yes",
                     "isSnoworIce": "No",
                     "address":"Hwy 101, 13.7 miles (23.7 km) north of Florence, Florence, OR 97439",
-                    "coordinates":"44.16073740439314, -124.11451827309993",    
+                    "coordinates":[44.16073740439314, -124.11451827309993],    
                     "source": "https://www.eugenecascadescoast.org/listing/carl-g-washburne-state-park/7706/"
                 },
                 {
@@ -406,7 +418,7 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"82855 Fir St, Westlake, OR 97493",
-                    "coordinates":"43.88370920081725, -124.116518098414",    
+                    "coordinates":[43.88370920081725, -124.116518098414],    
                     "source": "https://www.eugenecascadescoast.org/blog/post/best-places-to-kayak/"
                 },
                 {
@@ -418,7 +430,7 @@
                     "isRain": "No",
                     "isSnoworIce": "No",
                     "address":"Jasper, OR 97438",
-                    "coordinates":"43.92600024850264, -122.81076907406434",    
+                    "coordinates":[43.92600024850264, -122.81076907406434],    
                     "source": "https://www.eugenecascadescoast.org/blog/post/best-places-to-kayak/"
                 },
                 {
@@ -430,7 +442,7 @@
                     "isRain": "Yes",
                     "isSnoworIce": "No",
                     "address":"see coordinates",
-                    "coordinates":"43.94936692902267, -122.84217743519338",    
+                    "coordinates":[43.94936692902267, -122.84217743519338],    
                     "source": "https://www.alltrails.com/explore/trail/us/oregon/elk-trail"
                 },
                 {
@@ -442,32 +454,32 @@
                     "isRain": "Yes",
                     "isSnoworIce": "Yes, bring snowshoes!",
                     "address":"See coordinates",
-                    "coordinates":"44.315132511691715, -122.03817383540051",    
-                    "source": "interviewee reccomendation"
+                    "coordinates":[44.315132511691715, -122.03817383540051],    
+                    "source": "Local Recommendation! https://www.alltrails.com/trail/us/oregon/tamolitch-blue-pool-via-mckenzie-river-trail"
                 },
                 {
-                    "name": "McCredie Hot Springs",
-                    "description": "Enjoy a refreshing dip in Blue River Lake during Oregon's summer months",
-                    "difficulty": "Easy", 
-                    "isWind": "Yes",
+                    "name": "Castle Rock Trail",
+                    "description": "This 8.6 mile, 2,106ft elevation gain hike is perfect for a sunny day. With good visibility, you'll get some stellar views.",
+                    "difficulty": "Moderate", 
+                    "isWind": "No",
                     "isClear": "Yes",
-                    "isRain": "Yes",
-                    "isSnoworIce": "Yes",
-                    "address":"11 miles on Hwy 58, Just past Blue Pool Campground, Oakridge, OR 97463",
-                    "coordinates":"43.70469364679311, -122.28717709922128",    
-                    "source": "interviewee reccomendation"
+                    "isRain": "No",
+                    "isSnoworIce": "No",
+                    "address":"See coordinates",
+                    "coordinates":[44.165555671943864, -122.2228464698225],    
+                    "source": "https://www.alltrails.com/explore/trail/us/oregon/castle-rock"
                 },
                 {
-                    "name": "McCredie Hot Springs",
-                    "description": "Enjoy a refreshing dip in Blue River Lake during Oregon's summer months",
-                    "difficulty": "Easy", 
-                    "isWind": "Yes",
+                    "name": "Trestle Creek Falls Loop",
+                    "description": "Nice 4.8 mile, 1,325 feet elevation gain loop that includes views of a creek and waterfall",
+                    "difficulty": "Moderate", 
+                    "isWind": "No",
                     "isClear": "Yes",
                     "isRain": "Yes",
-                    "isSnoworIce": "Yes",
-                    "address":"11 miles on Hwy 58, Just past Blue Pool Campground, Oakridge, OR 97463",
-                    "coordinates":"43.70469364679311, -122.28717709922128",    
-                    "source": "interviewee reccomendation"
+                    "isSnoworIce": "No",
+                    "address":"See coordinates",
+                    "coordinates":[43.65806302355484, -122.65735479468924],    
+                    "source": "https://www.alltrails.com/explore/trail/us/oregon/trestle-creek-falls-loop"
                 }
             ]
         }
