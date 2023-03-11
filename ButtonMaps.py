@@ -1,18 +1,8 @@
 '''
 By Melodie Collins
-This file is based on GridButtonPortionNotes.py 
+
+This is the user interface file that will be run by the main weather_adventures.py file.
 '''
-# Side note when working on this:
-#   To get the button images to be perfectly side by side, I had to make sure all the other widgets (Zoom buttons and labels)
-#   had to not be in the same row and column as any of the button. That is why the zoom buttons and texts are displayed not 
-#   directly below or to the side of the button grid.
-#
-#   Also, the size between numbers slightly differs but we can fine tune that as we work on the project; can use ipadx and ipady to help with this
-#
-#   For each button list, the placement into Tkinter is something like
-#       0 1 2 
-#       3 4 5
-#       6 7 8 ...
 
 ''' Imports '''
 import weather_adventures
@@ -54,9 +44,9 @@ COORDINATES_LANE_15 = (43.523586, -122.040473)
 
 
 
-# Remove current map title
 def on_click():
-   label.after(0, label.destroy())
+    # Remove current map title
+    label.after(0, label.destroy())
 
 ''' Function for when a button is clicked; It will change the selected button's image appropriately'''
 def button_click():
@@ -160,7 +150,6 @@ def mapTitle(num:int):
         label = tk.Label(window, text ='Lane County', bg='white', fg = "dark green", font = "Helvetica 16 bold italic")
     label.grid(row = 7, column = 4)
 
-''' Set up each Eugene button within their grid set'''
 def setEugene():
     # Put all the buttons for viewing Eugene into button1; 2x2
     global button1
@@ -171,18 +160,21 @@ def setEugene():
     button1.append(tk.Button(window, image = windowImage7, highlightthickness = 0, borderwidth=0, command=lambda: weather_adventures.more_info(1, 4))) #(1,1)
 
 def setEugeneEmpty():
+    # Set all the Eugene button images to Eugene images
     button1[0].config(image=windowImage4)
     button1[1].config(image=windowImage5)
     button1[2].config(image=windowImage6)
     button1[3].config(image=windowImage7)
 
 def setEugeneWeather():
+    # Set all the Eugene button images to Eugene weather images
     button1[0].config(image=windowImage23)
     button1[1].config(image=windowImage25)
     button1[2].config(image=windowImage27)
     button1[3].config(image=windowImage29)
 
 def setEugeneWind():
+    # Set all the Eugene button images to Eugene wind images
     button1[0].config(image=windowImage24)
     button1[1].config(image=windowImage26)
     button1[2].config(image=windowImage28)
@@ -209,6 +201,7 @@ def setLane():
     button2.append(tk.Button(window, image = windowImage22, highlightthickness = 0, command=lambda: weather_adventures.more_info(2, 15))) #(2,4)
 
 def setLaneEmpty():
+    # Set all the Lane County button images to Lane County images
     button2[0].config(image=windowImage8)
     button2[1].config(image=windowImage9)
     button2[2].config(image=windowImage10)
@@ -226,6 +219,7 @@ def setLaneEmpty():
     button2[14].config(image=windowImage22)
 
 def setLaneWeather():
+    # Set all the Lane County button images to Lane County weather images
     button2[0].config(image=windowImage31)
     button2[1].config(image=windowImage33)
     button2[2].config(image=windowImage35)
@@ -243,6 +237,7 @@ def setLaneWeather():
     button2[14].config(image=windowImage59)
 
 def setLaneWind():
+    # Set all the Lane County button images to Lane County wind images
     button2[0].config(image=windowImage32)
     button2[1].config(image=windowImage34)
     button2[2].config(image=windowImage36)
@@ -619,7 +614,7 @@ def main():
     global weather
 
     empty = IntVar()
-    emptyBox = tk.Checkbutton(window, text='Empty',variable=empty, onvalue=1, offvalue=0, command=lambda:[clearWindWeather(), button_click()])
+    emptyBox = tk.Checkbutton(window, text='Clear',variable=empty, onvalue=1, offvalue=0, command=lambda:[clearWindWeather(), button_click()])
     emptyBox.grid(row = 9, column = 9)
 
     wind = IntVar()

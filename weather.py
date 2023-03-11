@@ -24,8 +24,9 @@ def getWeatherInfo(lat, lon, units):
     weatherReport = json.dumps(response.json(), indent=4)
 
     # DEBUG write weatherReport
-    with open("sample.json", "w") as outfile:
-        outfile.write(weatherReport)
+    if __name__ == "__main__":
+        with open("sample.json", "w") as outfile:
+            outfile.write(weatherReport)
 
     # load weather report into data container
     data = json.loads(weatherReport)
