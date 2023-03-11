@@ -286,10 +286,12 @@ def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
     '''
     Acquire all the API weather information into intuitive variables
     '''
+    # Get the current working directory to access image files
+    path = os.getcwd()
     # 0th Index represents the image string path to the weather icon to display
-    weatherIconPath = apiInfo[0]
+    weatherIconPath = path + apiInfo[0]
     # 1st Index represents the image string path to the wind direction icon to display
-    windDirIconPath = apiInfo[1]
+    windDirIconPath = path + apiInfo[1]
     # 2nd Index represents the string description describing the weather
     weatherDesc = apiInfo[2]
     # 3rd Index represents an int regarding the temperature
