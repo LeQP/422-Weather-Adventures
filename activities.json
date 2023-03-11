@@ -24,7 +24,7 @@
                     "isSnoworIce": "No",
                     "address":"340 N Adams St, Eugene, OR 97402",
                     "coordinates":[44.06445922127061, -123.10733868360711],    
-                    "source": "Local Recommendation!"
+                    "source": "https://www.onlyinyourstate.com/oregon/lazy-rivers-tubing-or/"
                 },
                 {
                     "name": "Bird Watching at Mt. Pisgah",
@@ -48,7 +48,7 @@
                     "isSnoworIce": "Yes",
                     "address":"1320 E 15th Ave, Eugene, OR 97403",
                     "coordinates":[44.042594927661476, -123.0734221019393],    
-                    "source": "Local Recommendation! https://rec.uoregon.edu/rockwall"
+                    "source": "https://rec.uoregon.edu/rockwall"
                 },
                 {
                     "name": "Alton Baker",
@@ -72,7 +72,7 @@
                     "isSnoworIce": "No",
                     "address":"50 Skinner Butte Loop, Eugene, OR 97401",
                     "coordinates":[44.05821488135485, -123.0924205731031],    
-                    "source": "Local Recommendation! https://www.eugene-or.gov/facilities/facility/details/Skinner-Butte-Park-55"
+                    "source": "https://www.eugene-or.gov/facilities/facility/details/Skinner-Butte-Park-55"
                 },
                 {
                     "name": "Garden at Henricks Park",
@@ -84,7 +84,7 @@
                     "isSnoworIce": "No",
                     "address":"Summit Ave &, Skyline Blvd, Eugene, OR 97403",
                     "coordinates":[44.0355070666398, -123.05875817310378],    
-                    "source": "Local Recommendation! https://friendsofhendrickspark.org/"
+                    "source": "https://friendsofhendrickspark.org/"
                 },
                 {
                     "name": "Stroll around the Eugene Saturday Market",
@@ -132,7 +132,7 @@
                     "isSnoworIce": "No",
                     "address":"100 Day Island Rd, Eugene, OR 97401",
                     "coordinates":[44.05600092292907, -123.07997621787409],    
-                    "source": "Local Recommendation! https://www.altonbakerpark.com/"
+                    "source": "https://www.altonbakerpark.com/"
                 },
                 {
                     "name": "Skatepark",
@@ -144,7 +144,7 @@
                     "isSnoworIce": "No",
                     "address":"22 Amazon Pkwy, Eugene, OR 97405",
                     "coordinates":[44.029422805917605, -123.08417370016498],    
-                    "source": "Local Recommendation! https://www.eugenecascadescoast.org/listing/amazon-skatepark/2504/"
+                    "source": "https://www.eugenecascadescoast.org/listing/amazon-skatepark/2504/"
                 },
                 {
                     "name": "Emerald Valley EMX",
@@ -316,7 +316,7 @@
                     "isSnoworIce": "No",
                     "address":"Main St, Cottage Grove, OR 97424 (start/end)",
                     "coordinates":[43.79762510238887, -123.06452564427555],    
-                    "source": "Local Recommendation! https://www.eugenecascadescoast.org/listing/centennial-covered-bridge/79/"
+                    "source": "https://www.eugenecascadescoast.org/listing/centennial-covered-bridge/79/"
                 },
                 {
                     "name": "Dune Buggy Tour",
@@ -388,7 +388,7 @@
                     "isSnoworIce": "Yes",
                     "address":"11 miles on Hwy 58, Just past Blue Pool Campground, Oakridge, OR 97463",
                     "coordinates":[43.70469364679311, -122.28717709922128],    
-                    "source": "Local Recommendation! https://gowanderwild.com/mccredie-hot-springs-oregon/"
+                    "source": "https://gowanderwild.com/mccredie-hot-springs-oregon/"
                 },
                 {
                     "name": "Blue River Lake",
@@ -460,7 +460,7 @@
                     "isSnoworIce": "Yes, bring snowshoes!",
                     "address":"See coordinates",
                     "coordinates":[44.315132511691715, -122.03817383540051],    
-                    "source": "Local Recommendation! https://www.alltrails.com/trail/us/oregon/tamolitch-blue-pool-via-mckenzie-river-trail"
+                    "source": "https://www.alltrails.com/trail/us/oregon/tamolitch-blue-pool-via-mckenzie-river-trail"
                 },
                 {
                     "name": "Castle Rock Trail",
