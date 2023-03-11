@@ -321,6 +321,7 @@
                 {
                     "name": "Dune Buggy Tour",
                     "description": "Adventure through the Oregon Dunes with a Dune Buggy Tour! Please note that this adventure is not free.",
+                    "difficulty": "Moderate", 
                     "isWind": "Yes",
                     "isClear": "Yes",
                     "isRain": "No",
@@ -332,6 +333,7 @@
                 {
                     "name": "Golfing at the Oregon Coast",
                     "description": "Enjoy a trip golfing at the Oregon Coast.",
+                    "difficulty": "Easy", 
                     "isWind": "No",
                     "isClear": "Yes",
                     "isRain": "No",
@@ -343,6 +345,7 @@
                 {
                     "name": "Waldo Lake Sno-Park",
                     "description": "Sno-Park permit required - Waldo Lake Road is a shared snowmobile/ski route, but snowmobiles are not permitted on other nordic trails in this area.",
+                    "difficulty": "Moderate", 
                     "isWind": "No",
                     "isClear": "Yes",
                     "isRain": "No",
@@ -354,6 +357,7 @@
                 {
                     "name": "Snowshoe to Salt Creek Falls",
                     "description": "Come see Oregon's second highest waterfall this winter! All you need is some warm clothes and some snowshoes.",
+                    "difficulty": "Moderate", 
                     "isWind": "No",
                     "isClear": "Yes",
                     "isRain": "No",
@@ -365,6 +369,7 @@
                 {
                     "name": "Cross Country Ski at Gold-Lake Sno-Park",
                     "description": "Enjoy a relaxing, brisk, and fun day cross country skiing!",
+                    "difficulty": "Moderate", 
                     "isWind": "No",
                     "isClear": "Yes",
                     "isRain": "No",
