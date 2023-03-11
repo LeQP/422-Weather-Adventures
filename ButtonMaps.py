@@ -614,7 +614,7 @@ def main():
     global weather
 
     empty = IntVar()
-    emptyBox = tk.Checkbutton(window, text='Empty',variable=empty, onvalue=1, offvalue=0, command=lambda:[clearWindWeather(), button_click()])
+    emptyBox = tk.Checkbutton(window, text='Clear',variable=empty, onvalue=1, offvalue=0, command=lambda:[clearWindWeather(), button_click()])
     emptyBox.grid(row = 9, column = 9)
 
     wind = IntVar()
