@@ -10,7 +10,7 @@
                     "isClear": "Yes",
                     "isRain": "Yes, for most of the hike you'll be in the forest, so you won't get rained on too hard. Keep in mind that once you get to the top you'll be less likely to spot the amazing views.",
                     "isSnoworIce": "No, this hike has steep, rocky parts that would be dangerous when snow/ice is present",
-                    "address":"Spencer Butte",
+                    "address":"Spencer Butte Park",
                     "coordinates":[43.99115780445145, -123.09715087568385],    
                     "source": "https://www.alltrails.com/trail/us/oregon/spencer-butte-trail"
                 },
@@ -106,7 +106,7 @@
                     "isClear": "Yes",
                     "isRain": "Yes",
                     "isSnoworIce": "No",
-                    "address":"Parking Lot - Check Coordinates",
+                    "address":"Spencer Butte West Ridge Park",
                     "coordinates":[44.009450250512984, -123.11249613216805],    
                     "source": "https://www.alltrails.com/trail/us/oregon/complete-ridgeline-trail?search=true"
                 },
@@ -118,7 +118,7 @@
                     "isClear": "Yes",
                     "isRain": "Yes",
                     "isSnoworIce": "No",
-                    "address":"Parking Lot - look at coordinates",
+                    "address":"44.020579, -123.081409",
                     "coordinates":[44.020579, -123.081409],    
                     "source": "https://www.eugenecascadescoast.org/listing/south-amazon-running-trail/2494/"
                 },
@@ -398,7 +398,7 @@
                     "isClear": "Yes",
                     "isRain": "No",
                     "isSnoworIce": "No",
-                    "address":"See coordinates",
+                    "address":"44.20465323727676, -122.26125572392226",
                     "coordinates":[44.20465323727676, -122.26125572392226],    
                     "source": "https://www.recreation.gov/camping/gateways/231"
                 },
@@ -434,7 +434,7 @@
                     "isClear": "Yes",
                     "isRain": "No",
                     "isSnoworIce": "No",
-                    "address":"Jasper, OR 97438",
+                    "address":"43.92600024850264, -122.81076907406434",
                     "coordinates":[43.92600024850264, -122.81076907406434],    
                     "source": "https://www.eugenecascadescoast.org/blog/post/best-places-to-kayak/"
                 },
@@ -446,7 +446,7 @@
                     "isClear": "Yes",
                     "isRain": "Yes",
                     "isSnoworIce": "No",
-                    "address":"see coordinates",
+                    "address":"43.94936692902267, -122.84217743519338",
                     "coordinates":[43.94936692902267, -122.84217743519338],    
                     "source": "https://www.alltrails.com/explore/trail/us/oregon/elk-trail"
                 },
@@ -458,7 +458,7 @@
                     "isClear": "Yes",
                     "isRain": "Yes",
                     "isSnoworIce": "Yes, bring snowshoes!",
-                    "address":"See coordinates",
+                    "address":"44.315132511691715, -122.03817383540051",
                     "coordinates":[44.315132511691715, -122.03817383540051],    
                     "source": "https://www.alltrails.com/trail/us/oregon/tamolitch-blue-pool-via-mckenzie-river-trail"
                 },
@@ -470,7 +470,7 @@
                     "isClear": "Yes",
                     "isRain": "No",
                     "isSnoworIce": "No",
-                    "address":"See coordinates",
+                    "address":"44.165555671943864, -122.2228464698225",
                     "coordinates":[44.165555671943864, -122.2228464698225],    
                     "source": "https://www.alltrails.com/explore/trail/us/oregon/castle-rock"
                 },
@@ -482,7 +482,7 @@
                     "isClear": "Yes",
                     "isRain": "Yes",
                     "isSnoworIce": "No",
-                    "address":"See coordinates",
+                    "address":"43.65806302355484, -122.65735479468924",
                     "coordinates":[43.65806302355484, -122.65735479468924],    
                     "source": "https://www.alltrails.com/explore/trail/us/oregon/trestle-creek-falls-loop"
                 }
