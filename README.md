@@ -9,6 +9,9 @@ Joey Le, Peter Nelson, Melodie Collins, Angela Pelky, Alexa Roskowski
 # Date Created
 3/9/23
 
+# Modified
+3/10/23
+
 # Project Motivation
 The community of Oregon outdoor activity enthusiasts will benefit from the use of this system. Our system's creation was motivated by a lack of cohesion in outdoor information services. In the state of the application space, there was no single service that delivered both weather data and outdoor activiy guides. As a solution, our system uses up-to-date weather information to generate lists of activities suitable for the current conditions. The user no longer needs to cross-reference weather data and guides from different sources.
 
