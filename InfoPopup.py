@@ -277,7 +277,7 @@ def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
     Set up the Tkinter Window for the pop-up
     '''
     # Initialize the window
-    window = tkinter.Tk()
+    window = tkinter.Toplevel()
     # Initialize the window's dimensions
     window.geometry("1400x700")
     # Set the window's title
