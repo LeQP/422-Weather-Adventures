@@ -416,7 +416,7 @@ def createPopup(title:str, apiInfo:list, imperial:bool, activityList:list):
         # After reformattting the text, put it into the label
         infoLabel = tkinter.Label(newAlFrame, text = infoLabelText, font=fontStyleBody, justify="left")
         # Form a label describing the activity's difficulty
-        diffLabel = tkinter.Label(newAlFrame, text = "• Diffculty: " + activityList[i]["difficulty"], font=fontStyleBody)
+        diffLabel = tkinter.Label(newAlFrame, text = "• Difficulty: " + activityList[i]["difficulty"], font=fontStyleBody)
         # Form a label describing the address of the activity
         locLabel = tkinter.Label(newAlFrame, text = "• Location: " + activityList[i]["address"], font=fontStyleBody)
         # Create a button to allow users to learn more about the activity by clicking the button to be take to a website
