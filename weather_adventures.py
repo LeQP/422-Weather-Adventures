@@ -2,6 +2,11 @@
 Author: Alexa Roskowski
 
 This is the file that will be run by the user, and acts as the intermediary between all the files
+
+03/06 --> made the file and protype of image_initializer
+03/07 --> added more_info and updated the image_initializer
+03/09 --> worked on combining with Activcity Recommender and InfoPopup
+03/10 --> finished interaction between InfoPopup and Activity Recommender
 '''
 
 #import all the other files
@@ -80,8 +85,10 @@ def imageAppender(imgLarge:str, imgSmall:str, sizeLarge:tuple, sizeSmall:tuple):
 
 
 '''
-This function will intialize all the jpgs for the tkinter window to display on the buttons. It will
-automatically be called when the user runs the file
+image_initializer(): this function will intialize all the jpgs for the tkinter window to display on the buttons. It will
+automatically be called when the user runs the file before the GUI window is displayed
+
+Parameters: none
 
 * this takes a little bit of time, so to prove to the user things are working there are command line 
 outputs.
@@ -186,12 +193,19 @@ def image_initializer():
 
 
 
+
+
 '''
-This function is called by the tkinter window when a button is pressed
+more_info(): this function is called by the tkinter window when a button is pressed and will call the activity recommendner
+based on the weather of selected button
+
+Parameter:
+    zoom: this is an int and indicated which map we are looking at
+    button_num: indicates which button was selected
+
+Returns a popup with weather information and activity recommendations 
 '''
 def more_info(zoom: int, button_num: int):
-    #print(WEATHER_INFO)
-
     #get the information specialized per map
     if zoom == 1:
         # we are looking at the eugene map
@@ -219,26 +233,21 @@ def more_info(zoom: int, button_num: int):
         isWind = "Yes"
 
     #Check the weather to pass to the Activivy recommender
-    if "rain" in w[2]:
-        #it is raining set the the string to indicate
+    if "rain" in w[2] or "cloud" in w[2]:
+        #it is raining  or cloudy set the the string to indicate
         weather_string += "isRain"
     elif "snow" in w[2] or "ice" in w[2]:
         #it is snowing / icy set weather_string to indicate
         weather_string += "isSnoworIce"
-    
-    #elif "cloud" not in w[2]:
-        #it is not cloudy, so it is clear
-    #    weather_string += "isClear" 
-
     else:
         #since it is not raining or snowing it is then
         weather_string += "isClear"
 
     
-    print(weather_string)
+    #print(weather_string)
     #get the recommendations depending on the weather
     act_recomendations = Activity_Reccomender.zoom(zoom, weather_string, isWind, coords)
-    print(act_recomendations)
+    #print(act_recomendations)
     #call the pop up creater to make a popup based on the weather and activities
     InfoPopup.createPopup(title, w, True, act_recomendations)
     
