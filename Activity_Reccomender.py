@@ -10,6 +10,7 @@ zoom level and weather data it will spit out reccomendations!
 Revision History (Date | Author | Modifications)
 ----------------------------------------------
 3/3/2023  | Angela Pelky | Created initial file
+3/7/2023  | Angela Pelky | Added sorting functionality
 3/12/2023 | Angela Pelky | Signed off on final version
 '''
 
@@ -26,11 +27,11 @@ with open('activities.json') as f:
 sort(): this function sorts a list of reccomended activites based on location
 
 Parameters:
-    reccomended: a list of recommended activities
-    coordinates: 
+    reccomended: a list of recommended activities (dictionaries)
+    coordinates: a tuple containing two floats
 
 Return: 
-    top3: a list of top 3 activities based on location
+    top3: a list of top 3 activities (dictionaries) based on location
 '''
 def sort(reccomended, coordinates):
     to_sort = {}
@@ -48,12 +49,12 @@ def sort(reccomended, coordinates):
     return top3 
 
 '''
-parse(): this function ...
+parse(): this function sorts through the json file and finds activities based on weather and wind parameters
 
 Parameters:
-    specific_data: 
-    weather:  
-    wind:
+    specific_data: list of activities (dictionaries) from zoom level 1 or 2
+    weather: isClear, isRain, isSnoworIce
+    wind: Yes or No
 
 Return: 
     reccomended: a list of recommended activities
@@ -78,7 +79,7 @@ def parse(specific_data, weather, wind):
     return reccomended
  
 '''
-zoom(): this function ...
+zoom(): this function determines which zoom level the user is on and calls parse() and sort() 
 
 Parameters:
     zoom: an integer of the current map level
