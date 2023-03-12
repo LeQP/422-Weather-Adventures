@@ -1,7 +1,7 @@
 '''
 Author: Alexa Roskowski
 
-This is the file that will be run by the user, and acts as the intermediary between all the files
+This is the file that will be run by the user, and acts as the intermediary between all the files LIES
 
 03/06 --> made the file and protype of image_initializer
 03/07 --> added more_info and updated the image_initializer
@@ -184,10 +184,7 @@ def image_initializer():
     print("Map is initalized!  Opening the application now.")
     print()
     
-    
-    #call the tkinter and make it use the new initialized images
-    #print(WEATHER_INFO)
-    #ButtonMaps.main()
+ 
 
 
 
@@ -196,7 +193,7 @@ def image_initializer():
 
 
 '''
-more_info(): this function is called by the tkinter window when a button is pressed and will call the activity recommendner
+more_info(): this function is called by the tkinter window when a button is pressed and will call the activity recommender
 based on the weather of selected button
 
 Parameter:
@@ -236,7 +233,7 @@ def more_info(zoom: int, button_num: int):
     if "rain" in w[2] or "cloud" in w[2]:
         #it is raining  or cloudy set the the string to indicate
         weather_string += "isRain"
-    elif "snow" in w[2] or "ice" in w[2]:
+    elif "snow" in w[2] or "ice" in w[2] or "icy" in w[2]:
         #it is snowing / icy set weather_string to indicate
         weather_string += "isSnoworIce"
     else:
@@ -244,10 +241,8 @@ def more_info(zoom: int, button_num: int):
         weather_string += "isClear"
 
     
-    #print(weather_string)
     #get the recommendations depending on the weather
     act_recomendations = Activity_Reccomender.zoom(zoom, weather_string, isWind, coords)
-    #print(act_recomendations)
     #call the pop up creater to make a popup based on the weather and activities
     InfoPopup.createPopup(title, w, True, act_recomendations)
     
