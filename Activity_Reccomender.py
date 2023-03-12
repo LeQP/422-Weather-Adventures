@@ -24,10 +24,10 @@ with open('activities.json') as f:
   data = json.load(f)
 
 '''
-sort(): this function sorts a list of reccomended activites based on location
+sort(): this function sorts a list of recommended activities based on location
 
 Parameters:
-    reccomended: a list of recommended activities (dictionaries)
+    recommended: a list of recommended activities (dictionaries)
     coordinates: a tuple containing two floats
 
 Return: 
@@ -57,7 +57,7 @@ Parameters:
     wind: Yes or No
 
 Return: 
-    reccomended: a list of recommended activities
+    recommended: a list of recommended activities
 '''
 def parse(specific_data, weather, wind):
     reccomended = []
@@ -83,9 +83,9 @@ zoom(): this function determines which zoom level the user is on and calls parse
 
 Parameters:
     zoom: an integer of the current map level
-    weather:  
-    wind:
-    coordinates:
+    weather: (3) possible strings "isClear", "isRain", "isSnoworIce"
+    wind: (2) possible strings "Yes" or "No"
+    coordinates: tuple of floats
 
 Return: 
     top3: a list of top 3 activities
