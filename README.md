@@ -4,7 +4,7 @@
 This system is intended to assist in the planning and execution of outdoor recreation activities in the Oregon area. Upon application startup, a map is displayed with several overlay options. The map can show wind direction or weather status symbols. Multiple view zoom levels can be selected: Eugene, Lane County, and Oregon state. The user can click a map grid square to bring up a secondary window with additional information. This information includes detailed weather description and recommended outdoor activities based on weather status and distance from the selected grid square. 
 
 # Authors
-Joey Le, Peter Nelson, Melodie Collins, Angela Pelky, Alexa Roskowski
+Melodie Collins, Joey Le, Peter Nelson, Angela Pelky, Alexa Roskowski 
 
 # Date Created
 3/9/23

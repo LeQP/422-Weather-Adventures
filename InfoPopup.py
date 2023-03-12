@@ -1,7 +1,7 @@
 """
 GraphGen.py
 --------
-Authors: Joey Le
+Author: Joey Le
 Created: 3/3/2023
 Last Modified: 3/12/2023
 Purpose: This file creates the additional pop-up windows for when a user wants to learn more about a particular area's weather
@@ -23,6 +23,7 @@ Revision History (Date | Author | Modifications)
 3/10/2023 | Joey Le | Updated createPopUp() by having it access image paths by also accessing the current working directory as well
                       and other minor adjustments have been made
 3/11/2023 | Joey Le | Cleaned out a debug line in createPopUp() and adjusted temp parameter in createWeatherDesc()
+3/12/2023 | Joey Le | Signed off on final version
 """
 
 ''' Module needed to form Windows '''

@@ -6,6 +6,10 @@ Created: 2/25/2023
 Last Modified: 3/3/2023
 Purpose: This file queries openweathermap API with user input and parses response
 
+Revision History (Date | Author | Modifications)
+----------------------------------------------
+2/25/2023 | Peter Nelson | Created initial file
+3/3/2023  | Peter Nelson | Signed off on final version
 """
 
 
@@ -14,6 +18,18 @@ import requests
 # json for json handling
 import json
 
+'''
+getWeatherInfo(): this function interacts with the weather api and pulls the 
+                  weather data into a list
+
+Parameters:
+    lat: a float of the latitude
+    lon: a float of the longitude
+    untis: 
+
+Return: 
+    infoList: a list of weather information
+'''
 def getWeatherInfo(lat, lon, units):
 
     # create api query string from input
@@ -67,6 +83,15 @@ def getWeatherInfo(lat, lon, units):
     # return information list
     return infoList            
 
+'''
+weatherSymLookup(): initializes the weather description dictionary
+
+Parameters:
+    weatherStr: a string of the weather description
+
+Return: 
+    dict[weatherStr]: a string of the correct image name from weather description
+'''
 def weatherSymLookup(weatherStr):
 
     # initialize weather description dictionary
