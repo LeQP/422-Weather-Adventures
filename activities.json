@@ -9,7 +9,7 @@
                     "isWind": "Yes", 
                     "isClear": "Yes",
                     "isRain": "Yes, for most of the hike you'll be in the forest, so you won't get rained on too hard. Keep in mind that once you get to the top you'll be less likely to spot the amazing views.",
-                    "isSnoworIce": "No, this hike has steep, rocky parts that would be dangerous when snow/ice is present",
+                    "isSnoworIce": "No, this hike has steep, rocky parts that would be dangerous when snow/ice is present.",
                     "address":"Spencer Butte Park",
                     "coordinates":[43.99115780445145, -123.09715087568385],    
                     "source": "https://www.alltrails.com/trail/us/oregon/spencer-butte-trail"
@@ -40,7 +40,7 @@
                 },
                 {
                     "name": "Rock Climbing",
-                    "description": "Head over to the University of Oregon Rec Center for this one. It's cold, it's raining, maybe it's snowing... all we know is that we are looking for a non-outdoor activity today, and we've got one for you! Head over the the rec center rock wall to spend some time bouldering. Luckily for you (if you're a student) this wall is totally free and you can even rent shoes there. All you need to bring is your student id and yourself. Enjoy some heart racing moments!",
+                    "description": "Head over to the University of Oregon Rec Center for this one. It's cold, it's raining, maybe it's snowing... all we know is that we are looking for a non-outdoor activity today, and we've got one for you! Head over the the rec center rock wall to spend some time bouldering. Luckily for you (if you're a student) this wall is totally free and you can even rent shoes - all you need to bring is your student id. Enjoy some heart racing moments!",
                     "difficulty": "Moderate", 
                     "isWind": "Yes",
                     "isClear": "No",
@@ -52,7 +52,7 @@
                 },
                 {
                     "name": "Alton Baker",
-                    "description": "Spend the day leisurely walking or biking through the vast park that is Alton Baker, which spans from Eugene, Springfield, Coburg, and the Valley River areas. The paths in Alton Baker include paved bike paths as well as running and walking paths.",
+                    "description": "Spend the day leisurely walking or biking through the vast park that is Alton Baker. This park spans from Eugene, Springfield, Coburg, and the Valley River areas. The paths in Alton Baker include paved bike paths as well as running and walking paths.",
                     "difficulty": "Easy", 
                     "isWind": "Yes",
                     "isClear": "Yes",
@@ -100,7 +100,7 @@
                 },
                 {
                     "name": "Run the Ridgeline Trail",
-                    "description": "Are you an avid runner? Take a shot running this [12 mile, 2,188 feet elevation gain] hike/running trail.",
+                    "description": "Are you an avid runner? Take a short running this [12 mile, 2,188 feet elevation gain] hike/running trail.",
                     "difficulty": "Hard", 
                     "isWind": "Yes",
                     "isClear": "Yes",
@@ -112,7 +112,7 @@
                 },
                 {
                     "name": "Run through South Amazon Running Trail",
-                    "description": "This is a flat-grade trail compromised of cedar chips, so it is easy on the knees. It is a 3.5 mile loop that can be made longer when connected to the North Trail.",
+                    "description": "This is a flat-grade trail comprised of cedar chips, so it is easy on the knees. It is a 3.5 mile loop that can be made longer when connected to the North Trail.",
                     "difficulty": "Moderate", 
                     "isWind": "Yes",
                     "isClear": "Yes",
@@ -136,7 +136,7 @@
                 },
                 {
                     "name": "Skatepark",
-                    "description": "Go skating at Amazom Park it consists of a small snake run into a shallow bowl with a small extension added on to the bowl.",
+                    "description": "Go skating at Amazom Park. It consists of a small snake run into a shallow bowl with a small extension added on to the bowl.",
                     "difficulty": "Moderate", 
                     "isWind": "Yes",
                     "isClear": "Yes",
@@ -148,7 +148,7 @@
                 },
                 {
                     "name": "Emerald Valley EMX",
-                    "description": "The track is free and open to the public Thursday through Sunday from 8 a.m. until sunset. The track offers a safety pro gate, paved corners, paved starting hill, soil tacked track, 10 shoot staging area, long roll out for finish line, fenced facility, ample parking and vendor space available.",
+                    "description": "The track is free and open to the public Thursday through Sunday from 8 a.m. until sunset. The track offers a safety pro gate, paved corners, paved starting hill, soil tacked track, 10 shoot staging area, long roll out for finish line, fenced facility, and ample parking.",
                     "difficulty": "Moderate", 
                     "isWind": "Yes",
                     "isClear": "Yes",
@@ -160,7 +160,7 @@
                 },
                 {
                     "name": "Go swimming",
-                    "description": "Go swimming this summer at Amazon Pool. Open from May-October Features a beginner pool, sand play area, hot tub, 50-meter by 25-yard pool, 5-meter diving tower and a multipurpose pool with interactive play features including a water slide. Accessible to people with disabilities.",
+                    "description": "Go swimming this summer at Amazon Pool. Open from May-October, it features a beginner pool, sand play area, hot tub, 50-meter by 25-yard pool, 5-meter diving tower and a multipurpose pool with interactive play features including a water slide. Accessible to people with disabilities.",
                     "difficulty": "Easy", 
                     "isWind": "No",
                     "isClear": "Yes",
@@ -188,7 +188,7 @@
             "2": [
                 {
                     "name": "Willamette Pass Ski Resort",
-                    "description": "Willamette Pass Resort offers access to 555 acres of lift-served trails perfect for skiing, cross country skiing, or even snow shoeing! The perfect snow activity, dedicate an entire day towards this activity, but you can participate in the adventure as long/short as you want. Never skiied or snowboarded before? They offer lessons!",
+                    "description": "Willamette Pass Resort offers access to 555 acres of lift-served trails perfect for skiing, cross country skiing, or even snow shoeing! You should dedicate an entire day towards this activity, but you can participate in the adventure as long/short as you want. Never skiied or snowboarded before? They offer lessons!",
                     "difficulty": "Hard",
                     "isWind": "Yes", 
                     "isClear": "Yes, although this is a winter only activity",
@@ -404,7 +404,7 @@
                 },
                 {
                     "name": "Lounge on the beach",
-                    "description": "Enjoy a relaxing day lounging on the beach or talking a nice walk along the sand",
+                    "description": "Enjoy a relaxing day lounging on the beach or taking a nice walk along the sand",
                     "difficulty": "Easy", 
                     "isWind": "Yes",
                     "isClear": "Yes",
@@ -440,7 +440,7 @@
                 },
                 {
                     "name": "Elk Hiking Trail",
-                    "description": "1.6 mile 13ft elevation gain, only takes 30 minutes to complete. Great for a quick, relaxing day.",
+                    "description": "[1.6 mile, 13ft elevation gain] Hike only takes 30 minutes to complete. Great for a quick, relaxing day.",
                     "difficulty": "Easy", 
                     "isWind": "Yes",
                     "isClear": "Yes",
@@ -452,7 +452,7 @@
                 },
                 {
                     "name": "Tamolitch Blue Pool via McKenzie River Trail",
-                    "description": "This 3.6 mile and 285ft elevation gain hike has stunningly rewarding views. Enjoy your hike to, as the name says, a really blue pool! It should take you about 1 h and 30 minutes to complete.",
+                    "description": "This [3.6 mile, 285ft elevation gain] hike has stunningly rewarding views. Enjoy your hike to, as the name says, a really blue pool! It should take you about 1 h and 30 minutes to complete.",
                     "difficulty": "Easy", 
                     "isWind": "Yes",
                     "isClear": "Yes",
@@ -464,7 +464,7 @@
                 },
                 {
                     "name": "Castle Rock Trail",
-                    "description": "This 8.6 mile, 2,106ft elevation gain hike is perfect for a sunny day. With good visibility, you'll get some stellar views.",
+                    "description": "This [8.6 mile, 2,106ft elevation gain] hike is perfect for a sunny day. With good visibility, you'll get some stellar views.",
                     "difficulty": "Moderate", 
                     "isWind": "No",
                     "isClear": "Yes",
@@ -476,7 +476,7 @@
                 },
                 {
                     "name": "Trestle Creek Falls Loop",
-                    "description": "Nice 4.8 mile, 1,325 feet elevation gain loop that includes views of a creek and waterfall",
+                    "description": "Nice [4.8 mile, 1,325 feet elevation] gain loop that includes views of a creek and waterfall",
                     "difficulty": "Moderate", 
                     "isWind": "No",
                     "isClear": "Yes",
