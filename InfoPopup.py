@@ -3,7 +3,7 @@ GraphGen.py
 --------
 Authors: Joey Le
 Created: 3/3/2023
-Last Modified: 3/10/2023
+Last Modified: 3/12/2023
 Purpose: This file creates the additional pop-up windows for when a user wants to learn more about a particular area's weather
 and outdoor activities.
 
@@ -22,6 +22,7 @@ Revision History (Date | Author | Modifications)
 3/08/2023 | Joey Le | Addded comments to document recent adjustments
 3/10/2023 | Joey Le | Updated createPopUp() by having it access image paths by also accessing the current working directory as well
                       and other minor adjustments have been made
+3/11/2023 | Joey Le | Cleaned out a debug line in createPopUp() and adjusted temp parameter in createWeatherDesc()
 """
 
 ''' Module needed to form Windows '''
@@ -108,13 +109,13 @@ createWeatherDesc(): a helper function to create the descriptive text to describ
 
 Parameters:
     WeatherStr: a string that provides the description of the weather provided by the openweathermap API
-    temp: an int that represents the temperature (without considering the unit)
+    temp: an float that represents the temperature (without considering the unit)
     imperial: a bool to define whether the temperature measurement is in fahrenheit (True) or celsius (False)
 
 Return:
     retStr: a string that displays the exact description for the weather of the window pop-up
 '''
-def createWeatherDesc(weatherStr:str, temp:int, imperial:bool):
+def createWeatherDesc(weatherStr:str, temp:float, imperial:bool):
     ''' Initialize variables to use for creating the descripition text '''
     # descVal describes the weather condition and may be the same as weatherStr
     # Unit describes the temperature
@@ -125,7 +126,6 @@ def createWeatherDesc(weatherStr:str, temp:int, imperial:bool):
     # Applicable descrpitions that would need an adjustment to the begging: clear sky, thunderstorm, drizzle, and tornado
     if (weatherStr.find("clear sky") != -1 or weatherStr.find("thunderstorm") != -1 or weatherStr.find("drizzle") != -1 or weatherStr.find("tornado") != -1):
         # Adjust these descriptions by appending "a" to the beginning
-        print(weatherStr)
         descVal = "a " + weatherStr
     # Some descriptions don't need adjustment (ex. rain, snow)
     else:
@@ -145,8 +145,9 @@ def createWeatherDesc(weatherStr:str, temp:int, imperial:bool):
     After any description grammar adjustment has been made and the units has been specififed, form the description to be displayed.
     If it is too long to display on the pop-up window on one line, then break it down to two lines.
     '''
+    
     # Form the description string to return
-    retStr = "This area is currently experiencing " + descVal + " at " + str(temp) + " degrees" + unit
+    retStr = "This area is currently experiencing " + descVal + " at " + str(int(temp)) + " degrees" + unit
     # Break the line apart if it is too long for the pop-up window
     retStr = addNewLine(retStr, 50, False)
     # Return the string after assessing and modifying the lines if needed
